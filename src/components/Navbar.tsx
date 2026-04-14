@@ -32,7 +32,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           <div className="flex-shrink-0">
-            <a href="#home" className="text-2xl font-bold text-brand-brown-dark tracking-tight">
+            <a href="#home" className="text-2xl font-bold text-brand-brown-dark tracking-tight font-serif">
               Asosiasi <span className="text-brand-green-leaf">Tops Snack</span>
             </a>
           </div>

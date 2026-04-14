@@ -10,7 +10,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Brand Info */}
           <div className="lg:col-span-1">
-            <a href="#home" className="text-2xl font-bold text-white mb-6 block">
+            <a href="#home" className="text-2xl font-bold text-white mb-6 block font-serif">
               Asosiasi <span className="text-brand-green-soft">Tops Snack</span>
             </a>
             <p className="text-brand-beige/70 mb-8 leading-relaxed">
