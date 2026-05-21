@@ -8,6 +8,7 @@ export const CATEGORIES: Category[] = [
 ];
 
 export const PRODUCTS: Product[] = [
+  // --- KATEGORI: KUE BASAH (Data Aslimu) ---
   {
     id: '1',
     name: 'Arem-Arem',
@@ -15,7 +16,7 @@ export const PRODUCTS: Product[] = [
     category: 'Kue Basah',
     price: '1.500',
     isBestSeller: true,
-    image: '/aremarem.png', //
+    image: '/aremarem.png',
   },
   {
     id: '2',
@@ -24,7 +25,7 @@ export const PRODUCTS: Product[] = [
     category: 'Kue Basah',
     price: '2.000',
     isBestSeller: true,
-    image: '/pastel.png', //
+    image: '/pastel.png',
   },
   {
     id: '3',
@@ -33,7 +34,7 @@ export const PRODUCTS: Product[] = [
     category: 'Kue Basah',
     price: '1.500',
     isBestSeller: true,
-    image: '/bolukukus.png', //
+    image: '/bolukukus.png',
   },
   {
     id: '4',
@@ -49,27 +50,85 @@ export const PRODUCTS: Product[] = [
     category: 'Kue Basah',
     price: '4.000',
   },
+  
+  // --- KATEGORI: KUE KERING (Data Dummy) ---
   {
     id: '6',
-    name: 'Kue Lumpur',
-    description: 'Kue lembut berbahan kentang dengan topping kismis manis.',
-    category: 'Kue Basah',
-    price: '3.500',
+    name: 'Nastar Premium',
+    description: 'Kue nastar lembut dengan selai nanas asli yang lumer di mulut.',
+    category: 'Kue Kering',
+    price: '45.000',
+    isBestSeller: true,
   },
   {
     id: '7',
-    name: 'Dadar Gulung',
-    description: 'Dadar pandan lembut dengan isian unti kelapa manis.',
-    category: 'Kue Basah',
-    price: '3.000',
+    name: 'Kastengel Keju',
+    description: 'Kue kering gurih dengan taburan keju edam yang renyah.',
+    category: 'Kue Kering',
+    price: '50.000',
   },
   {
     id: '8',
-    name: 'Putu Ayu',
-    description: 'Kue kukus pandan yang lembut dengan topping kelapa parut gurih.',
-    category: 'Kue Basah',
-    price: '2.500',
+    name: 'Putri Salju',
+    description: 'Kue kering tabur gula halus yang manis dan lumer.',
+    category: 'Kue Kering',
+    price: '40.000',
   },
+  {
+    id: '9',
+    name: 'Sagu Keju',
+    description: 'Kue sagu keju renyah yang langsung meleleh saat dimakan.',
+    category: 'Kue Kering',
+    price: '42.000',
+  },
+  {
+    id: '10',
+    name: 'Lidah Kucing',
+    description: 'Kue tipis nan renyah dengan rasa manis yang pas.',
+    category: 'Kue Kering',
+    price: '38.000',
+  },
+
+  // --- KATEGORI: SNACK BOX (Data Dummy) ---
+  {
+    id: '11',
+    name: 'Snack Box Ekonomis',
+    description: 'Isi 3 macam kue (Kue Lumpur, Risoles, Putu Ayu) + Air Mineral.',
+    category: 'Snack Box',
+    price: '10.000',
+    isBestSeller: true,
+  },
+  {
+    id: '12',
+    name: 'Snack Box Premium',
+    description: 'Isi 4 macam kue pilihan + Air Mineral + Buah segar.',
+    category: 'Snack Box',
+    price: '15.000',
+  },
+  {
+    id: '13',
+    name: 'Snack Box Tradisional',
+    description: 'Isi Jajanan Pasar autentik (Arem-arem, Dadar Gulung, Pastel).',
+    category: 'Snack Box',
+    price: '12.000',
+  },
+
+  // --- KATEGORI: HAMPERS (Data Dummy) ---
+  {
+    id: '14',
+    name: 'Hampers Lebaran Mini',
+    description: 'Berisi 2 toples kue kering (Nastar & Kastengel) dengan box cantik.',
+    category: 'Hampers',
+    price: '100.000',
+    isBestSeller: true,
+  },
+  {
+    id: '15',
+    name: 'Hampers Spesial',
+    description: 'Berisi 4 toples kue kering pilihan, kartu ucapan, dan pita eksklusif.',
+    category: 'Hampers',
+    price: '200.000',
+  }
 ];
 
 export const TESTIMONIALS: Testimonial[] = [
