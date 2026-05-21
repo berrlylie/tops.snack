@@ -1,8 +1,4 @@
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
- */
-
+import { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -15,8 +11,31 @@ import Location from './components/Location';
 import FAQ from './components/FAQ';
 import CTAWhatsApp from './components/CTAWhatsApp';
 import Footer from './components/Footer';
+import Catalog from './components/Catalog'; // <-- Ini memanggil halaman baru kita
 
 export default function App() {
+  const [currentPath, setCurrentPath] = useState(window.location.hash);
+
+  useEffect(() => {
+    const onHashChange = () => setCurrentPath(window.location.hash);
+    window.addEventListener('hashchange', onHashChange);
+    return () => window.removeEventListener('hashchange', onHashChange);
+  }, []);
+
+  // JIKA SEDANG DI HALAMAN KATALOG
+  if (currentPath === '#katalog') {
+    return (
+      <div className="min-h-screen">
+        <Navbar />
+        <main className="pt-24">
+          <Catalog />
+        </main>
+        <Footer />
+      </div>
+    );
+  }
+
+  // JIKA SEDANG DI HALAMAN UTAMA
   return (
     <div className="min-h-screen">
       <Navbar />
