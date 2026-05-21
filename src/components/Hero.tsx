@@ -20,10 +20,10 @@ export default function Hero() {
               Jajanan Pasar Premium
             </span>
             <h1 className="text-5xl md:text-7xl font-bold text-brand-brown-dark leading-tight mb-6">
-              Kehangatan Rasa <span className="text-brand-green-leaf">Tradisional</span> di Setiap Gigitan
+              Nikmati Jajanan <span className="text-brand-green-leaf">Tradisional</span> untuk Setiap Momen
             </h1>
             <p className="text-lg md:text-xl text-brand-brown-medium mb-10 leading-relaxed max-w-lg">
-              Tops Snack menghadirkan aneka jajanan pasar yang higienis, lezat, dan dibuat fresh setiap hari. Sempurna untuk acara keluarga, rapat kantor, hingga hampers spesial.
+              Tops Snack hadir dengan aneka jajanan pasar dengan cita rasa yang autentik, kualitas terjaga, dan dibuat fresh setiap harinya. Cocok untuk berbagai kebutuhan, mulai dari acara keluarga, konsumsi kantor, arisan, hingga hampers untuk moment moment spesial lainnya.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
@@ -82,7 +82,7 @@ export default function Hero() {
             >
               <div className="flex items-center gap-3 mb-2">
                 <div className="w-10 h-10 bg-brand-gold rounded-full flex items-center justify-center text-white font-bold">
-                  10+
+                  6+
                 </div>
                 <div className="text-xs font-bold text-brand-brown-dark leading-tight">
                   Tahun Pengalaman
