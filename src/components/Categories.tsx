@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Coffee, Cookie, Package, Gift, Calendar } from 'lucide-react';
+import { Coffee, Cookie, Package, Gift } from 'lucide-react';
 import { CATEGORIES, WHATSAPP_NUMBER } from '../constants';
 
 const iconMap: Record<string, any> = {
@@ -7,7 +7,6 @@ const iconMap: Record<string, any> = {
   Cookie,
   Package,
   Gift,
-  Calendar,
 };
 
 export default function Categories() {
