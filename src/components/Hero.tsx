@@ -82,7 +82,7 @@ export default function Hero() {
             >
               <div className="flex items-center gap-3 mb-2">
                 <div className="w-10 h-10 bg-brand-gold rounded-full flex items-center justify-center text-white font-bold">
-                  6
+                  5+
                 </div>
                 <div className="text-xs font-bold text-brand-brown-dark leading-tight">
                   Tahun Pengalaman
