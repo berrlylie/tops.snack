@@ -23,15 +23,17 @@ export default function FeaturedProducts() {
               Jajanan pasar terfavorit yang paling banyak dipesan oleh pelanggan setia kami.
             </p>
           </div>
+          
+          {/* INI BAGIAN YANG SUDAH DIUBAH */}
           <a
-            href={getGeneralWhatsAppLink()}
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#katalog"
             className="text-brand-green-leaf font-bold flex items-center gap-2 hover:underline"
           >
             Lihat Semua Produk
             <ShoppingCart size={20} />
           </a>
+          {/* --------------------------- */}
+          
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
