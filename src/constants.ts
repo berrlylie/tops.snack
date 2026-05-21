@@ -41,6 +41,7 @@ export const PRODUCTS: Product[] = [
     name: 'Risoles Mayo',
     description: 'Risoles renyah dengan isian telur, smoked beef, dan mayones creamy.',
     category: 'Kue Basah',
+    isBestSeller: true,
     price: '5.000',
   },
   {
@@ -66,6 +67,7 @@ export const PRODUCTS: Product[] = [
     description: 'Kue kering gurih dengan taburan keju edam yang renyah.',
     category: 'Kue Kering',
     price: '50.000',
+    isBestSeller: true,
   },
   {
     id: '8',
