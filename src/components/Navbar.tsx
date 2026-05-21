@@ -23,34 +23,29 @@ export default function Navbar() {
   ];
 
   return (
-    // Bagian ini diubah untuk memberi jarak dari atas layar (top-4)
     <nav className="fixed w-full z-50 top-4 px-4 sm:px-6 lg:px-8 transition-all duration-300">
       
-      {/* Kotak kapsulnya diberi efek melengkung (rounded-full) */}
       <div 
         className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-300 rounded-full ${
-          isScrolled ? 'bg-brand-beige/95 backdrop-blur-md shadow-lg py-2' : 'bg-transparent py-4'
+          isScrolled ? 'bg-brand-beige/95 backdrop-blur-md shadow-lg py-2' : 'bg-transparent py-3'
         }`}
       >
         <div className="flex justify-between items-center">
           
-          {/* BAGIAN LOGO & NAMA BRAND */}
+          {/* BAGIAN LOGO (Dibuat lebih proporsional & tanpa teks tambahan) */}
           <div className="flex-shrink-0">
-            <a href="#home" className="flex items-center gap-3 hover:opacity-90 transition-opacity">
+            <a href="#home" className="flex items-center hover:opacity-90 transition-opacity">
               <img 
                 src="/Logotopssnack.png"
                 alt="Logo Tops Snack" 
-                className="w-20 h-20 object-contain"
+                className="h-12 w-auto object-contain"
               />
-              <span className="text-2xl font-bold text-brand-brown-dark tracking-tight font-serif">
-                Tops <span className="text-brand-green-leaf">Snack</span>
-              </span>
             </a>
           </div>
 
           {/* Desktop Menu */}
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
+            <div className="ml-10 flex items-center space-x-8">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
@@ -73,7 +68,7 @@ export default function Navbar() {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-brand-brown-dark hover:text-brand-green-leaf p-2"
@@ -84,7 +79,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu (Diubah jadi melengkung ala kartu melayang) */}
+      {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden max-w-7xl mx-auto mt-2 bg-brand-beige/95 backdrop-blur-md shadow-lg rounded-2xl overflow-hidden">
           <div className="px-4 pt-4 pb-6 space-y-2">
@@ -102,8 +97,9 @@ export default function Navbar() {
               href={WHATSAPP_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className="block w-full text-center bg-brand-green-leaf text-white px-6 py-3 rounded-xl font-semibold mt-6 shadow-sm"
+              className="flex justify-center items-center gap-2 w-full text-center bg-brand-green-leaf text-white px-6 py-3 rounded-xl font-semibold mt-6 shadow-sm"
             >
+              <ShoppingBag size={18} />
               Pesan Sekarang
             </a>
           </div>
