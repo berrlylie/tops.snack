@@ -35,7 +35,7 @@ export default function About() {
               Menjaga Warisan Rasa dengan Kualitas Modern
             </h3>
             <p className="text-lg text-brand-brown-medium mb-6 leading-relaxed">
-              Asosiasi Tops Snack lahir dari kecintaan kami terhadap kekayaan kuliner tradisional Indonesia, khususnya jajanan pasar. Kami percaya bahwa makanan tradisional bukan hanya soal rasa, tapi juga soal kenangan dan kehangatan.
+              Tops Snack lahir dari kecintaan kami terhadap kekayaan kuliner tradisional Indonesia, khususnya jajanan pasar. Kami percaya bahwa makanan tradisional bukan hanya soal rasa, tapi juga soal kenangan dan kehangatan.
             </p>
             <p className="text-lg text-brand-brown-medium mb-10 leading-relaxed">
               Dengan sentuhan modern dalam penyajian dan standar kebersihan yang tinggi, kami berkomitmen untuk menghadirkan jajanan pasar yang tidak hanya enak dipandang, tapi juga aman dan lezat untuk dinikmati di segala suasana.

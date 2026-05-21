@@ -33,7 +33,7 @@ export default function Navbar() {
         <div className="flex justify-between items-center">
           <div className="flex-shrink-0">
             <a href="#home" className="text-2xl font-bold text-brand-brown-dark tracking-tight font-serif">
-              Asosiasi <span className="text-brand-green-leaf">Tops Snack</span>
+              Tops <span className="text-brand-green-leaf">Snack</span>
             </a>
           </div>
 

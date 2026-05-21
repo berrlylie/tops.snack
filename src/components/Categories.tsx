@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 import { Coffee, Cookie, Package, Gift, Calendar } from 'lucide-react';
-import { CATEGORIES } from '../constants';
+import { CATEGORIES, WHATSAPP_NUMBER } from '../constants';
 
 const iconMap: Record<string, any> = {
   Coffee,
@@ -11,6 +11,11 @@ const iconMap: Record<string, any> = {
 };
 
 export default function Categories() {
+  const getCategoryWhatsAppLink = (categoryName: string) => {
+    const message = `Halo Tops Snack, saya tertarik untuk memesan produk dalam kategori *${categoryName}*. Boleh tahu daftar menu lengkapnya?`;
+    return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+  };
+
   return (
     <section className="py-24 bg-brand-beige">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -23,20 +28,30 @@ export default function Categories() {
           {CATEGORIES.map((category, index) => {
             const Icon = iconMap[category.icon];
             return (
-              <motion.div
+              <a
                 key={category.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ y: -10 }}
-                className="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 text-center flex flex-col items-center group cursor-pointer"
+                href={getCategoryWhatsAppLink(category.name)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block"
               >
-                <div className="w-16 h-16 bg-brand-beige rounded-full flex items-center justify-center mb-6 group-hover:bg-brand-green-leaf transition-colors duration-300">
-                  <Icon className="text-brand-green-leaf group-hover:text-white transition-colors duration-300" size={32} />
-                </div>
-                <h4 className="font-bold text-brand-brown-dark text-lg">{category.name}</h4>
-              </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  whileHover={{ y: -10 }}
+                  className="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 text-center flex flex-col items-center group cursor-pointer h-full"
+                >
+                  <div className="w-16 h-16 bg-brand-beige rounded-full flex items-center justify-center mb-6 group-hover:bg-brand-green-leaf transition-colors duration-300">
+                    <Icon className="text-brand-green-leaf group-hover:text-white transition-colors duration-300" size={32} />
+                  </div>
+                  <h4 className="font-bold text-brand-brown-dark text-lg">{category.name}</h4>
+                  <span className="text-[11px] text-brand-green-leaf mt-2 font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    Pesan {category.name}
+                  </span>
+                </motion.div>
+              </a>
             );
           })}
         </div>

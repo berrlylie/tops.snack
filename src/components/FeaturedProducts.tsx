@@ -1,8 +1,18 @@
 import { motion } from 'motion/react';
 import { ShoppingCart, Star } from 'lucide-react';
-import { PRODUCTS, WHATSAPP_LINK } from '../constants';
+import { PRODUCTS, WHATSAPP_NUMBER } from '../constants';
 
 export default function FeaturedProducts() {
+  const getProductWhatsAppLink = (productName: string, price: string) => {
+    const message = `Halo Tops Snack, saya ingin memesan *${productName}* (Mulai dari Rp ${price}). Bagaimana cara pemesanannya?`;
+    return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+  };
+
+  const getGeneralWhatsAppLink = () => {
+    const message = `Halo Tops Snack, saya ingin memesan aneka jajanan pasar. Boleh minta info katalog lengkap dan cara pemesanan?`;
+    return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+  };
+
   return (
     <section id="produk" className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -15,7 +25,7 @@ export default function FeaturedProducts() {
             </p>
           </div>
           <a
-            href={WHATSAPP_LINK}
+            href={getGeneralWhatsAppLink()}
             target="_blank"
             rel="noopener noreferrer"
             className="text-brand-green-leaf font-bold flex items-center gap-2 hover:underline"
@@ -64,12 +74,14 @@ export default function FeaturedProducts() {
                     <span className="text-lg font-bold text-brand-brown-dark">Rp {product.price}</span>
                   </div>
                   <a
-                    href={WHATSAPP_LINK}
+                    href={getProductWhatsAppLink(product.name, product.price)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-brand-green-leaf text-white p-3 rounded-2xl hover:bg-brand-brown-dark transition-colors duration-300 shadow-md"
+                    className="bg-brand-green-leaf text-white p-3 rounded-2xl hover:bg-brand-brown-dark transition-colors duration-300 shadow-md flex items-center gap-1 tooltip"
+                    title={`Pesan ${product.name}`}
                   >
-                    <ShoppingCart size={20} />
+                    <span className="text-xs font-semibold px-1">Pesan</span>
+                    <ShoppingCart size={18} />
                   </a>
                 </div>
               </div>

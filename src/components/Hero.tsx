@@ -23,7 +23,7 @@ export default function Hero() {
               Kehangatan Rasa <span className="text-brand-green-leaf">Tradisional</span> di Setiap Gigitan
             </h1>
             <p className="text-lg md:text-xl text-brand-brown-medium mb-10 leading-relaxed max-w-lg">
-              Asosiasi Tops Snack menghadirkan aneka jajanan pasar yang higienis, lezat, dan dibuat fresh setiap hari. Sempurna untuk acara keluarga, rapat kantor, hingga hampers spesial.
+              Tops Snack menghadirkan aneka jajanan pasar yang higienis, lezat, dan dibuat fresh setiap hari. Sempurna untuk acara keluarga, rapat kantor, hingga hampers spesial.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">

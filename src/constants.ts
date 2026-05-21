@@ -114,5 +114,13 @@ export const FAQS: FAQItem[] = [
   },
 ];
 
-export const WHATSAPP_NUMBER = '6281234567890';
-export const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}`;
+export const WHATSAPP_DISPLAY = '+62 856-0124-0878';
+export const WHATSAPP_NUMBER = '6285601240878';
+export const WHATSAPP_DEFAULT_TEXT = 'Halo Tops Snack, saya ingin melakukan pemesanan jajanan pasar Tradisional. Boleh minta informasi menu dan langkah pemesanan berikutnya?';
+export const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_DEFAULT_TEXT)}`;
+export const EMAIL_ADDRESS = 'topssnack005@gmail.com';
+export const INSTAGRAM_HANDLE = 'topssnack__';
+export const INSTAGRAM_LINK = `https://www.instagram.com/${INSTAGRAM_HANDLE}/`;
+export const FACEBOOK_HANDLE = 'Tops Snacks';
+export const FACEBOOK_LINK = 'https://www.facebook.com/';
+export const TWITTER_LINK = '#';
