@@ -13,8 +13,9 @@ export const PRODUCTS: Product[] = [
     name: 'Arem-Arem',
     description: 'Nasi dengan isian ayam suwir yang dibungkus daun pisang dengan rasa gurih.',
     category: 'Kue Basah',
-    price: '1500',
+    price: '1.500',
     isBestSeller: true,
+    image: '/aremarem.png', //
   },
   {
     id: '2',
@@ -23,6 +24,7 @@ export const PRODUCTS: Product[] = [
     category: 'Kue Basah',
     price: '2.000',
     isBestSeller: true,
+    image: '/pastel.png', //
   },
   {
     id: '3',
@@ -31,6 +33,7 @@ export const PRODUCTS: Product[] = [
     category: 'Kue Basah',
     price: '1.500',
     isBestSeller: true,
+    image: '/bolukukus.png', //
   },
   {
     id: '4',
