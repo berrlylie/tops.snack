@@ -15,12 +15,11 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: 'Beranda', href: '#home' },
-    { name: 'Produk', href: '#produk' },
-    { name: 'Tentang', href: '#tentang' },
-    { name: 'Testimoni', href: '#testimoni' },
-    { name: 'Lokasi', href: '#lokasi' },
-    { name: 'Kontak', href: '#kontak' },
+    { name: 'Home', href: '#home' },
+    { name: 'Products', href: '#produk' },
+    { name: 'About Us', href: '#tentang' },
+    { name: 'Testimonials', href: '#testimoni' },
+    { name: 'Contact Us', href: '#kontak' },
   ];
 
   return (
