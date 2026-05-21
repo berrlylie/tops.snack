@@ -45,12 +45,15 @@ export default function FeaturedProducts() {
               className="bg-brand-beige/30 rounded-3xl overflow-hidden border border-brand-beige hover:border-brand-green-leaf/30 transition-all duration-300 group"
             >
               <div className="relative aspect-square overflow-hidden">
+                
+                {/* Pembaca gambar otomatis. Jika belum diset gambarnya, otomatis pakai gambar contoh agar Vercel tidak error */}
                 <img
-                  src={`https://picsum.photos/seed/${product.name}/600/600`}
+                  src={(product as any).image || `https://picsum.photos/seed/${product.name}/600/600`}
                   alt={product.name}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   referrerPolicy="no-referrer"
                 />
+                
                 {product.isBestSeller && (
                   <div className="absolute top-4 left-4 bg-brand-gold text-white px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1 shadow-lg">
                     <Star size={12} fill="currentColor" />
