@@ -8,10 +8,7 @@ export default function FeaturedProducts() {
     return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
   };
 
-  const getGeneralWhatsAppLink = () => {
-    const message = `Halo Tops Snack, saya ingin memesan aneka jajanan pasar. Boleh minta info katalog lengkap dan cara pemesanan?`;
-    return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-  };
+  const bestSellerProducts = PRODUCTS.filter(product => product.isBestSeller === true).slice(0, 8);
 
   return (
     <section id="produk" className="py-24 bg-white">
@@ -24,7 +21,6 @@ export default function FeaturedProducts() {
             </p>
           </div>
           
-          {/* INI BAGIAN YANG SUDAH DIUBAH */}
           <a
             href="#katalog"
             className="text-brand-green-leaf font-bold flex items-center gap-2 hover:underline"
@@ -32,12 +28,10 @@ export default function FeaturedProducts() {
             Lihat Semua Produk
             <ShoppingCart size={20} />
           </a>
-          {/* --------------------------- */}
-          
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {PRODUCTS.map((product, index) => (
+          {bestSellerProducts.map((product, index) => (
             <motion.div
               key={product.id}
               initial={{ opacity: 0, scale: 0.9 }}
@@ -47,8 +41,6 @@ export default function FeaturedProducts() {
               className="bg-brand-beige/30 rounded-3xl overflow-hidden border border-brand-beige hover:border-brand-green-leaf/30 transition-all duration-300 group"
             >
               <div className="relative aspect-square overflow-hidden">
-                
-                {/* Pembaca gambar otomatis. Jika belum diset gambarnya, otomatis pakai gambar contoh agar Vercel tidak error */}
                 <img
                   src={(product as any).image || `https://picsum.photos/seed/${product.name}/600/600`}
                   alt={product.name}
