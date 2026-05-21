@@ -67,7 +67,7 @@ export default function Hero() {
           >
             <div className="aspect-square rounded-3xl overflow-hidden shadow-2xl border-8 border-white">
               <img
-                src="/homepict.jpg"
+                src="/homepict.png"
                 alt="Jajanan Pasar Tradisional"
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"
