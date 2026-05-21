@@ -38,7 +38,7 @@ export default function Navbar() {
               <img 
                 src="/Logotopssnack.png"
                 alt="Logo Tops Snack" 
-                className="w-15 h-15 object-contain"
+                className="w-20 h-20 object-contain"
               />
               <span className="text-2xl font-bold text-brand-brown-dark tracking-tight font-serif">
                 Tops <span className="text-brand-green-leaf">Snack</span>
