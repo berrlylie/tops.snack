@@ -42,7 +42,13 @@ export default function Categories() {
                   className="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 text-center flex flex-col items-center group cursor-pointer h-full"
                 >
                   <div className="w-16 h-16 bg-brand-beige rounded-full flex items-center justify-center mb-6 group-hover:bg-brand-green-leaf transition-colors duration-300">
-                    <Icon className="text-brand-green-leaf group-hover:text-white transition-colors duration-300" size={32} />
+                    
+                    {Icon ? (
+                      <Icon className="text-brand-green-leaf group-hover:text-white transition-colors duration-300" size={32} />
+                    ) : (
+                      <Cookie className="text-brand-green-leaf group-hover:text-white transition-colors duration-300" size={32} />
+                    )}
+
                   </div>
                   <h4 className="font-bold text-brand-brown-dark text-lg">{category.name}</h4>
                   <span className="text-[11px] text-brand-green-leaf mt-2 font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
