@@ -15,6 +15,12 @@ export default function Categories() {
     return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
   };
 
+  {/* --- JURUS FILTER: Otomatis membuang kategori yang ada kata "acara" --- */}
+  const filteredCategories = CATEGORIES.filter(
+    (category) => !category.name.toLowerCase().includes('acara')
+  );
+  {/* ---------------------------------------------------------------------- */}
+
   return (
     <section className="py-24 bg-brand-beige">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -22,8 +28,9 @@ export default function Categories() {
           <h3 className="text-4xl font-bold text-brand-brown-dark">Pilihan Menu Kami</h3>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-          {CATEGORIES.map((category, index) => {
+        {/* lg:grid-cols-5 diubah menjadi lg:grid-cols-4 agar 4 kotak berjejer rapi */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {filteredCategories.map((category, index) => {
             const Icon = iconMap[category.icon];
             return (
               <a
@@ -42,13 +49,11 @@ export default function Categories() {
                   className="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 text-center flex flex-col items-center group cursor-pointer h-full"
                 >
                   <div className="w-16 h-16 bg-brand-beige rounded-full flex items-center justify-center mb-6 group-hover:bg-brand-green-leaf transition-colors duration-300">
-                    
                     {Icon ? (
                       <Icon className="text-brand-green-leaf group-hover:text-white transition-colors duration-300" size={32} />
                     ) : (
                       <Cookie className="text-brand-green-leaf group-hover:text-white transition-colors duration-300" size={32} />
                     )}
-
                   </div>
                   <h4 className="font-bold text-brand-brown-dark text-lg">{category.name}</h4>
                   <span className="text-[11px] text-brand-green-leaf mt-2 font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
