@@ -8,7 +8,6 @@ export default function Catalog() {
     return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
   };
 
-  // Ini untuk memunculkan penjelasan singkat di bawah nama kategori
   const getCategoryDescription = (categoryName: string) => {
     switch (categoryName) {
       case 'Kue Basah': 
@@ -25,22 +24,15 @@ export default function Catalog() {
   };
 
   return (
-    // scroll-mt-24 berfungsi supaya saat tombol diklik, judulnya nggak ketutupan menu navigasi di atas
     <div id="katalog" className="scroll-mt-24">
-      
-      {/* Kita akan melakukan pengulangan untuk setiap kategori */}
       {CATEGORIES.map((category, index) => {
-        // Ambil produk yang HANYA sesuai dengan nama kategorinya
         const categoryProducts = PRODUCTS.filter(p => p.category === category.name);
-        
-        // JURUS ZIG-ZAG: Kalau urutannya genap warnanya krem, kalau ganjil warnanya putih
         const bgColor = index % 2 === 0 ? 'bg-brand-beige/20' : 'bg-white';
 
         return (
           <section key={category.id} className={`py-16 ${bgColor}`}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               
-              {/* Bagian Judul dan Penjelasan Singkat */}
               <div className="mb-10 text-center">
                 <h2 className="text-3xl font-bold text-brand-brown-dark mb-3">{category.name}</h2>
                 <p className="text-brand-brown-medium text-lg max-w-2xl mx-auto">
@@ -48,10 +40,7 @@ export default function Catalog() {
                 </p>
               </div>
 
-              {/* Grid 5 Kolom seperti desain Figma */}
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-                
-                {/* Menampilkan produk. Kalau produknya belum ada di constants.ts, munculkan teks info */}
                 {categoryProducts.length > 0 ? (
                   categoryProducts.map((product, pIndex) => (
                     <motion.div
@@ -75,4 +64,7 @@ export default function Catalog() {
                         <div className="flex justify-between items-center mt-3">
                           <span className="font-bold text-brand-brown-dark text-sm">Rp {product.price}</span>
                           <a
-                            href
+                            href={getProductWhatsAppLink(product.name, product.price)}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="bg-brand-green-leaf/10 text-brand-green-leaf p-2 rounded-lg hover:bg-brand-green-leaf hover:text-white transition-
