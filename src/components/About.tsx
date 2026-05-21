@@ -30,7 +30,6 @@ export default function About() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-sm font-bold text-brand-green-leaf uppercase tracking-widest mb-4">Tentang Kami</h2>
             <h3 className="text-4xl md:text-5xl font-bold text-brand-brown-dark mb-8 leading-tight">
               Menjaga Warisan Rasa dengan Kualitas Modern
             </h3>
