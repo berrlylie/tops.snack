@@ -10,8 +10,7 @@ export default function FAQ() {
     <section className="py-24 bg-white">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-sm font-bold text-brand-green-leaf uppercase tracking-widest mb-4">FAQ</h2>
-          <h3 className="text-4xl font-bold text-brand-brown-dark mb-4">Pertanyaan Umum</h3>
+          <h3 className="text-4xl font-bold text-brand-brown-dark mb-4">Tanya Jawab Seputar Tops Snack</h3>
         </div>
 
         <div className="space-y-4">
