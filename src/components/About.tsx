@@ -6,17 +6,17 @@ export default function About() {
     {
       icon: <Leaf className="text-brand-green-leaf" size={32} />,
       title: 'Bahan Pilihan',
-      description: 'Kami hanya menggunakan bahan-bahan alami berkualitas tinggi tanpa pengawet buatan.',
+      description: 'Menggunakan bahan pilihan berkualitas untuk menghasilkan jajanan yang fresh dan tanpa pengawet.',
     },
     {
       icon: <Award className="text-brand-green-leaf" size={32} />,
       title: 'Rasa Autentik',
-      description: 'Resep tradisional yang dijaga keasliannya untuk memberikan cita rasa yang tak terlupakan.',
+      description: 'Resep tradisional yang dijaga keasliannya untuk memberikan cita rasa yang khas dan tak terlupakan.',
     },
     {
       icon: <ShieldCheck className="text-brand-green-leaf" size={32} />,
       title: 'Produksi Higienis',
-      description: 'Proses pembuatan yang bersih dan rapi demi keamanan dan kenyamanan konsumsi Anda.',
+      description: 'Diproses dengan standar kebersihan yang terjaga demi memberikan rasa aman dan nyaman saat dikonsumsi.',
     },
   ];
 
@@ -31,13 +31,13 @@ export default function About() {
             transition={{ duration: 0.8 }}
           >
             <h3 className="text-4xl md:text-5xl font-bold text-brand-brown-dark mb-8 leading-tight">
-              Menjaga Warisan Rasa dengan Kualitas Modern
+              Cita Rasa Tradisional Yang Selalu Jadi Favorite
             </h3>
             <p className="text-lg text-brand-brown-medium mb-6 leading-relaxed">
-              Tops Snack lahir dari kecintaan kami terhadap kekayaan kuliner tradisional Indonesia, khususnya jajanan pasar. Kami percaya bahwa makanan tradisional bukan hanya soal rasa, tapi juga soal kenangan dan kehangatan.
+              Berawal dari kecintaan kami terhadap jajanan pasar tradisional, Tops Snack hadir untuk menghadirkan cita rasa yang familiar dengan konsep yang lebih fresh, praktis, dan cocok dinikmati di berbagai momen. Bagi kami, jajanan tradisional bukan hanya sekadar makanan, tetapi juga memiliki cerita, kenangan, dan kehangatan yang selalu menghadirkan rasa rindu bagi siapa saja yang menikmatinya.
             </p>
             <p className="text-lg text-brand-brown-medium mb-10 leading-relaxed">
-              Dengan sentuhan modern dalam penyajian dan standar kebersihan yang tinggi, kami berkomitmen untuk menghadirkan jajanan pasar yang tidak hanya enak dipandang, tapi juga aman dan lezat untuk dinikmati di segala suasana.
+              Mulai dari camilan kecil hingga isi hampers spesial, seluruh jajanan di Tops Snack dibuat fresh setiap hari dengan kualitas dan kebersihan yang selalu terjaga. Produk kami cocok dinikmati dalam berbagai suasana, mulai dari acara keluarga, meeting kantor, arisan, hingga sebagai teman sarapan maupun ngopi sore, sehingga setiap momen terasa lebih lengkap dengan jajanan favorit dari Tops Snack.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
