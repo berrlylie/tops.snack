@@ -18,10 +18,9 @@ export default function FeaturedProducts() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
           <div className="max-w-2xl">
-            <h2 className="text-sm font-bold text-brand-green-leaf uppercase tracking-widest mb-4">Katalog</h2>
             <h3 className="text-4xl font-bold text-brand-brown-dark mb-4">Produk Unggulan</h3>
             <p className="text-brand-brown-medium text-lg">
-              Pilihan jajanan pasar terfavorit yang paling banyak dipesan oleh pelanggan setia kami.
+              Jajanan pasar terfavorit yang paling banyak dipesan oleh pelanggan setia kami.
             </p>
           </div>
           <a
