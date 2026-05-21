@@ -82,14 +82,14 @@ export default function Hero() {
             >
               <div className="flex items-center gap-3 mb-2">
                 <div className="w-10 h-10 bg-brand-gold rounded-full flex items-center justify-center text-white font-bold">
-                  6+
+                  6
                 </div>
                 <div className="text-xs font-bold text-brand-brown-dark leading-tight">
                   Tahun Pengalaman
                 </div>
               </div>
               <p className="text-[10px] text-brand-brown-medium">
-                Menjaga resep warisan keluarga tetap autentik.
+                Konsisten menyajikan kualitas terbaik.
               </p>
             </motion.div>
           </motion.div>
