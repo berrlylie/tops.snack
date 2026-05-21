@@ -23,15 +23,18 @@ export default function Navbar() {
   ];
 
   return (
-    <nav
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-brand-beige/95 backdrop-blur-md shadow-md py-3' : 'bg-transparent py-5'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    // Bagian ini diubah untuk memberi jarak dari atas layar (top-4)
+    <nav className="fixed w-full z-50 top-4 px-4 sm:px-6 lg:px-8 transition-all duration-300">
+      
+      {/* Kotak kapsulnya diberi efek melengkung (rounded-full) */}
+      <div 
+        className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-300 rounded-full ${
+          isScrolled ? 'bg-brand-beige/95 backdrop-blur-md shadow-lg py-2' : 'bg-transparent py-4'
+        }`}
+      >
         <div className="flex justify-between items-center">
           
-          {/* BAGIAN LOGO & NAMA BRAND YANG DIUBAH */}
+          {/* BAGIAN LOGO & NAMA BRAND */}
           <div className="flex-shrink-0">
             <a href="#home" className="flex items-center gap-3 hover:opacity-90 transition-opacity">
               <img 
@@ -81,16 +84,16 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu (Diubah jadi melengkung ala kartu melayang) */}
       {isOpen && (
-        <div className="md:hidden bg-brand-beige shadow-lg absolute w-full">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <div className="md:hidden max-w-7xl mx-auto mt-2 bg-brand-beige/95 backdrop-blur-md shadow-lg rounded-2xl overflow-hidden">
+          <div className="px-4 pt-4 pb-6 space-y-2">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="block px-3 py-2 text-brand-brown-dark hover:text-brand-green-leaf font-medium"
+                className="block px-3 py-3 text-brand-brown-dark hover:text-brand-green-leaf hover:bg-white/50 rounded-xl font-medium transition-colors"
               >
                 {link.name}
               </a>
@@ -99,7 +102,7 @@ export default function Navbar() {
               href={WHATSAPP_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className="block w-full text-center bg-brand-green-leaf text-white px-6 py-3 rounded-lg font-semibold mt-4"
+              className="block w-full text-center bg-brand-green-leaf text-white px-6 py-3 rounded-xl font-semibold mt-6 shadow-sm"
             >
               Pesan Sekarang
             </a>
