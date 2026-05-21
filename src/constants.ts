@@ -173,17 +173,37 @@ export const FAQS: FAQItem[] = [
   {
     id: '4',
     question: 'H-berapa harus pesan?',
-    answer: 'Pesanan sebaiknya dilakukan minimal H-2 untuk memastikan ketersediaan bahan dan slot produksi.',
+    answer: 'Pesanan sebaiknya dilakukan maksimal H-2 untuk memastikan ketersediaan bahan dan slot produksi.',
   },
 ];
 
 export const WHATSAPP_DISPLAY = '+62 856-0124-0878';
 export const WHATSAPP_NUMBER = '6285601240878';
-export const WHATSAPP_DEFAULT_TEXT = 'Halo Tops Snack, saya ingin melakukan pemesanan jajanan pasar Tradisional. Boleh minta informasi menu dan langkah pemesanan berikutnya?';
+export const WHATSAPP_DEFAULT_TEXT = `Halo Tops Snack! Saya sudah melihat katalog dan ingin melakukan pemesanan. Berikut detail pesanan saya:
+
+*FORMAT PEMESANAN*
+Nama Pemesan : 
+Tanggal Pengiriman : 
+Waktu Pengiriman : 
+Alamat Lengkap : 
+
+*JENIS PEMESANAN*
+_hapus yang tidak diperlukan_
+( ) Konsumsi Pribadi
+( ) Acara Kantor / Rapat
+( ) Arisan / Keluarga
+( ) Hampers / Hadiah
+
+*DETAIL PESANAN*
+1. [Nama Produk] - [Jumlah]
+2. [Nama Produk] - [Jumlah]
+
+Catatan Tambahan : 
+
+Mohon diinformasikan untuk total pesanan saya. Terima kasih!`;
 export const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_DEFAULT_TEXT)}`;
 export const EMAIL_ADDRESS = 'topssnack005@gmail.com';
 export const INSTAGRAM_HANDLE = 'topssnack__';
 export const INSTAGRAM_LINK = `https://www.instagram.com/${INSTAGRAM_HANDLE}/`;
 export const FACEBOOK_HANDLE = 'Tops Snacks';
-export const FACEBOOK_LINK = 'https://www.facebook.com/';
-export const TWITTER_LINK = '#';
+export const FACEBOOK_LINK = 'https://www.facebook.com/share/18vtSjMGZC/?mibextid=wwXIfr';
