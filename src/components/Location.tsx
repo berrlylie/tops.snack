@@ -40,7 +40,6 @@ export default function Location() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-sm font-bold text-brand-green-leaf uppercase tracking-widest mb-4">Contact Us</h2>
             <h3 className="text-4xl font-bold text-brand-brown-dark mb-8">Kunjungi & Hubungi Kami</h3>
             
             <div className="space-y-6">
@@ -51,7 +50,7 @@ export default function Location() {
                   <MapPin className="text-brand-green-leaf" size={24} />
                 </div>
                 <div>
-                  <h4 className="font-bold text-brand-brown-dark mb-1">Lokasi Toko</h4>
+                  <h4 className="font-bold text-brand-brown-dark mb-1">Rumah Produksi</h4>
                   <p className="text-brand-brown-medium">Jl. Tradisi No. 123, Kel. Rasa, Kec. Nikmat, Kota Kuliner, 12345</p>
                 </div>
               </div>
@@ -74,7 +73,7 @@ export default function Location() {
                 </div>
                 <div>
                   <h4 className="font-bold text-brand-brown-dark mb-1">Email</h4>
-                  <p className="text-brand-brown-medium">halo@topssnack.com</p>
+                  <p className="text-brand-brown-medium">topssnack005@gmail.com</p>
                 </div>
               </div>
 
@@ -84,8 +83,8 @@ export default function Location() {
                   <Instagram className="text-brand-green-leaf" size={24} />
                 </div>
                 <div>
-                  <h4 className="font-bold text-brand-brown-dark mb-1">Sosial Media</h4>
-                  <a href="#" className="text-brand-brown-medium hover:text-brand-green-leaf font-medium transition-colors">@topssnack</a>
+                  <h4 className="font-bold text-brand-brown-dark mb-1">Instagram</h4>
+                  <a href="#" className="text-brand-brown-medium hover:text-brand-green-leaf font-medium transition-colors">@topssnack__</a>
                 </div>
               </div>
 
