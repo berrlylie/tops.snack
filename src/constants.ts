@@ -5,32 +5,31 @@ export const CATEGORIES: Category[] = [
   { id: 'kue-kering', name: 'Kue Kering', icon: 'Cookie' },
   { id: 'snack-box', name: 'Snack Box', icon: 'Package' },
   { id: 'hampers', name: 'Hampers', icon: 'Gift' },
-  { id: 'pesanan-acara', name: 'Pesanan Acara', icon: 'Calendar' },
 ];
 
 export const PRODUCTS: Product[] = [
   {
     id: '1',
-    name: 'Klepon',
-    description: 'Bola ketan isi gula merah cair dengan taburan kelapa parut segar.',
+    name: 'Arem-Arem',
+    description: 'Nasi dengan isian ayam suwir yang dibungkus daun pisang dengan rasa gurih.',
     category: 'Kue Basah',
-    price: '2.500',
+    price: '1500',
     isBestSeller: true,
   },
   {
     id: '2',
-    name: 'Onde-onde',
-    description: 'Kue wijen isi kacang hijau kupas yang lembut dan gurih.',
+    name: 'Pastel',
+    description: 'Pastel renyah dengan isian sayur dan telur yang nikmat.',
     category: 'Kue Basah',
-    price: '3.000',
+    price: '2.000',
     isBestSeller: true,
   },
   {
     id: '3',
-    name: 'Lemper Ayam',
-    description: 'Ketan kukus isi ayam suwir bumbu spesial dibalut daun pisang.',
+    name: 'Bolu Kukus',
+    description: 'Bolu kukus lembut dan manis dengan tekstur empuk yang mekar sempurna.',
     category: 'Kue Basah',
-    price: '4.500',
+    price: '1.500',
     isBestSeller: true,
   },
   {
