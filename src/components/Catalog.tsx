@@ -67,4 +67,24 @@ export default function Catalog() {
                             href={getProductWhatsAppLink(product.name, product.price)}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="bg-brand-green-leaf/10 text-brand-green-leaf p-2 rounded-lg hover:bg-brand-green-leaf hover:text-white transition-
+                            className="bg-brand-green-leaf/10 text-brand-green-leaf p-2 rounded-lg hover:bg-brand-green-leaf hover:text-white transition-colors duration-300"
+                          >
+                            <ShoppingCart size={16} />
+                          </a>
+                        </div>
+                      </div>
+                    </motion.div>
+                  ))
+                ) : (
+                  <div className="col-span-full text-center py-8 text-brand-brown-medium/60 italic">
+                    Belum ada produk di kategori ini.
+                  </div>
+                )}
+              </div>
+            </div>
+          </section>
+        );
+      })}
+    </div>
+  );
+}
