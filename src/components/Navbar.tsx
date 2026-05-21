@@ -36,8 +36,8 @@ export default function Navbar() {
           <div className="flex-shrink-0">
             <a href="#home" className="flex items-center gap-3 hover:opacity-90 transition-opacity">
               <img 
-                public="Logo tops snack.png"
-                alt="Logo tops snack" 
+                src="/Logotopssnack.png"
+                alt="Logo Tops Snack" 
                 className="w-10 h-10 object-contain"
               />
               <span className="text-2xl font-bold text-brand-brown-dark tracking-tight font-serif">
