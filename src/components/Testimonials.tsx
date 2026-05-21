@@ -7,7 +7,6 @@ export default function Testimonials() {
     <section id="testimoni" className="py-24 bg-brand-beige">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-sm font-bold text-brand-green-leaf uppercase tracking-widest mb-4">Testimoni</h2>
           <h3 className="text-4xl font-bold text-brand-brown-dark mb-4">Apa Kata Mereka?</h3>
           <p className="text-brand-brown-medium max-w-2xl mx-auto">
             Kepuasan pelanggan adalah prioritas utama kami. Berikut adalah pengalaman mereka memesan di Asosiasi Tops Snack.
