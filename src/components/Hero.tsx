@@ -67,7 +67,7 @@ export default function Hero() {
           >
             <div className="aspect-square rounded-3xl overflow-hidden shadow-2xl border-8 border-white">
               <img
-                src="https://picsum.photos/seed/snack/800/800"
+                src="/homepict.jpg"
                 alt="Jajanan Pasar Tradisional"
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"
