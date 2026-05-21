@@ -24,7 +24,6 @@ export default function HowToOrder() {
     <section className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-sm font-bold text-brand-green-leaf uppercase tracking-widest mb-4">Proses</h2>
           <h3 className="text-4xl font-bold text-brand-brown-dark">Cara Pemesanan</h3>
         </div>
 
