@@ -16,7 +16,7 @@ export default function Advantages() {
     {
       icon: <Users className="text-white" size={32} />,
       title: 'Acara Kantor & Keluarga',
-      description: 'Berpengalaman melayani berbagai skala acara dengan profesional.',
+      description: 'Berpengalaman melayani pemesanan partai besar dan kecil secara profesional.',
     },
     {
       icon: <Settings className="text-white" size={32} />,
@@ -34,7 +34,6 @@ export default function Advantages() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-sm font-bold text-brand-green-soft uppercase tracking-widest mb-4">Keunggulan</h2>
           <h3 className="text-4xl font-bold mb-4">Mengapa Memilih Kami?</h3>
         </div>
 
