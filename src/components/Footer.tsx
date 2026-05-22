@@ -10,6 +10,14 @@ export default function Footer() {
     { icon: MessageCircle, href: WHATSAPP_LINK },
   ];
 
+  const quickLinks = [
+    { name: 'Home', href: '#home' },
+    { name: 'About Us', href: '#tentang' },
+    { name: 'Products', href: '#produk' },
+    { name: 'Testimonials', href: '#testimoni' },
+    { name: 'Contact Us', href: '#kontak' },
+  ];
+
   return (
     <footer className="bg-brand-brown-dark text-brand-beige pt-20 pb-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -41,13 +49,13 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-bold text-lg mb-6">Menu Cepat</h4>
             <ul className="space-y-4">
-              {['Beranda', 'Produk', 'Tentang', 'Testimoni', 'Lokasi', 'Kontak'].map((item) => (
-                <li key={item}>
+              {quickLinks.map((link) => (
+                <li key={link.name}>
                   <a
-                    href={`#${item.toLowerCase()}`}
+                    href={link.href}
                     className="text-brand-beige/70 hover:text-brand-green-soft transition-colors"
                   >
-                    {item}
+                    {link.name}
                   </a>
                 </li>
               ))}
