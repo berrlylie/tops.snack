@@ -18,7 +18,7 @@ export default function Location() {
           >
             {/* INI KODE EMBED GOOGLE MAPS-NYA */}
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15827.469956402421!2d109.2235618!3d-7.3850954!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e655f2bbed145e9%3A0xb295a9a922e24fae!2sTops%20Snack!5e0!3m2!1sid!2sid!4v1715000000000!5m2!1sid!2sid"
+              src="https://maps.google.com/maps?q=Tops%20Snack%20Kutasari%20Baturaden&t=&z=16&ie=UTF8&iwloc=&output=embed"
               width="100%"
               height="100%"
               style={{ border: 0 }}
@@ -63,45 +63,4 @@ export default function Location() {
               </div>
 
               {/* Info Email */}
-              <div className="flex gap-6">
-                <div className="flex-shrink-0 w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-sm">
-                  <Mail className="text-brand-green-leaf" size={24} />
-                </div>
-                <div>
-                  <h4 className="font-bold text-brand-brown-dark mb-1">Email</h4>
-                  <p className="text-brand-brown-medium">{EMAIL_ADDRESS}</p>
-                </div>
-              </div>
-
-              {/* Info Sosial Media */}
-              <div className="flex gap-6">
-                <div className="flex-shrink-0 w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-sm">
-                  <Instagram className="text-brand-green-leaf" size={24} />
-                </div>
-                <div>
-                  <h4 className="font-bold text-brand-brown-dark mb-1">Instagram</h4>
-                  <a href={INSTAGRAM_LINK} target="_blank" rel="noopener noreferrer" className="text-brand-brown-medium hover:text-brand-green-leaf font-medium transition-colors">@{INSTAGRAM_HANDLE}</a>
-                </div>
-              </div>
-
-            </div>
-
-            {/* Tombol Maps */}
-            <div className="mt-10">
-              <a
-                href="https://www.google.com/maps/search/?api=1&query=Tops+Snack+Kutasari+Baturaden&query_place_id=ChIJ6dFFvixE8QoRrk_iKamulbI"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-brand-brown-dark text-white px-6 py-3 rounded-xl font-bold hover:bg-brand-brown-medium transition-all shadow-md"
-              >
-                Buka di Google Maps
-                <Navigation size={18} />
-              </a>
-            </div>
-          </motion.div>
-
-        </div>
-      </div>
-    </section>
-  );
-}
+              <div className
