@@ -18,7 +18,7 @@ export default function Location() {
           >
             {/* EMBED GOOGLE MAPS */}
             <iframe
-              src="https://maps.google.com/maps?q=Tops%20Snack,%20Kutasari,%20Banyumas&t=&z=16&ie=UTF8&iwloc=&output=embed"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3956.721288596274!2d109.23355448769152!3d-7.385098133471206!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xaf1442cbe45d1e9%3A0xb295aea929e24fae!2sTops%20Snack!5e0!3m2!1sid!2sid!4v1779442247194!5m2!1sid!2sid"
               width="100%"
               height="100%"
               style={{ border: 0 }}
@@ -65,43 +65,4 @@ export default function Location() {
               {/* Info Email */}
               <div className="flex gap-6">
                 <div className="flex-shrink-0 w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-sm">
-                  <Mail className="text-brand-green-leaf" size={24} />
-                </div>
-                <div>
-                  <h4 className="font-bold text-brand-brown-dark mb-1">Email</h4>
-                  <p className="text-brand-brown-medium">{EMAIL_ADDRESS}</p>
-                </div>
-              </div>
-
-              {/* Info Sosial Media */}
-              <div className="flex gap-6">
-                <div className="flex-shrink-0 w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-sm">
-                  <Instagram className="text-brand-green-leaf" size={24} />
-                </div>
-                <div>
-                  <h4 className="font-bold text-brand-brown-dark mb-1">Instagram</h4>
-                  <a href={INSTAGRAM_LINK} target="_blank" rel="noopener noreferrer" className="text-brand-brown-medium hover:text-brand-green-leaf font-medium transition-colors">@{INSTAGRAM_HANDLE}</a>
-                </div>
-              </div>
-
-            </div>
-
-            {/* Tombol Maps */}
-            <div className="mt-10">
-              <a
-                href="https://maps.app.goo.gl/Fk9vFzvXNzvXNzvXN" 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-brand-brown-dark text-white px-6 py-3 rounded-xl font-bold hover:bg-brand-brown-medium transition-all shadow-md"
-              >
-                Buka di Google Maps
-                <Navigation size={18} />
-              </a>
-            </div>
-          </motion.div>
-
-        </div>
-      </div>
-    </section>
-  );
-}
+                  <Mail
