@@ -16,9 +16,9 @@ export default function Location() {
             transition={{ duration: 0.8 }}
             className="h-[450px] bg-white rounded-3xl overflow-hidden shadow-xl border-8 border-white relative"
           >
-            {/* INI KODE EMBED GOOGLE MAPS-NYA */}
+            {/* EMBED GOOGLE MAPS */}
             <iframe
-              src="https://maps.google.com/maps?q=Tops%20Snack%20Kutasari%20Baturaden&t=&z=16&ie=UTF8&iwloc=&output=embed"
+              src="https://maps.google.com/maps?q=Tops%20Snack,%20Kutasari,%20Banyumas&t=&z=16&ie=UTF8&iwloc=&output=embed"
               width="100%"
               height="100%"
               style={{ border: 0 }}
@@ -89,7 +89,7 @@ export default function Location() {
             {/* Tombol Maps */}
             <div className="mt-10">
               <a
-                href="https://www.google.com/maps/search/?api=1&query=Tops+Snack+Kutasari+Baturaden&query_place_id=ChIJ6dFFvixE8QoRrk_iKamulbI"
+                href="https://maps.app.goo.gl/Fk9vFzvXNzvXNzvXN" 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-brand-brown-dark text-white px-6 py-3 rounded-xl font-bold hover:bg-brand-brown-medium transition-all shadow-md"
