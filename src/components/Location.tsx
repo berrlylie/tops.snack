@@ -16,9 +16,9 @@ export default function Location() {
             transition={{ duration: 0.8 }}
             className="h-[450px] bg-white rounded-3xl overflow-hidden shadow-xl border-8 border-white relative"
           >
-            {/* INI KODE EMBED GOOGLE MAPS YANG SUDAH DI-ZOOM DAN DI-TENGAHKAN */}
+            {/* EMBED GOOGLE MAPS */}
             <iframe
-              src="https://maps.google.com/maps?q=Tops%20Snack%20Kutasari%20Baturaden&t=&z=19&ie=UTF8&iwloc=&output=embed"
+              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d989.1799186694883!2d109.2332765715781!3d-7.385278441623189!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xaf1442cbe45d1e9%3A0xb295aea929e24fae!2sTops%20Snack!5e0!3m2!1sid!2sid!4v1779446524494!5m2!1sid!2sid"
               width="100%"
               height="100%"
               style={{ border: 0 }}
@@ -89,7 +89,7 @@ export default function Location() {
             {/* Tombol Maps */}
             <div className="mt-10">
               <a
-                href="https://maps.google.com/?q=Tops+Snack+Kutasari+Baturaden" 
+                href="https://goo.gl/maps/contoh-link-tops-snack" 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-brand-brown-dark text-white px-6 py-3 rounded-xl font-bold hover:bg-brand-brown-medium transition-all shadow-md"
