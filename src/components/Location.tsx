@@ -18,7 +18,7 @@ export default function Location() {
           >
             {/* EMBED GOOGLE MAPS */}
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d494.58989717164644!2d109.233295!3d-7.385334!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xaf1442cbe45d1e9%3A0xb295aea929e24fae!2sTops%20Snack!5e0!3m2!1sid!2sid!4v1779442977502!5m2!1sid!2sid"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15826.68538746249!2d109.227514!3d-7.3858015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e655fee6a7cc2f1%3A0x6b295aed5227d819!2sTops%20Snack!5e0!3m2!1sid!2sid!4v1716382103450!5m2!1sid!2sid"
               width="100%"
               height="100%"
               style={{ border: 0 }}
@@ -89,7 +89,7 @@ export default function Location() {
             {/* Tombol Maps */}
             <div className="mt-10">
               <a
-                href="https://goo.gl/maps" 
+                href="https://goo.gl/maps/contoh-link-tops-snack" 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-brand-brown-dark text-white px-6 py-3 rounded-xl font-bold hover:bg-brand-brown-medium transition-all shadow-md"
