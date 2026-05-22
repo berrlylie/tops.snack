@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 import { MapPin, Phone, Navigation, Mail, Instagram } from 'lucide-react';
-import { WHATSAPP_DISPLAY, EMAIL_ADDRESS, INSTAGRAM_HANDLE, INSTAGRAM_LINK } from '../constants'; // Memanggil data dari file constants.ts
+import { WHATSAPP_DISPLAY, EMAIL_ADDRESS, INSTAGRAM_HANDLE, INSTAGRAM_LINK } from '../constants';
 
 export default function Location() {
   return (
@@ -18,7 +18,7 @@ export default function Location() {
           >
             {/* INI KODE EMBED GOOGLE MAPS-NYA */}
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15827.60875953051!2d109.21586566497143!3d-7.364805799999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e655f2cbe45d1e9%3A0xb295a9a9224ef4ae!2sTops%20Snack!5e0!3m2!1sen!2sid!4v1716382020295!5m2!1sen!2sid"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15827.469956402421!2d109.2235618!3d-7.3850954!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e655f2bbed145e9%3A0xb295a9a922e24fae!2sTops%20Snack!5e0!3m2!1sid!2sid!4v1715000000000!5m2!1sid!2sid"
               width="100%"
               height="100%"
               style={{ border: 0 }}
@@ -89,7 +89,7 @@ export default function Location() {
             {/* Tombol Maps */}
             <div className="mt-10">
               <a
-                href="https://maps.app.goo.gl/9m26FjYfA2B45fXX8" // Link yang mengarah ke Maps beneran saat tombol ini diklik
+                href="https://www.google.com/maps/search/?api=1&query=Tops+Snack+Kutasari+Baturaden&query_place_id=ChIJ6dFFvixE8QoRrk_iKamulbI"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-brand-brown-dark text-white px-6 py-3 rounded-xl font-bold hover:bg-brand-brown-medium transition-all shadow-md"
