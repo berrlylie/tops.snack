@@ -16,41 +16,32 @@ export default function Navbar() {
 
   const navLinks = [
     { name: 'Home', href: '#home' },
-    { name: 'About Us', href: '#tentang' },
-    { name: 'Products', href: '#produk' },
-    { name: 'Testimonials', href: '#testimoni' },
-    { name: 'Contact Us', href: '#kontak' },
+    { name: 'About Us', href: '#about-us' },
+    { name: 'Products', href: '#products' },
+    { name: 'Testimonials', href: '#testimonials' },
+    { name: 'Contact Us', href: '#contact-us' },
   ];
 
   return (
-    // Kembali pakai model top-4 (ada jarak dari atas biar ngambang)
     <nav className="fixed w-full z-50 top-4 px-4 sm:px-6 lg:px-8 transition-all duration-300">
       
-      {/* Kotak kapsul melengkung (rounded-full) yang ukurannya dipaskan biar ramping */}
       <div 
         className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-6 transition-all duration-300 rounded-full ${
           isScrolled ? 'bg-brand-beige/95 backdrop-blur-md shadow-lg py-2' : 'bg-brand-beige/90 shadow-md py-2'
         }`}
       >
-        <div className="flex justify-between items-center h-12">
+        <div className="flex justify-between items-center">
           
-          {/* BAGIAN LOGO & NAMA BRAND */}
           <div className="flex-shrink-0">
-            <a href="#home" className="flex items-center gap-3 hover:opacity-90 transition-opacity">
-              {/* Ukuran logo dibikin h-10 biar kapsulnya nggak melar ke atas-bawah */}
+            <a href="#home" className="flex items-center hover:opacity-90 transition-opacity">
               <img 
                 src="/Logotopssnack.png"
                 alt="Logo Tops Snack" 
-                className="h-10 w-auto object-contain"
+                className="h-12 md:h-14 w-auto object-contain transition-all duration-300"
               />
-              {/* Teks Tops Snack dibalikin dengan ukuran sedikit disesuaikan */}
-              <span className="text-xl md:text-2xl font-bold text-brand-brown-dark tracking-tight font-serif">
-                Tops <span className="text-brand-green-leaf">Snack</span>
-              </span>
             </a>
           </div>
 
-          {/* Desktop Menu - Jarak dirapatkan (space-x-6) */}
           <div className="hidden md:flex items-center space-x-6">
             {navLinks.map((link) => (
               <a
@@ -72,7 +63,6 @@ export default function Navbar() {
             </a>
           </div>
 
-          {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -84,7 +74,6 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu - Melayang estetik di bawah kapsul utama */}
       {isOpen && (
         <div className="md:hidden max-w-7xl mx-auto mt-2 bg-brand-beige/95 backdrop-blur-md shadow-lg rounded-2xl overflow-hidden">
           <div className="px-4 pt-4 pb-6 space-y-2">
