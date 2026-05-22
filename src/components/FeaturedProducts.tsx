@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
-import { ShoppingCart, Star, Instagram } from 'lucide-react';
-import { PRODUCTS, WHATSAPP_NUMBER, INSTAGRAM_LINK } from '../constants';
+import { ShoppingCart, Star } from 'lucide-react';
+import { PRODUCTS, WHATSAPP_NUMBER } from '../constants';
 
 export default function FeaturedProducts() {
   const getProductWhatsAppLink = (productName: string, price: string) => {
@@ -64,31 +64,21 @@ export default function FeaturedProducts() {
                 <p className="text-sm text-brand-brown-medium mb-6 line-clamp-2">
                   {product.description}
                 </p>
-                <div className="flex flex-col gap-3">
-                  <div className="flex justify-between items-center">
-                    <span className="text-xs text-brand-brown-medium">Mulai dari</span>
+                <div className="flex justify-between items-center">
+                  <div>
+                    <span className="text-xs text-brand-brown-medium block">Mulai dari</span>
                     <span className="text-lg font-bold text-brand-brown-dark">Rp {product.price}</span>
                   </div>
-                  
-                  <div className="grid grid-cols-2 gap-2">
-                    <a
-                      href={getProductWhatsAppLink(product.name, product.price)}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="bg-brand-green-leaf text-white py-2 rounded-xl text-xs font-bold hover:bg-brand-brown-dark transition-colors text-center"
-                    >
-                      Pesan
-                    </a>
-                    <a
-                      href={INSTAGRAM_LINK}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="bg-brand-brown-dark text-white py-2 rounded-xl text-xs font-bold hover:bg-brand-brown-medium transition-colors text-center flex items-center justify-center gap-1"
-                    >
-                      <Instagram size={12} />
-                      DM
-                    </a>
-                  </div>
+                  <a
+                    href={getProductWhatsAppLink(product.name, product.price)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-brand-green-leaf text-white p-3 rounded-2xl hover:bg-brand-brown-dark transition-colors duration-300 shadow-md flex items-center gap-1"
+                    title={`Pesan ${product.name}`}
+                  >
+                    <span className="text-xs font-semibold px-1">Pesan</span>
+                    <ShoppingCart size={18} />
+                  </a>
                 </div>
               </div>
             </motion.div>
