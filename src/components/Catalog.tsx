@@ -1,10 +1,10 @@
 import { motion } from 'motion/react';
-import { ShoppingCart, Star } from 'lucide-react'; // <--- TAMBAHKAN ICON STAR
+import { ShoppingCart, Star } from 'lucide-react';
 import { PRODUCTS, CATEGORIES, WHATSAPP_NUMBER } from '../constants';
 
 export default function Catalog() {
   const getProductWhatsAppLink = (productName: string, price: string) => {
-    const message = `Halo Tops Snack, saya ingin memesan *${productName}* (Rp ${price}). Bagaimana cara pemesanannya?`;
+    const message = `Halo Tops Snack! Saya tertarik mau pesan *${productName}*. Apakah bisa pesan untuk dikirim tanggal...?`;
     return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
   };
 
@@ -17,7 +17,7 @@ export default function Catalog() {
       case 'Snack Box': 
         return 'Paket praktis berbagai varian rasa untuk menemani setiap acara spesial Anda.';
       case 'Hampers': 
-        return 'Bingkisan cantik nan eksklusif, cocok untuk dibagikan kepada orang terkasih.';
+        return 'Bingkisan cantik nan exclusif, cocok untuk dibagikan kepada orang terkasih.';
       default: 
         return 'Pilihan produk terbaik dan berkualitas dari Tops Snack.';
     }
@@ -49,7 +49,7 @@ export default function Catalog() {
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.3, delay: pIndex * 0.05 }}
-                      className="bg-white rounded-2xl overflow-hidden border border-brand-beige hover:border-brand-green-leaf/30 transition-all duration-300 group shadow-sm hover:shadow-md"
+                      className="bg-white rounded-2xl overflow-hidden border border-brand-beige hover:border-brand-green-leaf/30 transition-all duration-300 group shadow-sm hover:shadow-md flex flex-col"
                     >
                       <div className="relative aspect-square overflow-hidden bg-brand-beige/30 p-2 rounded-t-2xl">
                         <img
@@ -58,17 +58,25 @@ export default function Catalog() {
                           className="w-full h-full object-cover rounded-xl group-hover:scale-105 transition-transform duration-500"
                         />
                         
+                        {/* Label Best Seller di pojok kiri atas foto */}
                         {product.isBestSeller && (
-                          <div className="absolute top-4 left-4 bg-brand-gold text-white px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1 shadow-lg">
-                            <Star size={12} fill="currentColor" />
+                          <div className="absolute top-4 left-4 bg-brand-gold text-white px-2 py-0.5 rounded-full text-[10px] font-bold flex items-center gap-1 shadow-lg">
+                            <Star size={10} fill="currentColor" />
                             Best Seller
                           </div>
                         )}
+                        {/* Pojok kanan atas KOSONG tanpa label jenis kue */}
                       </div>
 
-                      <div className="p-4">
+                      {/* Bagian teks menggunakan flex-col & flex-grow agar tombol selalu rapi di bawah */}
+                      <div className="p-4 flex flex-col flex-grow">
                         <h4 className="font-bold text-brand-brown-dark text-sm mb-1 line-clamp-1">{product.name}</h4>
-                        <div className="flex justify-between items-center mt-3">
+                        
+                        <p className="text-xs text-brand-brown-medium/80 mt-1 mb-4 flex-grow">
+                          {product.description}
+                        </p>
+
+                        <div className="flex justify-between items-center mt-auto pt-2 border-t border-brand-beige/40">
                           <span className="font-bold text-brand-brown-dark text-sm">Rp {product.price}</span>
                           <a
                             href={getProductWhatsAppLink(product.name, product.price)}
