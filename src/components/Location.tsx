@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { MapPin, Phone, Navigation, Mail, Instagram } from 'lucide-react';
+import { WHATSAPP_DISPLAY, EMAIL_ADDRESS, INSTAGRAM_HANDLE, INSTAGRAM_LINK } from '../constants'; // Memanggil data dari file constants.ts
 
 export default function Location() {
   return (
@@ -7,7 +8,7 @@ export default function Location() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           
-          {/* BAGIAN KIRI: Peta (Maps) */}
+          {/* BAGIAN KIRI: Peta Google Maps Interaktif */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -15,22 +16,17 @@ export default function Location() {
             transition={{ duration: 0.8 }}
             className="h-[450px] bg-white rounded-3xl overflow-hidden shadow-xl border-8 border-white relative"
           >
-            {/* Animasi Peta Bawaan Kamu */}
-            <div className="absolute inset-0 bg-brand-beige/50 flex flex-col items-center justify-center p-8 text-center">
-              <MapPin size={64} className="text-brand-green-leaf mb-4 opacity-20" />
-              <p className="text-brand-brown-medium font-medium">
-                Peta interaktif akan muncul di sini.<br />Kami berlokasi di pusat kota untuk memudahkan akses.
-              </p>
-            </div>
-            
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-              <div className="relative">
-                <div className="w-12 h-12 bg-brand-green-leaf rounded-full animate-ping absolute opacity-20"></div>
-                <div className="w-12 h-12 bg-brand-green-leaf rounded-full flex items-center justify-center text-white shadow-lg relative">
-                  <MapPin size={24} />
-                </div>
-              </div>
-            </div>
+            {/* INI KODE EMBED GOOGLE MAPS-NYA */}
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15827.60875953051!2d109.21586566497143!3d-7.364805799999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e655f2cbe45d1e9%3A0xb295a9a9224ef4ae!2sTops%20Snack!5e0!3m2!1sen!2sid!4v1716382020295!5m2!1sen!2sid"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen={true}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Lokasi Tops Snack"
+            ></iframe>
           </motion.div>
 
           {/* BAGIAN KANAN: Detail Kontak & Sosmed */}
@@ -51,7 +47,7 @@ export default function Location() {
                 </div>
                 <div>
                   <h4 className="font-bold text-brand-brown-dark mb-1">Rumah Produksi</h4>
-                  <p className="text-brand-brown-medium">Jl. Tradisi No. 123, Kel. Rasa, Kec. Nikmat, Kota Kuliner, 12345</p>
+                  <p className="text-brand-brown-medium">RT.05/RW.03, Dusun II Prompong, Kutasari, Kec. Baturaden, Kabupaten Banyumas, Jawa Tengah 53151</p>
                 </div>
               </div>
 
@@ -62,7 +58,7 @@ export default function Location() {
                 </div>
                 <div>
                   <h4 className="font-bold text-brand-brown-dark mb-1">WhatsApp / Telepon</h4>
-                  <p className="text-brand-brown-medium">+62 812-3456-7890</p>
+                  <p className="text-brand-brown-medium">{WHATSAPP_DISPLAY}</p>
                 </div>
               </div>
 
@@ -73,7 +69,7 @@ export default function Location() {
                 </div>
                 <div>
                   <h4 className="font-bold text-brand-brown-dark mb-1">Email</h4>
-                  <p className="text-brand-brown-medium">topssnack005@gmail.com</p>
+                  <p className="text-brand-brown-medium">{EMAIL_ADDRESS}</p>
                 </div>
               </div>
 
@@ -84,7 +80,7 @@ export default function Location() {
                 </div>
                 <div>
                   <h4 className="font-bold text-brand-brown-dark mb-1">Instagram</h4>
-                  <a href="#" className="text-brand-brown-medium hover:text-brand-green-leaf font-medium transition-colors">@topssnack__</a>
+                  <a href={INSTAGRAM_LINK} target="_blank" rel="noopener noreferrer" className="text-brand-brown-medium hover:text-brand-green-leaf font-medium transition-colors">@{INSTAGRAM_HANDLE}</a>
                 </div>
               </div>
 
@@ -93,7 +89,7 @@ export default function Location() {
             {/* Tombol Maps */}
             <div className="mt-10">
               <a
-                href="https://maps.google.com"
+                href="https://maps.app.goo.gl/9m26FjYfA2B45fXX8" // Link yang mengarah ke Maps beneran saat tombol ini diklik
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-brand-brown-dark text-white px-6 py-3 rounded-xl font-bold hover:bg-brand-brown-medium transition-all shadow-md"
