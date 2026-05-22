@@ -23,4 +23,45 @@ export default function Location() {
               height="100%"
               style={{ border: 0 }}
               allowFullScreen={true}
-              loading
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Lokasi Tops Snack"
+            ></iframe>
+          </motion.div>
+
+          {/* BAGIAN KANAN: Detail Kontak & Sosmed */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <h3 className="text-4xl font-bold text-brand-brown-dark mb-8">Kunjungi & Hubungi Kami</h3>
+            
+            <div className="space-y-6">
+              
+              {/* Info Lokasi */}
+              <div className="flex gap-6">
+                <div className="flex-shrink-0 w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-sm">
+                  <MapPin className="text-brand-green-leaf" size={24} />
+                </div>
+                <div>
+                  <h4 className="font-bold text-brand-brown-dark mb-1">Rumah Produksi</h4>
+                  <p className="text-brand-brown-medium">RT.05/RW.03, Dusun II Prompong, Kutasari, Kec. Baturaden, Kabupaten Banyumas, Jawa Tengah 53151</p>
+                </div>
+              </div>
+
+              {/* Info Telepon / WA */}
+              <div className="flex gap-6">
+                <div className="flex-shrink-0 w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-sm">
+                  <Phone className="text-brand-green-leaf" size={24} />
+                </div>
+                <div>
+                  <h4 className="font-bold text-brand-brown-dark mb-1">WhatsApp / Telepon</h4>
+                  <p className="text-brand-brown-medium">{WHATSAPP_DISPLAY}</p>
+                </div>
+              </div>
+
+              {/* Info Email */}
+              <div className="flex gap-6">
+                <div className="flex-shrink-0 w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-sm">
