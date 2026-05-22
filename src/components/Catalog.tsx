@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { ShoppingCart } from 'lucide-react';
+import { ShoppingCart, Star } from 'lucide-react'; // <--- TAMBAHKAN ICON STAR
 import { PRODUCTS, CATEGORIES, WHATSAPP_NUMBER } from '../constants';
 
 export default function Catalog() {
@@ -57,6 +57,13 @@ export default function Catalog() {
                           alt={product.name}
                           className="w-full h-full object-cover rounded-xl group-hover:scale-105 transition-transform duration-500"
                         />
+                        
+                        {product.isBestSeller && (
+                          <div className="absolute top-4 left-4 bg-brand-gold text-white px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1 shadow-lg">
+                            <Star size={12} fill="currentColor" />
+                            Best Seller
+                          </div>
+                        )}
                       </div>
 
                       <div className="p-4">
