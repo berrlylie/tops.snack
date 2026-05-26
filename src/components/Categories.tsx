@@ -1,10 +1,11 @@
 import { motion } from 'motion/react';
-import { Coffee, Cookie, Package, Gift } from 'lucide-react';
+import { Coffee, Cookie, Croissant, Package, Gift } from 'lucide-react';
 import { CATEGORIES, WHATSAPP_NUMBER } from '../constants';
 
 const iconMap: Record<string, any> = {
   Coffee,
   Cookie,
+  Croissant,
   Package,
   Gift,
 };
@@ -15,7 +16,6 @@ export default function Categories() {
     return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
   };
 
-  {/* --- JURUS FILTER: Otomatis membuang kategori yang ada kata "acara" --- */}
   const filteredCategories = CATEGORIES.filter(
     (category) => !category.name.toLowerCase().includes('acara')
   );
@@ -28,8 +28,8 @@ export default function Categories() {
           <h3 className="text-4xl font-bold text-brand-brown-dark">Pilihan Menu Kami</h3>
         </div>
 
-        {/* lg:grid-cols-5 diubah menjadi lg:grid-cols-4 agar 4 kotak berjejer rapi */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        {/* lg:grid-cols-5 agar muat 5 sejajar */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
           {filteredCategories.map((category, index) => {
             const Icon = iconMap[category.icon];
             return (
