@@ -70,7 +70,7 @@ export default function Footer() {
                 <div className="flex gap-4">
                   <MapPin className="text-brand-green-soft flex-shrink-0" size={20} />
                   <p className="text-brand-beige/70 text-sm">
-                    Jl. Tradisi No. 123, Kel. Rasa, Kec. Nikmat, Kota Kuliner, 12345
+                    RT.05/RW.03, Dusun II Prompong, Kutasari, Kec. Baturaden, Kabupaten Banyumas, Jawa Tengah 53151
                   </p>
                 </div>
                 <div className="flex gap-4">
