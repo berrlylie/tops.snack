@@ -14,6 +14,8 @@ export default function Catalog() {
         return 'Pilihan kue basah yang selalu dibuat fresh dan tanpa pengawet.';
       case 'Kue Kering': 
         return 'Pilihan jajanan pasar terfavorit yang paling banyak dipesan oleh pelanggan kami.';
+      case 'Snack': 
+        return 'Berbagai pilihan snack manis dan asin yang cocok dinikmati di segala suasana.';
       case 'Snack Box': 
         return 'Paket praktis berbagai varian rasa untuk menemani setiap acara spesial Anda.';
       case 'Hampers': 
