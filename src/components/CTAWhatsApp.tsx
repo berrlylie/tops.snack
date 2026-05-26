@@ -21,9 +21,8 @@ export default function CTAWhatsApp() {
             Siap Menghadirkan Kelezatan di Acara Anda?
           </h2>
           
-          <p className="text-xl text-brand-beige/80 mb-12 max-w-xl mx-auto leading-relaxed">
-            Jangan ragu untuk menghubungi kami mengenai pilihan menu, budget, maupun jadwal pengiriman. 
-            Kami siap membantu melengkapi acara Anda.
+          <p className="text-lg md:text-xl text-brand-beige/80 mb-12 max-w-2xl mx-auto leading-relaxed">
+            Jangan ragu untuk menghubungi kami mengenai pilihan menu, budget, maupun jadwal pengiriman. Kami siap membantu melengkapi acara Anda.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
