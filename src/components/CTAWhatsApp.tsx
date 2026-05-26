@@ -4,7 +4,7 @@ import { WHATSAPP_LINK } from '../constants';
 
 export default function CTAWhatsApp() {
   return (
-    <section id="kontak" className="py-24 px-4">
+    <section id="contact-us" className="py-24 px-4">
       <div className="max-w-5xl mx-auto bg-brand-green-leaf rounded-[3rem] p-12 md:p-20 text-center text-white relative overflow-hidden shadow-2xl">
         {/* Decorative Circles */}
         <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
@@ -20,8 +20,10 @@ export default function CTAWhatsApp() {
           <h2 className="text-4xl md:text-6xl font-bold mb-8 leading-tight">
             Siap Menghadirkan Kelezatan di Acara Anda?
           </h2>
-          <p className="text-xl text-brand-beige/80 mb-12 max-w-2xl mx-auto">
-            Jangan ragu untuk menghubungi kami mengenai pilihan menu, budget, maupun jadwal pengiriman. Kami siap membantu melengkapi acara Anda.
+          
+          <p className="text-xl text-brand-beige/80 mb-12 max-w-xl mx-auto leading-relaxed">
+            Jangan ragu untuk menghubungi kami mengenai pilihan menu, budget, maupun jadwal pengiriman. 
+            Kami siap membantu melengkapi acara Anda.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
