@@ -3,6 +3,7 @@ import { Product, Testimonial, FAQItem, Category } from './types';
 export const CATEGORIES: Category[] = [
   { id: 'kue-basah', name: 'Kue Basah', icon: 'Coffee' },
   { id: 'kue-kering', name: 'Kue Kering', icon: 'Cookie' },
+  { id: 'snack', name: 'Snack', icon: 'Croissant' },
   { id: 'snack-box', name: 'Snack Box', icon: 'Package' },
   { id: 'hampers', name: 'Hampers', icon: 'Gift' },
 ];
