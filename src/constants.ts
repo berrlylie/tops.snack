@@ -8,53 +8,62 @@ export const CATEGORIES: Category[] = [
 ];
 
 export const PRODUCTS: Product[] = [
-  // --- KATEGORI: KUE BASAH (Data Aslimu) ---
+  // --- KATEGORI: KUE BASAH ---
   {
-    id: '1',
+    id: 'KB1',
     name: 'Arem-Arem',
     description: 'Nasi dengan isian ayam suwir yang dibungkus daun pisang dengan rasa gurih.',
     category: 'Kue Basah',
-    price: '1.500',
+    price: '2.000',
     isBestSeller: true,
     image: '/aremarem.png',
   },
   {
-    id: '2',
-    name: 'Pastel',
-    description: 'Pastel renyah dengan isian sayur dan telur yang nikmat.',
+    id: 'KB2',
+    name: 'Lemper Ayam',
+    description: 'Lemper dengan isian ayam suwir yang gurih.',
     category: 'Kue Basah',
-    price: '2.000',
-    isBestSeller: true,
-    image: '/pastel.png',
+    price: '2.500',
+    image: '/lemperayam.png',
   },
   {
-    id: '3',
+    id: 'KB3',
     name: 'Bolu Kukus',
     description: 'Bolu kukus lembut dan manis dengan tekstur empuk yang mekar sempurna.',
     category: 'Kue Basah',
-    price: '1.500',
+    price: '2.500',
     isBestSeller: true,
     image: '/bolukukus.png',
   },
   {
-    id: '4',
-    name: 'Risoles Mayo',
-    description: 'Risoles renyah dengan isian telur, smoked beef, dan mayones creamy.',
+    id: 'KB4',
+    name: 'Bolu Pandan Slice',
+    description: 'Bolu pandan yang lembut dan harum.',
     category: 'Kue Basah',
     isBestSeller: true,
-    price: '5.000',
+    price: '2.000',
+    image: '/bolupandan.png',
   },
   {
-    id: '5',
-    name: 'Pastel Isi',
-    description: 'Pastel renyah isi sayuran, telur, dan bihun bumbu lada.',
+    id: 'KB5',
+    name: 'Bolu Zebra Slice',
+    description: 'Bolu zebra klasik yang manis dan lembut.',
     category: 'Kue Basah',
-    price: '4.000',
+    price: '2.000',
+    image: '/boluzebra.png',
+  },
+  {
+    id: 'KB6',
+    name: 'Dadar Gulung',
+    description: 'Dadar gulung dengan isian kelapa gula merah yang manis dan khas.',
+    category: 'Kue Basah',
+    price: '2.000',
+    image: '/dadargulung.png',
   },
   
-  // --- KATEGORI: KUE KERING (Data Dummy) ---
+  // --- KATEGORI: KUE KERING ---
   {
-    id: '6',
+    id: 'KK1',
     name: 'Nastar Premium',
     description: 'Kue nastar lembut dengan selai nanas asli yang lumer di mulut.',
     category: 'Kue Kering',
@@ -62,7 +71,7 @@ export const PRODUCTS: Product[] = [
     isBestSeller: true,
   },
   {
-    id: '7',
+    id: 'KK2',
     name: 'Kastengel Keju',
     description: 'Kue kering gurih dengan taburan keju edam yang renyah.',
     category: 'Kue Kering',
@@ -70,30 +79,50 @@ export const PRODUCTS: Product[] = [
     isBestSeller: true,
   },
   {
-    id: '8',
+    id: 'KK3',
     name: 'Putri Salju',
     description: 'Kue kering tabur gula halus yang manis dan lumer.',
     category: 'Kue Kering',
     price: '40.000',
   },
   {
-    id: '9',
+    id: 'KK4',
     name: 'Sagu Keju',
     description: 'Kue sagu keju renyah yang langsung meleleh saat dimakan.',
     category: 'Kue Kering',
     price: '42.000',
   },
   {
-    id: '10',
+    id: 'KK5',
     name: 'Lidah Kucing',
     description: 'Kue tipis nan renyah dengan rasa manis yang pas.',
     category: 'Kue Kering',
     price: '38.000',
   },
 
-  // --- KATEGORI: SNACK BOX (Data Dummy) ---
+// --- KATEGORI: SNACK ---
   {
-    id: '11',
+    id: 'S1',
+    name: 'Pastel',
+    description: 'Pastel renyah dengan isian sayur dan telur yang nikmat.',
+    category: 'Snack',
+    price: '2.000',
+    isBestSeller: true,
+    image: '/pastel.png',
+  },
+  {
+    id: 'S2',
+    name: 'Risol Mayo',
+    description: 'Risol dengan isian telur dan sosis dan saos mayones yang manis dan gurih.',
+    category: 'Snack',
+    price: '2.500',
+    isBestSeller: true,
+    image: '/risolmayo.png',
+  },
+  
+  // --- KATEGORI: SNACK BOX ---
+  {
+    id: 'SB1',
     name: 'Snack Box Ekonomis',
     description: 'Isi 3 macam kue (Kue Lumpur, Risoles, Putu Ayu) + Air Mineral.',
     category: 'Snack Box',
@@ -101,23 +130,23 @@ export const PRODUCTS: Product[] = [
     isBestSeller: true,
   },
   {
-    id: '12',
+    id: 'SB2',
     name: 'Snack Box Premium',
     description: 'Isi 4 macam kue pilihan + Air Mineral + Buah segar.',
     category: 'Snack Box',
     price: '15.000',
   },
   {
-    id: '13',
+    id: 'SB3',
     name: 'Snack Box Tradisional',
     description: 'Isi Jajanan Pasar autentik (Arem-arem, Dadar Gulung, Pastel).',
     category: 'Snack Box',
     price: '12.000',
   },
 
-  // --- KATEGORI: HAMPERS (Data Dummy) ---
+  // --- KATEGORI: HAMPERS ---
   {
-    id: '14',
+    id: 'H1',
     name: 'Hampers Lebaran Mini',
     description: 'Berisi 2 toples kue kering (Nastar & Kastengel) dengan box cantik.',
     category: 'Hampers',
@@ -125,7 +154,7 @@ export const PRODUCTS: Product[] = [
     isBestSeller: true,
   },
   {
-    id: '15',
+    id: 'H2',
     name: 'Hampers Spesial',
     description: 'Berisi 4 toples kue kering pilihan, kartu ucapan, dan pita eksklusif.',
     category: 'Hampers',
