@@ -211,7 +211,8 @@ export const PRODUCTS: Product[] = [
     isBestSeller: true,
     image: '/hampers.png',
   },
-
+];
+  
 export const TESTIMONIALS: Testimonial[] = [
   {
     id: '1',
