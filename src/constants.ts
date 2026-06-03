@@ -77,6 +77,14 @@ export const PRODUCTS: Product[] = [
     price: '35.000',
     image: '/brownies.png',
   },
+  {
+    id: 'KB9',
+    name: 'Bolu Jadul',
+    description: 'Aneka bolu jadul (tanpa topping) yang lembut dengan diameter 20cm',
+    category: 'Kue Basah',
+    price: '25.000',
+    image: '/bolujadul.png',
+  },
   
   // --- KATEGORI: KUE KERING ---
   {
