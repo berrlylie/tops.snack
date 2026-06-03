@@ -70,13 +70,14 @@ export default function Catalog() {
                         {/* Pojok kanan atas KOSONG tanpa label jenis kue */}
                       </div>
 
-                      {/* Bagian teks menggunakan flex-col & flex-grow agar tombol selalu rapi di bawah */}
-                      <div className="p-4 flex flex-col flex-grow">
-                        <h4 className="font-bold text-brand-brown-dark text-sm mb-1 line-clamp-1">{product.name}</h4>
-                        
-                        <p className="text-xs text-brand-brown-medium/80 mt-1 mb-4 flex-grow">
-                          {product.description}
-                        </p>
+                       {/* Bagian teks menggunakan flex-col & flex-grow agar tombol selalu rapi di bawah */}
+                        <div className="p-4 flex flex-col flex-grow">
+                          <h4 className="font-bold text-brand-brown-dark text-sm mb-1 line-clamp-1">{product.name}</h4>
+                          
+                          {/* Tambahkan whitespace-pre-line di baris bawah ini */}
+                          <p className="text-xs text-brand-brown-medium/80 mt-1 mb-4 flex-grow whitespace-pre-line">
+                            {product.description}
+                          </p>
 
                         <div className="flex justify-between items-center mt-auto pt-2 border-t border-brand-beige/40">
                           <span className="font-bold text-brand-brown-dark text-sm">Rp {product.price}</span>
