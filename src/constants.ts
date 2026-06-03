@@ -43,7 +43,7 @@ export const PRODUCTS: Product[] = [
     price: '2.000',
     image: '/gabinubiungu.png',
   },
-    {
+  {
     id: 'KB5',
     name: 'Bolu Kukus',
     description: 'Bolu kukus lembut dan manis dengan tekstur empuk yang mekar sempurna.',
@@ -54,6 +54,14 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: 'KB6',
+    name: 'Bolu Kukus Pisang',
+    description: 'Bolu kukus pisang yang manis, lembut dan harum.',
+    category: 'Kue Basah',
+    price: '2.500',
+    image: '/bolupisang.png',
+  },
+  {
+    id: 'KB7',
     name: 'Bolu Pandan Slice',
     description: 'Bolu pandan yang lembut dan harum.',
     category: 'Kue Basah',
@@ -62,7 +70,7 @@ export const PRODUCTS: Product[] = [
     image: '/bolupandan.png',
   },
   {
-    id: 'KB7',
+    id: 'KB8',
     name: 'Bolu Zebra Slice',
     description: 'Bolu zebra klasik yang manis dan lembut.',
     category: 'Kue Basah',
@@ -70,7 +78,7 @@ export const PRODUCTS: Product[] = [
     image: '/boluzebra.png',
   },
   {
-    id: 'KB8',
+    id: 'KB9',
     name: 'Brownies Topping Keju',
     description: 'Brownies lembut dengan topping keju yang melimpah.',
     category: 'Kue Basah',
@@ -78,12 +86,28 @@ export const PRODUCTS: Product[] = [
     image: '/brownies.png',
   },
   {
-    id: 'KB9',
+    id: 'KB10',
     name: 'Bolu Jadul',
-    description: 'Aneka bolu jadul (tanpa topping) yang lembut dengan diameter 20cm',
+    description: 'Aneka bolu jadul tanpa topping yang lembut (diameter 20cm)',
     category: 'Kue Basah',
     price: '25.000',
     image: '/bolujadul.png',
+  },
+  {
+    id: 'KB11',
+    name: 'Bolu Jadul Topping Biasa',
+    description: 'Aneka bolu jadul dengan topping messes yang lembut dengan (diameter 20cm)',
+    category: 'Kue Basah',
+    price: '30.000',
+    image: '/topping messes.png',
+  },
+  {
+    id: 'KB12',
+    name: 'Bolu Jadul Topping Keju',
+    description: 'Aneka bolu jadul dengan topping keju yang lembut dengan (diameter 20cm)',
+    category: 'Kue Basah',
+    price: '35.000',
+    image: '/topping messes.png',
   },
   
   // --- KATEGORI: KUE KERING ---
