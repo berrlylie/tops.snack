@@ -193,44 +193,24 @@ export const PRODUCTS: Product[] = [
   // --- KATEGORI: SNACK BOX ---
   {
     id: 'SB1',
-    name: 'Snack Box Ekonomis',
-    description: 'Isi 3 macam kue (Kue Lumpur, Risoles, Putu Ayu) + Air Mineral.',
+    name: 'Snack Box Custom',
+    description: 'Isi 3 macam kue/snack + Air Mineral.\n*Pilihan menu dan harga dapat disesuaikan sepenuhnya dengan kebutuhan Anda.',
     category: 'Snack Box',
-    price: '10.000',
+    price: '8.000',
     isBestSeller: true,
+    image: '/snackbox.png',
   },
-  {
-    id: 'SB2',
-    name: 'Snack Box Premium',
-    description: 'Isi 4 macam kue pilihan + Air Mineral + Buah segar.',
-    category: 'Snack Box',
-    price: '15.000',
-  },
-  {
-    id: 'SB3',
-    name: 'Snack Box Tradisional',
-    description: 'Isi Jajanan Pasar autentik (Arem-arem, Dadar Gulung, Pastel).',
-    category: 'Snack Box',
-    price: '12.000',
-  },
-
+  
   // --- KATEGORI: HAMPERS ---
   {
     id: 'H1',
-    name: 'Hampers Lebaran Mini',
-    description: 'Berisi 2 toples kue kering (Nastar & Kastengel) dengan box cantik.',
+    name: 'Hampers Lebaran',
+    description: 'Berisi 5 toples aneka kue kering pilihan yang siap jadi hantaran spesial untuk keluarga dan kerabat di hari raya.\nuk. 250 gram : 150.000\nuk. 500 gram : 250.000',
     category: 'Hampers',
-    price: '100.000',
+    price: '150.000 - Rp 250.000',
     isBestSeller: true,
+    image: '/hampers.png',
   },
-  {
-    id: 'H2',
-    name: 'Hampers Spesial',
-    description: 'Berisi 4 toples kue kering pilihan, kartu ucapan, dan pita eksklusif.',
-    category: 'Hampers',
-    price: '200.000',
-  }
-];
 
 export const TESTIMONIALS: Testimonial[] = [
   {
