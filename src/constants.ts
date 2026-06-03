@@ -29,6 +29,22 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: 'KB3',
+    name: 'Dadar Gulung',
+    description: 'Dadar gulung dengan isian kelapa gula merah yang manis dan khas.',
+    category: 'Kue Basah',
+    price: '2.000',
+    image: '/dadargulung.png',
+  },
+ {
+    id: 'KB4',
+    name: 'Gabin Fla Ubi Ungu',
+    description: 'Kombinasi biskuit gabin yang renyah dengan isian fla ubi ungu manis yang lembut dan lumer di mulut.',
+    category: 'Kue Basah',
+    price: '2.000',
+    image: '/gabinubiungu.png',
+  },
+    {
+    id: 'KB5',
     name: 'Bolu Kukus',
     description: 'Bolu kukus lembut dan manis dengan tekstur empuk yang mekar sempurna.',
     category: 'Kue Basah',
@@ -37,7 +53,7 @@ export const PRODUCTS: Product[] = [
     image: '/bolukukus.png',
   },
   {
-    id: 'KB4',
+    id: 'KB6',
     name: 'Bolu Pandan Slice',
     description: 'Bolu pandan yang lembut dan harum.',
     category: 'Kue Basah',
@@ -46,7 +62,7 @@ export const PRODUCTS: Product[] = [
     image: '/bolupandan.png',
   },
   {
-    id: 'KB5',
+    id: 'KB7',
     name: 'Bolu Zebra Slice',
     description: 'Bolu zebra klasik yang manis dan lembut.',
     category: 'Kue Basah',
@@ -54,12 +70,12 @@ export const PRODUCTS: Product[] = [
     image: '/boluzebra.png',
   },
   {
-    id: 'KB6',
-    name: 'Dadar Gulung',
-    description: 'Dadar gulung dengan isian kelapa gula merah yang manis dan khas.',
+    id: 'KB8',
+    name: 'Brownies Topping Keju',
+    description: 'Brownies lembut dengan topping keju yang melimpah.',
     category: 'Kue Basah',
-    price: '2.000',
-    image: '/dadargulung.png',
+    price: '35.000',
+    image: '/brownies.png',
   },
   
   // --- KATEGORI: KUE KERING ---
@@ -119,6 +135,22 @@ export const PRODUCTS: Product[] = [
     price: '2.500',
     isBestSeller: true,
     image: '/risolmayo.png',
+  },
+  {
+    id: 'S3',
+    name: 'Sosis Solo',
+    description: 'Sosis solo goreng dengan isian ayam suwir gurih.',
+    category: 'Snack',
+    price: '2.000',
+    image: '/sosissolo.png',
+  },
+  {
+    id: 'S4',
+    name: 'Aneka Dimsum',
+    description: 'Aneka Dimsum yang lembut dan gurih, bisa beli satuan atau paket isi 4 dengan harga 10.000.',
+    category: 'Snack',
+    price: '2.500',
+    image: '/dimsum.png',
   },
   
   // --- KATEGORI: SNACK BOX ---
