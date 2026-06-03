@@ -24,8 +24,27 @@ export default function About() {
     <section id="about-us" className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          
           <motion.div
             initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="relative"
+          >
+            <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-xl">
+              <img
+                src="https://picsum.photos/seed/kitchen/800/1000"
+                alt="Proses Pembuatan Snack"
+                className="w-full h-full object-cover"
+                referrerPolicy="no-referrer"
+              />
+            </div>
+            <div className="absolute -bottom-8 -left-8 w-48 h-48 bg-brand-gold/20 rounded-full -z-10"></div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 30 }} // Animasi masuk dari kanan
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
@@ -55,23 +74,6 @@ export default function About() {
             </div>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="relative"
-          >
-            <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-xl">
-              <img
-                src="https://picsum.photos/seed/kitchen/800/1000"
-                alt="Proses Pembuatan Snack"
-                className="w-full h-full object-cover"
-                referrerPolicy="no-referrer"
-              />
-            </div>
-            <div className="absolute -bottom-8 -right-8 w-48 h-48 bg-brand-gold/20 rounded-full -z-10"></div>
-          </motion.div>
         </div>
       </div>
     </section>
