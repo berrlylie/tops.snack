@@ -113,11 +113,12 @@ export const PRODUCTS: Product[] = [
   // --- KATEGORI: KUE KERING ---
   {
     id: 'KK1',
-    name: 'Nastar Premium',
-    description: 'Kue nastar lembut dengan selai nanas asli yang lumer di mulut.',
+    name: 'Nastar',
+    description: 'Kue nastar yang lembut dengan isian selai nanas yang manis dan lumer di mulut.\nuk. 250 gram : 35.000\nuk. 500 gram : 70.000',
     category: 'Kue Kering',
-    price: '45.000',
+    price: '35.000 - 70.000',
     isBestSeller: true,
+     image: '/nastar.png',
   },
   {
     id: 'KK2',
