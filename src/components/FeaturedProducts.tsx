@@ -61,10 +61,11 @@ export default function FeaturedProducts() {
 
               <div className="p-6">
                 <h4 className="text-xl font-bold text-brand-brown-dark mb-2">{product.name}</h4>
-                <p className="text-sm text-brand-brown-medium mb-6 line-clamp-2">
+                {/* --- PERUBAHAN ADA DI SINI: line-clamp-2 dihapus, diganti whitespace-pre-line --- */}
+                <p className="text-sm text-brand-brown-medium mb-6 whitespace-pre-line">
                   {product.description}
                 </p>
-                <div className="flex justify-between items-center">
+                <div className="flex justify-between items-center mt-auto">
                   <div>
                     <span className="text-xs text-brand-brown-medium block">Mulai dari</span>
                     <span className="text-lg font-bold text-brand-brown-dark">Rp {product.price}</span>
