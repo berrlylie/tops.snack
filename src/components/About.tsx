@@ -34,8 +34,8 @@ export default function About() {
           >
             <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-xl">
               <img
-                src="https://picsum.photos/seed/kitchen/800/1000"
-                alt="Proses Pembuatan Snack"
+                src="/aboutus.png"
+                alt="Tentang Tops Snack"
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"
               />
@@ -44,7 +44,7 @@ export default function About() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 30 }} // Animasi masuk dari kanan
+            initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
