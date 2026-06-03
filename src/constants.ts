@@ -107,7 +107,7 @@ export const PRODUCTS: Product[] = [
     description: 'Aneka bolu jadul dengan topping keju yang lembut dengan (diameter 20cm)',
     category: 'Kue Basah',
     price: '35.000',
-    image: '/topping messes.png',
+    image: '/toppingkeju.png',
   },
   
   // --- KATEGORI: KUE KERING ---
