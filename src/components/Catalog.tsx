@@ -10,25 +10,23 @@ export default function Catalog({ currentPath }: { currentPath: string }) {
 
   const getCategoryDescription = (categoryName: string) => {
     switch (categoryName) {
-      case 'Kue Basah': 
+      case 'Kue Basah':
         return 'Pilihan kue basah yang selalu dibuat fresh dan tanpa pengawet.';
-      case 'Kue Kering': 
+      case 'Kue Kering':
         return 'Pilihan jajanan pasar terfavorit yang paling banyak dipesan oleh pelanggan kami.';
-      case 'Snack': 
+      case 'Snack':
         return 'Berbagai pilihan snack manis dan asin yang cocok dinikmati di segala suasana.';
-      case 'Snack Box': 
+      case 'Snack Box':
         return 'Paket praktis berbagai varian rasa untuk menemani setiap acara spesial Anda.';
-      case 'Hampers': 
+      case 'Hampers':
         return 'Bingkisan cantik nan exclusif, cocok untuk dibagikan kepada orang terkasih.';
-      default: 
+      default:
         return 'Pilihan produk terbaik dan berkualitas dari Tops Snack.';
     }
   };
 
   const activeId = currentPath.replace('#', '');
 
-  // Jika masuk lewat tautan '#katalog' umum, tampilkan semua kategori.
-  // Tapi jika masuk lewat ID spesifik (seperti '#kue-basah'), saring hanya kategori tersebut!
   const displayedCategories = CATEGORIES.filter((category) => {
     if (!activeId || activeId === 'katalog') return true;
     return category.id === activeId;
@@ -36,17 +34,26 @@ export default function Catalog({ currentPath }: { currentPath: string }) {
 
   return (
     <div id="katalog" className="scroll-mt-24">
-      {/* MAP DIUBAH MENGGUNAKAN KATEGORI YANG SUDAH DISARING (displayedCategories) */}
       {displayedCategories.map((category, index) => {
-        const categoryProducts = PRODUCTS.filter(p => p.category === category.name);
-        const bgColor = index % 2 === 0 ? 'bg-brand-beige/20' : 'bg-white';
+        const categoryProducts = PRODUCTS.filter(
+          (p) => p.category === category.name
+        );
+
+        const bgColor =
+          index % 2 === 0 ? 'bg-brand-beige/20' : 'bg-white';
 
         return (
-          <section id={category.id} key={category.id} className={`py-16 ${bgColor} scroll-mt-24`}>
+          <section
+            id={category.id}
+            key={category.id}
+            className={`py-16 ${bgColor} scroll-mt-24`}
+          >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              
               <div className="mb-10 text-center">
-                <h2 className="text-3xl font-bold text-brand-brown-dark mb-3">{category.name}</h2>
+                <h2 className="text-3xl font-bold text-brand-brown-dark mb-3">
+                  {category.name}
+                </h2>
+
                 <p className="text-brand-brown-medium text-lg max-w-2xl mx-auto">
                   {getCategoryDescription(category.name)}
                 </p>
@@ -60,16 +67,22 @@ export default function Catalog({ currentPath }: { currentPath: string }) {
                       initial={{ opacity: 0, scale: 0.9 }}
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
-                      transition={{ duration: 0.3, delay: pIndex * 0.05 }}
+                      transition={{
+                        duration: 0.3,
+                        delay: pIndex * 0.05,
+                      }}
                       className="bg-white rounded-2xl overflow-hidden border border-brand-beige hover:border-brand-green-leaf/30 transition-all duration-300 group shadow-sm hover:shadow-md flex flex-col"
                     >
                       <div className="relative aspect-square overflow-hidden bg-brand-beige/30 p-2 rounded-t-2xl">
                         <img
-                          src={(product as any).image || `https://picsum.photos/seed/${product.name}/600/600`}
+                          src={
+                            (product as any).image ||
+                            `https://picsum.photos/seed/${product.name}/600/600`
+                          }
                           alt={product.name}
                           className="w-full h-full object-cover rounded-xl group-hover:scale-105 transition-transform duration-500"
                         />
-                        
+
                         {product.isBestSeller && (
                           <div className="absolute top-4 left-4 bg-brand-gold text-white px-2 py-0.5 rounded-full text-[10px] font-bold flex items-center gap-1 shadow-lg">
                             <Star size={10} fill="currentColor" />
@@ -79,16 +92,40 @@ export default function Catalog({ currentPath }: { currentPath: string }) {
                       </div>
 
                       <div className="p-4 flex flex-col flex-grow">
-                        <h4 className="font-bold text-brand-brown-dark text-sm mb-1 line-clamp-1">{product.name}</h4>
-                        
+                        <h4 className="font-bold text-brand-brown-dark text-sm mb-1 line-clamp-1">
+                          {product.name}
+                        </h4>
+
                         <p className="text-xs text-brand-brown-medium/80 mt-1 mb-4 flex-grow whitespace-pre-line">
                           {product.description}
                         </p>
 
                         <div className="flex justify-between items-center mt-auto pt-2 border-t border-brand-beige/40">
-                          <span className="font-bold text-brand-brown-dark text-sm">Rp {product.price}</span>
+                          <div>
+                            {(product.name === 'Bolu Jadul' ||
+                              product.name === 'Nastar' ||
+                              product.name === 'Kastengel' ||
+                              product.name === 'Putri Salju' ||
+                              product.name === 'Kue Kacang' ||
+                              product.name === 'Bola-Bola Cokeat' ||
+                              product.name === 'Sagu Keju' ||
+                              product.name === 'Hampers Lebara' ||
+                              product.name === 'Snack Box Custom') && (
+                              <span className="text-[10px] text-brand-brown-medium block">
+                                Mulai dari
+                              </span>
+                            )}
+
+                            <span className="font-bold text-brand-brown-dark text-sm">
+                              Rp {product.price}
+                            </span>
+                          </div>
+
                           <a
-                            href={getProductWhatsAppLink(product.name, product.price)}
+                            href={getProductWhatsAppLink(
+                              product.name,
+                              product.price
+                            )}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="bg-brand-green-leaf/10 text-brand-green-leaf p-2 rounded-lg hover:bg-brand-green-leaf hover:text-white transition-colors duration-300"
