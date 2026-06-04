@@ -31,13 +31,9 @@ export default function Catalog() {
         const categoryProducts = PRODUCTS.filter(p => p.category === category.name);
         const bgColor = index % 2 === 0 ? 'bg-brand-beige/20' : 'bg-white';
 
-        // --- TRIK YANG SAMA DITERAPKAN DI SINI ---
-        // Menghilangkan spasi dan membuat huruf kecil agar cocok dengan tombol kategori
-        const sectionId = category.name.toLowerCase().replace(/\s+/g, '-');
-
         return (
-          // --- id={sectionId} DITAMBAHKAN DI SINI ---
-          <section id={sectionId} key={category.id} className={`py-16 ${bgColor} scroll-mt-24`}>
+          // --- DI SINI JUGA LANGSUNG DIKAWINKAN DENGAN id={category.id} DAN SCROLL-MT-24 ---
+          <section id={category.id} key={category.id} className={`py-16 ${bgColor} scroll-mt-24`}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               
               <div className="mb-10 text-center">
@@ -73,12 +69,12 @@ export default function Catalog() {
                         )}
                       </div>
 
-                        <div className="p-4 flex flex-col flex-grow">
-                          <h4 className="font-bold text-brand-brown-dark text-sm mb-1 line-clamp-1">{product.name}</h4>
-                          
-                          <p className="text-xs text-brand-brown-medium/80 mt-1 mb-4 flex-grow whitespace-pre-line">
-                            {product.description}
-                          </p>
+                      <div className="p-4 flex flex-col flex-grow">
+                        <h4 className="font-bold text-brand-brown-dark text-sm mb-1 line-clamp-1">{product.name}</h4>
+                        
+                        <p className="text-xs text-brand-brown-medium/80 mt-1 mb-4 flex-grow whitespace-pre-line">
+                          {product.description}
+                        </p>
 
                         <div className="flex justify-between items-center mt-auto pt-2 border-t border-brand-beige/40">
                           <span className="font-bold text-brand-brown-dark text-sm">Rp {product.price}</span>
