@@ -29,7 +29,7 @@ export default function Categories() {
 
               <a
                 key={category.id}
-                href={`#${category.id}`} // <--- INI BERUBAH AGAR SESUAI NAMA KATEGORI
+                href={`#${category.id}`}
                 className="block"
               >
                 <motion.div
