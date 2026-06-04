@@ -22,7 +22,6 @@ export default function Categories() {
           <h3 className="text-4xl font-bold text-brand-brown-dark">Pilihan Menu Kami</h3>
         </div>
 
-        {/* lg:grid-cols-5 agar muat 5 sejajar */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
           {filteredCategories.map((category, index) => {
             const Icon = iconMap[category.icon];
@@ -30,7 +29,7 @@ export default function Categories() {
 
               <a
                 key={category.id}
-                href="#katalog"
+                href={`#${category.id}`} // <--- INI BERUBAH AGAR SESUAI NAMA KATEGORI
                 className="block"
               >
                 <motion.div
