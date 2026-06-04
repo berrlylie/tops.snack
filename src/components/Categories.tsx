@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 import { Coffee, Cookie, Croissant, Package, Gift } from 'lucide-react';
-import { CATEGORIES, WHATSAPP_NUMBER } from '../constants';
+import { CATEGORIES } from '../constants'; 
 
 const iconMap: Record<string, any> = {
   Coffee,
@@ -11,15 +11,9 @@ const iconMap: Record<string, any> = {
 };
 
 export default function Categories() {
-  const getCategoryWhatsAppLink = (categoryName: string) => {
-    const message = `Halo Tops Snack, saya tertarik untuk memesan produk dalam kategori *${categoryName}*. Boleh tahu daftar menu lengkapnya?`;
-    return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-  };
-
   const filteredCategories = CATEGORIES.filter(
     (category) => !category.name.toLowerCase().includes('acara')
   );
-  {/* ---------------------------------------------------------------------- */}
 
   return (
     <section className="py-24 bg-brand-beige">
@@ -33,11 +27,10 @@ export default function Categories() {
           {filteredCategories.map((category, index) => {
             const Icon = iconMap[category.icon];
             return (
+
               <a
                 key={category.id}
-                href={getCategoryWhatsAppLink(category.name)}
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#menu" 
                 className="block"
               >
                 <motion.div
@@ -56,8 +49,9 @@ export default function Categories() {
                     )}
                   </div>
                   <h4 className="font-bold text-brand-brown-dark text-lg">{category.name}</h4>
+                  
                   <span className="text-[11px] text-brand-green-leaf mt-2 font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    Pesan {category.name}
+                    Lihat Menu {category.name}
                   </span>
                 </motion.div>
               </a>
