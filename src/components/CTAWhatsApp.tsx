@@ -39,7 +39,7 @@ export default function CTAWhatsApp() {
           </div>
           
           <p className="mt-8 text-sm text-brand-beige/60">
-            Respon cepat di jam operasional: 07.00 - 18.00 WIB
+            Respon cepat di jam operasional: 09.00 - 17.00 WIB
           </p>
         </motion.div>
       </div>
