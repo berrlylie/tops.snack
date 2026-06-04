@@ -31,9 +31,13 @@ export default function Catalog() {
         const categoryProducts = PRODUCTS.filter(p => p.category === category.name);
         const bgColor = index % 2 === 0 ? 'bg-brand-beige/20' : 'bg-white';
 
-        return (
+        // --- TRIK YANG SAMA DITERAPKAN DI SINI ---
+        // Menghilangkan spasi dan membuat huruf kecil agar cocok dengan tombol kategori
+        const sectionId = category.name.toLowerCase().replace(/\s+/g, '-');
 
-          <section id={category.id} key={category.id} className={`py-16 ${bgColor} scroll-mt-24`}>
+        return (
+          // --- id={sectionId} DITAMBAHKAN DI SINI ---
+          <section id={sectionId} key={category.id} className={`py-16 ${bgColor} scroll-mt-24`}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               
               <div className="mb-10 text-center">
@@ -61,20 +65,17 @@ export default function Catalog() {
                           className="w-full h-full object-cover rounded-xl group-hover:scale-105 transition-transform duration-500"
                         />
                         
-                        {/* Label Best Seller di pojok kiri atas foto */}
                         {product.isBestSeller && (
                           <div className="absolute top-4 left-4 bg-brand-gold text-white px-2 py-0.5 rounded-full text-[10px] font-bold flex items-center gap-1 shadow-lg">
                             <Star size={10} fill="currentColor" />
                             Best Seller
                           </div>
                         )}
-
                       </div>
 
                         <div className="p-4 flex flex-col flex-grow">
                           <h4 className="font-bold text-brand-brown-dark text-sm mb-1 line-clamp-1">{product.name}</h4>
                           
-                          {/* Tambahkan whitespace-pre-line di baris bawah ini */}
                           <p className="text-xs text-brand-brown-medium/80 mt-1 mb-4 flex-grow whitespace-pre-line">
                             {product.description}
                           </p>
