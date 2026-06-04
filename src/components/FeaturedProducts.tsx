@@ -77,17 +77,19 @@ export default function FeaturedProducts() {
                   {product.name}
                 </h4>
 
-                <p className="text-sm text-brand-brown-medium whitespace-pre-line min-h-[80px]">
+                {/* BARU: tinggi deskripsi dibuat sama */}
+                <p className="text-sm text-brand-brown-medium whitespace-pre-line min-h-[90px]">
                   {product.description}
                 </p>
 
                 <div className="flex justify-between items-end mt-auto pt-4">
-                  <div>
+                  
+                  <div className="shrink-0">
                     <span className="text-xs text-brand-brown-medium block">
                       Mulai dari
                     </span>
-
-                    <span className="text-lg font-bold text-brand-brown-dark">
+                    
+                    <span className="text-base font-bold text-brand-brown-dark whitespace-nowrap">
                       Rp {product.price}
                     </span>
                   </div>
@@ -102,7 +104,9 @@ export default function FeaturedProducts() {
                     className="bg-brand-green-leaf text-white p-3 rounded-2xl hover:bg-brand-brown-dark transition-colors duration-300 shadow-md flex items-center gap-1"
                     title={`Pesan ${product.name}`}
                   >
-                    <span className="text-xs font-semibold px-1">Pesan</span>
+                    <span className="text-xs font-semibold px-1">
+                      Pesan
+                    </span>
                     <ShoppingCart size={18} />
                   </a>
                 </div>
