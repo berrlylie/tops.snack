@@ -77,18 +77,16 @@ export default function FeaturedProducts() {
                   {product.name}
                 </h4>
 
-                {/* BARU: tinggi deskripsi dibuat sama */}
                 <p className="text-sm text-brand-brown-medium whitespace-pre-line min-h-[90px]">
                   {product.description}
                 </p>
 
-                <div className="flex justify-between items-end mt-auto pt-4">
-                  
+                <div className="flex justify-between items-end gap-4 mt-auto pt-4">
                   <div className="shrink-0">
                     <span className="text-xs text-brand-brown-medium block">
                       Mulai dari
                     </span>
-                    
+
                     <span className="text-base font-bold text-brand-brown-dark whitespace-nowrap">
                       Rp {product.price}
                     </span>
@@ -101,7 +99,7 @@ export default function FeaturedProducts() {
                     )}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-brand-green-leaf text-white p-3 rounded-2xl hover:bg-brand-brown-dark transition-colors duration-300 shadow-md flex items-center gap-1"
+                    className="bg-brand-green-leaf text-white px-3 py-2 rounded-2xl hover:bg-brand-brown-dark transition-colors duration-300 shadow-md flex items-center gap-1"
                     title={`Pesan ${product.name}`}
                   >
                     <span className="text-xs font-semibold px-1">
