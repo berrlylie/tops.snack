@@ -11,7 +11,7 @@ import Location from './components/Location';
 import FAQ from './components/FAQ';
 import CTAWhatsApp from './components/CTAWhatsApp';
 import Footer from './components/Footer';
-import Catalog from './components/Catalog'; // <-- Ini memanggil halaman baru kita
+import Catalog from './components/Catalog'; 
 
 export default function App() {
   const [currentPath, setCurrentPath] = useState(window.location.hash);
@@ -22,8 +22,11 @@ export default function App() {
     return () => window.removeEventListener('hashchange', onHashChange);
   }, []);
 
-  // JIKA SEDANG DI HALAMAN KATALOG
-  if (currentPath === '#katalog') {
+  const catalogPages = ['#katalog', '#kue-basah', '#kue-kering', '#snack', '#snack-box', '#hampers'];
+  const isCatalogPage = catalogPages.includes(currentPath);
+
+  // JIKA ALAMATNYA COCOK DENGAN SALAH SATU DI ATAS, BUKA KATALOG
+  if (isCatalogPage) {
     return (
       <div className="min-h-screen">
         <Navbar />
@@ -35,7 +38,6 @@ export default function App() {
     );
   }
 
-  // JIKA SEDANG DI HALAMAN UTAMA
   return (
     <div className="min-h-screen">
       <Navbar />
