@@ -2,7 +2,7 @@ import { motion } from 'motion/react';
 import { ShoppingCart, Star } from 'lucide-react';
 import { PRODUCTS, CATEGORIES, WHATSAPP_NUMBER } from '../constants';
 
-export default function Catalog() {
+export default function Catalog({ currentPath }: { currentPath: string }) {
   const getProductWhatsAppLink = (productName: string, price: string) => {
     const message = `Halo Tops Snack! Saya tertarik mau pesan *${productName}*. Apakah bisa pesan untuk dikirim tanggal...?`;
     return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
@@ -25,14 +25,23 @@ export default function Catalog() {
     }
   };
 
+  const activeId = currentPath.replace('#', '');
+
+  // Jika masuk lewat tautan '#katalog' umum, tampilkan semua kategori.
+  // Tapi jika masuk lewat ID spesifik (seperti '#kue-basah'), saring hanya kategori tersebut!
+  const displayedCategories = CATEGORIES.filter((category) => {
+    if (!activeId || activeId === 'katalog') return true;
+    return category.id === activeId;
+  });
+
   return (
     <div id="katalog" className="scroll-mt-24">
-      {CATEGORIES.map((category, index) => {
+      {/* MAP DIUBAH MENGGUNAKAN KATEGORI YANG SUDAH DISARING (displayedCategories) */}
+      {displayedCategories.map((category, index) => {
         const categoryProducts = PRODUCTS.filter(p => p.category === category.name);
         const bgColor = index % 2 === 0 ? 'bg-brand-beige/20' : 'bg-white';
 
         return (
-          // --- DI SINI JUGA LANGSUNG DIKAWINKAN DENGAN id={category.id} DAN SCROLL-MT-24 ---
           <section id={category.id} key={category.id} className={`py-16 ${bgColor} scroll-mt-24`}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               
