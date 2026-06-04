@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Quote } from 'lucide-react';
+import { Quote, UserCircle } from 'lucide-react'; // <-- Aku tambahkan UserCircle di sini
 import { TESTIMONIALS } from '../constants';
 
 export default function Testimonials() {
@@ -28,14 +28,10 @@ export default function Testimonials() {
               </div>
               
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-14 h-14 rounded-full bg-brand-beige overflow-hidden">
-                  <img
-                    src={`https://i.pravatar.cc/150?u=${testimonial.id}`}
-                    alt={testimonial.name}
-                    className="w-full h-full object-cover"
-                    referrerPolicy="no-referrer"
-                  />
-                </div>
+                
+                <UserCircle className="w-14 h-14 text-gray-400" strokeWidth={1} />
+                {/* -------------------------------------------------- */}
+
                 <div>
                   <h4 className="font-bold text-brand-brown-dark">{testimonial.name}</h4>
                   <p className="text-xs text-brand-green-leaf font-semibold uppercase tracking-wider">{testimonial.role}</p>
