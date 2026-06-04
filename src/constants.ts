@@ -230,7 +230,7 @@ export const FAQS: FAQItem[] = [
   {
     id: '1',
     question: 'Minimal order berapa?',
-    answer: 'Untuk kue satuan minimal order 20 pcs per jenis. Untuk Snack Box minimal order 15 box.',
+    answer: 'Untuk kue satuan minimal order 15 pcs per jenis. Untuk Snack Box minimal order 10 box.',
   },
   {
     id: '2',
