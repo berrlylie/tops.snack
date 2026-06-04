@@ -88,26 +88,10 @@ export const PRODUCTS: Product[] = [
   {
     id: 'KB10',
     name: 'Bolu Jadul',
-    description: 'Aneka bolu jadul tanpa topping yang lembut (diameter 20cm)',
+    description: 'Aneka bolu jadul dengan berbagai pilihan topping yang lembut (diameter 20cm).\nuk. Tanpa Topping : 25.000\nuk. Topping Messes 30.000\nuk.Topping Keju : 35.000',
     category: 'Kue Basah',
-    price: '25.000',
+    price: '25.000 - Rp 35.000',
     image: '/bolujadul.png',
-  },
-  {
-    id: 'KB11',
-    name: 'Bolu Jadul Topping Biasa',
-    description: 'Aneka bolu jadul dengan topping messes yang lembut dengan (diameter 20cm)',
-    category: 'Kue Basah',
-    price: '30.000',
-    image: '/topping messes.png',
-  },
-  {
-    id: 'KB12',
-    name: 'Bolu Jadul Topping Keju',
-    description: 'Aneka bolu jadul dengan topping keju yang lembut dengan (diameter 20cm)',
-    category: 'Kue Basah',
-    price: '35.000',
-    image: '/toppingkeju.png',
   },
   
   // --- KATEGORI: KUE KERING ---
@@ -156,7 +140,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'KK6',
     name: 'Sagu Keju',
-    description: 'Kue sagu keju lembut yang lumer di mulut, memadukan rasa manis dan gurihnya keju di setiap gigitan..\nuk. 250 gram : 30.000\nuk. 500 gram : 60.000',
+    description: 'Kue sagu keju lembut yang lumer di mulut, memadukan rasa manis dan gurihnya keju di setiap gigitan.\nuk. 250 gram : 30.000\nuk. 500 gram : 60.000',
     category: 'Kue Kering',
     price: '30.000 - Rp 60.000',
     image: '/sagukeju.png',
