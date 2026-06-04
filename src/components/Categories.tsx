@@ -25,11 +25,14 @@ export default function Categories() {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
           {filteredCategories.map((category, index) => {
             const Icon = iconMap[category.icon];
-            return (
+            
+            // Trik menghilangkan spasi agar ID aman
+            const targetId = category.name.toLowerCase().replace(/\s+/g, '-');
 
+            return (
               <a
                 key={category.id}
-                href={`#${category.id}`}
+                href={`#${targetId}`}
                 className="block"
               >
                 <motion.div
