@@ -30,7 +30,7 @@ export default function Categories() {
 
               <a
                 key={category.id}
-                href="#menu" 
+                href="#katalog"
                 className="block"
               >
                 <motion.div
