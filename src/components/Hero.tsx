@@ -27,8 +27,9 @@ export default function Hero() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
+
               <a
-                href="#produk"
+                href="#katalog"
                 className="inline-flex items-center justify-center bg-brand-brown-dark text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-brand-brown-medium transition-all duration-300 shadow-lg group"
               >
                 Lihat Produk
