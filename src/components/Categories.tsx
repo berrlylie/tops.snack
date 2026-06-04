@@ -15,6 +15,14 @@ export default function Categories() {
     (category) => !category.name.toLowerCase().includes('acara')
   );
 
+  const scrollToCategory = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault(); // Mencegah website nge-blank atau bingung
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
     <section className="py-24 bg-brand-beige">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -26,10 +34,10 @@ export default function Categories() {
           {filteredCategories.map((category, index) => {
             const Icon = iconMap[category.icon];
             return (
-              // --- LANGSUNG MENGGUNAKAN category.id ASLI ---
               <a
                 key={category.id}
                 href={`#${category.id}`}
+                onClick={(e) => scrollToCategory(e, category.id)} // <-- MESIN SCROLL DIPASANG DI TOMBOL INI
                 className="block"
               >
                 <motion.div
