@@ -153,6 +153,14 @@ export const PRODUCTS: Product[] = [
     price: '30.000 - Rp 60.000',
     image: '/bolacoklat.png',
   },
+  {
+    id: 'KK6',
+    name: 'Sagu Keju',
+    description: 'Kue sagu keju lembut yang lumer di mulut, memadukan rasa manis dan gurihnya keju di setiap gigitan..\nuk. 250 gram : 30.000\nuk. 500 gram : 60.000',
+    category: 'Kue Kering',
+    price: '30.000 - Rp 60.000',
+    image: '/sagukeju.png',
+  },
 
 // --- KATEGORI: SNACK ---
   {
