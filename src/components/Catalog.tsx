@@ -32,7 +32,8 @@ export default function Catalog() {
         const bgColor = index % 2 === 0 ? 'bg-brand-beige/20' : 'bg-white';
 
         return (
-          <section key={category.id} className={`py-16 ${bgColor}`}>
+
+          <section id={category.id} key={category.id} className={`py-16 ${bgColor} scroll-mt-24`}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               
               <div className="mb-10 text-center">
@@ -67,10 +68,9 @@ export default function Catalog() {
                             Best Seller
                           </div>
                         )}
-                        {/* Pojok kanan atas KOSONG tanpa label jenis kue */}
+
                       </div>
 
-                       {/* Bagian teks menggunakan flex-col & flex-grow agar tombol selalu rapi di bawah */}
                         <div className="p-4 flex flex-col flex-grow">
                           <h4 className="font-bold text-brand-brown-dark text-sm mb-1 line-clamp-1">{product.name}</h4>
                           
