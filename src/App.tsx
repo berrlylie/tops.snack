@@ -25,13 +25,13 @@ export default function App() {
   const catalogPages = ['#katalog', '#kue-basah', '#kue-kering', '#snack', '#snack-box', '#hampers'];
   const isCatalogPage = catalogPages.includes(currentPath);
 
-  // JIKA ALAMATNYA COCOK DENGAN SALAH SATU DI ATAS, BUKA KATALOG
   if (isCatalogPage) {
     return (
       <div className="min-h-screen">
         <Navbar />
         <main className="pt-24">
-          <Catalog />
+
+          <Catalog currentPath={currentPath} />
         </main>
         <Footer />
       </div>
