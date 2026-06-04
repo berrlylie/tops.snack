@@ -109,7 +109,7 @@ export default function Catalog({ currentPath }: { currentPath: string }) {
                               product.name === 'Kue Kacang' ||
                               product.name === 'Bola-Bola Cokeat' ||
                               product.name === 'Sagu Keju' ||
-                              product.name === 'Hampers Lebara' ||
+                              product.name === 'Hampers Lebaran' ||
                               product.name === 'Snack Box Custom') && (
                               <span className="text-[10px] text-brand-brown-medium block">
                                 Mulai dari
