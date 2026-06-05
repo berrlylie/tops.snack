@@ -5,8 +5,8 @@ import os
 app = Flask(__name__)
 
 def get_db_connection():
-    # Mengambil "kunci" database POSTGRES_URL dari Vercel
-    conn = psycopg2.connect(os.environ['POSTGRES_URL'])
+    # Mengambil "kunci" database POSTGRES_DATABASE_URL dari Vercel
+    conn = psycopg2.connect(os.environ['POSTGRES_DATABASE_URL'])
     return conn
 
 # Jalur untuk mengambil data (nanti dipakai pembeli dan admin)
@@ -23,7 +23,15 @@ def get_produk():
         # Merapikan data agar mudah dibaca website
         hasil = []
         for p in produk:
-            hasil.append({"id": p[0], "nama": p[1], "harga": p[2], "gambar": p[3]})
+            hasil.append({
+                "id": p[0], 
+                "nama": p[1], 
+                "harga": p[2], 
+                "gambar": p[3],
+                "kategori": p[4],
+                "deskripsi": p[5],
+                "is_best_seller": p[6]
+            })
             
         return jsonify(hasil)
     except Exception as e:
