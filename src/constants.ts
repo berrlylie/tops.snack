@@ -208,21 +208,21 @@ export const PRODUCTS: Product[] = [
 export const TESTIMONIALS: Testimonial[] = [
   {
     id: '1',
-    name: 'Sari Wahyuni',
+    name: 'Diarty',
     role: 'Ibu Rumah Tangga',
-    content: 'Snack box-nya rapi banget dan rasanya bener-bener autentik. Tamu arisan saya semua suka!',
+    content: 'Jajanan pasar di Tops Snack enak-enak dan selalu fresh. Rasanya enak dan harganya juga terjangkau. Pelayanannya ramah dan cepat. Cocok untuk camilan acara maupun konsumsi sehari-hari.',
   },
   {
     id: '2',
-    name: 'Budi Santoso',
-    role: 'HR Manager',
-    content: 'Sangat terpercaya untuk pesanan rapat kantor. Pengiriman tepat waktu dan kemasan sangat higienis.',
+    name: 'Dira Dina',
+    role: 'Mahasiswa',
+    content: 'Pelayanan bagus, admin fast response, dan pilihan snack sangat variatif. Cocok buat arisan, ulang tahun, maupun meeting kantor.',
   },
   {
     id: '3',
-    name: 'Linda Kusuma',
+    name: 'Dodo Ino',
     role: 'Event Organizer',
-    content: 'Hampers-nya cantik dan premium. Cocok banget buat kado klien atau keluarga saat hari raya.',
+    content: 'Recommended banget buat yang cari jajanan pasar berkualitas. Pilihannya banyak, rasanya enak, dan kebersihannya terjaga.',
   },
 ];
 
