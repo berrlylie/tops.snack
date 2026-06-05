@@ -9,7 +9,7 @@ def get_db_connection():
     conn = psycopg2.connect(os.environ['POSTGRES_DATABASE_URL'])
     return conn
 
-# Jalur untuk mengambil data (nanti dipakai pembeli dan admin)
+# Jalur untuk mengambil data
 @app.route('/api', methods=['GET'])
 def get_produk():
     try:
@@ -20,7 +20,6 @@ def get_produk():
         cur.close()
         conn.close()
         
-        # Merapikan data agar mudah dibaca website
         hasil = []
         for p in produk:
             hasil.append({
@@ -32,7 +31,24 @@ def get_produk():
                 "deskripsi": p[5],
                 "is_best_seller": p[6]
             })
-            
         return jsonify(hasil)
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+# --- TAMBAHKAN KODE INI DI BAWAHNYA ---
+@app.route('/api/admin', methods=['POST'])
+def tambah_produk():
+    try:
+        data = request.json
+        conn = get_db_connection()
+        cur = conn.cursor()
+        cur.execute(
+            'INSERT INTO produk (nama, harga, gambar, kategori, deskripsi, is_best_seller) VALUES (%s, %s, %s, %s, %s, %s)',
+            (data['nama'], data['harga'], data['gambar'], data['kategori'], data['deskripsi'], data['is_best_seller'])
+        )
+        conn.commit()
+        cur.close()
+        conn.close()
+        return jsonify({"status": "sukses"}), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 500
