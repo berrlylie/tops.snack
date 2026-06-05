@@ -5,11 +5,10 @@ import os
 app = Flask(__name__)
 
 def get_db_connection():
-    # Mengambil "kunci" database POSTGRES_DATABASE_URL dari Vercel
+    # Menggunakan kunci yang tepat sesuai Vercel
     conn = psycopg2.connect(os.environ['POSTGRES_DATABASE_URL'])
     return conn
 
-# Jalur untuk mengambil data
 @app.route('/api', methods=['GET'])
 def get_produk():
     try:
@@ -35,7 +34,6 @@ def get_produk():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-# --- TAMBAHKAN KODE INI DI BAWAHNYA ---
 @app.route('/api/admin', methods=['POST'])
 def tambah_produk():
     try:
