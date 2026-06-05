@@ -1,11 +1,24 @@
+import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { ShoppingCart, Star } from 'lucide-react';
 import { PRODUCTS, CATEGORIES, WHATSAPP_NUMBER } from '../constants';
 
 export default function Catalog({ currentPath }: { currentPath: string }) {
+  const [dbProducts, setDbProducts] = useState<any[]>([]);
+
+  useEffect(() => {
+    fetch('/api')
+      .then((res) => res.json())
+      .then((data) => setDbProducts(data))
+      .catch((err) => console.error('Error:', err));
+  }, []);
+
   const getProductWhatsAppLink = (productName: string, price: string) => {
     const message = `Halo Tops Snack! Saya tertarik mau pesan *${productName}*. Apakah bisa pesan untuk dikirim tanggal...?`;
-    return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+
+    return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+      message
+    )}`;
   };
 
   const getCategoryDescription = (categoryName: string) => {
@@ -35,9 +48,18 @@ export default function Catalog({ currentPath }: { currentPath: string }) {
   return (
     <div id="katalog" className="scroll-mt-24">
       {displayedCategories.map((category, index) => {
-        const categoryProducts = PRODUCTS.filter(
-          (p) => p.category === category.name
-        );
+        const categoryProducts = [
+          ...PRODUCTS.filter((p) => p.category === category.name),
+          ...dbProducts.filter((p: any) => p.kategori === category.name),
+        ].map((p: any) => ({
+          id: p.id || p.id_produk,
+          name: p.name || p.nama,
+          description: p.description || p.deskripsi,
+          price: p.price || p.harga,
+          image: p.image || p.gambar,
+          isBestSeller: p.isBestSeller || false,
+          category: p.category || p.kategori,
+        }));
 
         const bgColor =
           index % 2 === 0 ? 'bg-brand-beige/20' : 'bg-white';
@@ -76,7 +98,7 @@ export default function Catalog({ currentPath }: { currentPath: string }) {
                       <div className="relative aspect-square overflow-hidden bg-brand-beige/30 p-2 rounded-t-2xl">
                         <img
                           src={
-                            (product as any).image ||
+                            product.image ||
                             `https://picsum.photos/seed/${product.name}/600/600`
                           }
                           alt={product.name}
