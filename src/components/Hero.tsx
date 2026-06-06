@@ -12,15 +12,15 @@ export default function Hero() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         
-        {/* Menggunakan gap-8 agar elemen kiri dan kanan lebih merapat ke tengah */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        {/* GUNAKAN FLEX DENGAN JUSTIFY-BETWEEN AGAR KONTEN MENEMPEL DI TENGAH */}
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
           
-          {/* Teks - Diberi col-span-6 agar lebih fokus & tidak terlalu lebar */}
+          {/* Teks - Diberi max-w-xl agar tidak melar */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-6"
+            className="w-full lg:max-w-xl"
           >
             <span className="inline-block px-4 py-1 rounded-full bg-brand-green-leaf/10 text-brand-green-leaf text-xs font-bold tracking-widest uppercase mb-4">
               Jajanan Pasar Premium
@@ -30,7 +30,7 @@ export default function Hero() {
               Nikmati Jajanan <span className="text-brand-green-leaf">Tradisional</span> untuk Setiap Momen
             </h1>
             
-            <p className="text-base md:text-lg text-brand-brown-medium mb-8 leading-relaxed max-w-lg">
+            <p className="text-base md:text-lg text-brand-brown-medium mb-8 leading-relaxed">
               Tops Snack hadir dengan aneka jajanan pasar dengan cita rasa yang autentik, kualitas terjaga, dan dibuat fresh setiap harinya. Cocok untuk berbagai kebutuhan, mulai dari acara keluarga hingga hampers spesial.
             </p>
 
@@ -63,14 +63,14 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* Gambar - Diberi col-span-5 dan digeser dengan col-start-8 agar lebih rapat ke tengah */}
+          {/* Gambar - Dibuat flex-shrink-0 agar tidak ikut melar */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="lg:col-span-5 lg:col-start-8 relative flex justify-center"
+            className="relative flex-shrink-0 w-full lg:w-[400px]"
           >
-            <div className="aspect-square rounded-3xl overflow-hidden shadow-xl border-4 border-white w-full max-w-md">
+            <div className="aspect-square rounded-3xl overflow-hidden shadow-xl border-4 border-white w-full">
               <img
                 src="/homepict.png"
                 alt="Jajanan Pasar Tradisional"
