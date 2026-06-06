@@ -1,46 +1,35 @@
-import { useState, useEffect, useMemo } from 'react';
 import { motion } from 'motion/react';
 import { ShoppingCart, Star } from 'lucide-react';
 import { PRODUCTS, CATEGORIES, WHATSAPP_NUMBER } from '../constants';
 
 export default function Catalog({ currentPath }: { currentPath: string }) {
-  const [dbProducts, setDbProducts] = useState<any[]>([]);
-
-  useEffect(() => {
-    fetch('/api')
-      .then((res) => res.json())
-      .then((data) => setDbProducts(Array.isArray(data) ? data : []))
-      .catch((err) => console.error('Error:', err));
-  }, []);
-
-  const allProducts = useMemo(() => {
-    return [...PRODUCTS, ...dbProducts].map((p: any) => ({
-      id: p.id || p.id_produk,
-      name: p.name || p.nama,
-      description: p.description || p.deskripsi,
-      price: p.price || p.harga,
-      image: p.image || p.gambar,
-      isBestSeller: !!p.isBestSeller,
-      category: p.category || p.kategori,
-      hasStartingPrice: p.hasStartingPrice || false 
-    }));
-  }, [dbProducts]);
-
-  const activeId = currentPath?.replace('#', '') || '';
-
-  const displayedCategories = useMemo(() => {
-    return CATEGORIES.filter((cat) => !activeId || activeId === 'katalog' || cat.id === activeId);
-  }, [activeId]);
-
-  const getProductWhatsAppLink = (productName: string) => {
+  const getProductWhatsAppLink = (productName: string, price: string) => {
     const message = `Halo Tops Snack! Saya tertarik mau pesan *${productName}*. Apakah bisa pesan untuk dikirim tanggal...?`;
     return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
   };
 
+  const getCategoryDescription = (categoryName: string) => {
+    switch (categoryName) {
+      case 'Kue Basah': return 'Pilihan kue basah yang selalu dibuat fresh dan tanpa pengawet.';
+      case 'Kue Kering': return 'Pilihan jajanan pasar terfavorit yang paling banyak dipesan oleh pelanggan kami.';
+      case 'Snack': return 'Berbagai pilihan snack manis dan asin yang cocok dinikmati di segala suasana.';
+      case 'Snack Box': return 'Paket praktis berbagai varian rasa untuk menemani setiap acara spesial Anda.';
+      case 'Hampers': return 'Bingkisan cantik nan exclusif, cocok untuk dibagikan kepada orang terkasih.';
+      default: return 'Pilihan produk terbaik dan berkualitas dari Tops Snack.';
+    }
+  };
+
+  const activeId = currentPath.replace('#', '');
+
+  const displayedCategories = CATEGORIES.filter((category) => {
+    if (!activeId || activeId === 'katalog') return true;
+    return category.id === activeId;
+  });
+
   return (
     <div id="katalog" className="scroll-mt-24">
       {displayedCategories.map((category, index) => {
-        const categoryProducts = allProducts.filter((p) => p.category === category.name);
+        const categoryProducts = PRODUCTS.filter((p) => p.category === category.name);
         const bgColor = index % 2 === 0 ? 'bg-brand-beige/20' : 'bg-white';
 
         return (
@@ -48,10 +37,11 @@ export default function Catalog({ currentPath }: { currentPath: string }) {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="mb-10 text-center">
                 <h2 className="text-3xl font-bold text-brand-brown-dark mb-3">{category.name}</h2>
+                <p className="text-brand-brown-medium text-lg max-w-2xl mx-auto">{getCategoryDescription(category.name)}</p>
               </div>
 
-              {/* Grid: 2 kolom HP, 3 tablet, 4 laptop, 5 desktop */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-6 w-full">
+              {/* Grid Responsif: 2 kolom di HP, 3 di tablet, 4 di laptop, 5 di desktop */}
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-6">
                 {categoryProducts.length > 0 ? (
                   categoryProducts.map((product, pIndex) => (
                     <motion.div
@@ -60,44 +50,39 @@ export default function Catalog({ currentPath }: { currentPath: string }) {
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.3, delay: pIndex * 0.05 }}
-                      className="w-full"
+                      className="w-full bg-white rounded-2xl overflow-hidden border border-brand-beige hover:border-brand-green-leaf/30 transition-all duration-300 group shadow-sm hover:shadow-md flex flex-col"
                     >
-                      <div className="w-full bg-white rounded-2xl overflow-hidden border border-brand-beige hover:border-brand-green-leaf/30 transition-all group flex flex-col h-full shadow-sm">
-                        
-                        {/* Gambar Produk */}
-                        <div className="relative aspect-square overflow-hidden bg-brand-beige/30 p-1 sm:p-2 rounded-t-2xl">
-                          <img
-                            src={product.image || `https://picsum.photos/seed/${product.name}/600/600`}
-                            alt={product.name}
-                            className="w-full h-full object-cover rounded-xl group-hover:scale-105 transition-transform duration-500"
-                          />
-                          {product.isBestSeller && (
-                            <div className="absolute top-2 left-2 bg-brand-gold text-white px-1.5 py-0.5 rounded-full text-[9px] sm:text-[10px] font-bold flex items-center gap-0.5 shadow-md">
-                              <Star size={9} fill="currentColor" /> Best
-                            </div>
-                          )}
-                        </div>
-
-                        {/* Detail Produk */}
-                        <div className="p-2 sm:p-3 flex flex-col flex-grow">
-                          <h4 className="font-bold text-brand-brown-dark text-xs sm:text-sm mb-1 line-clamp-1">{product.name}</h4>
-                          <p className="text-[10px] sm:text-xs text-brand-brown-medium/80 mb-3 flex-grow line-clamp-2">
-                            {product.description}
-                          </p>
-
-                          <div className="flex justify-between items-center mt-auto pt-2 border-t border-brand-beige/40">
-                            <span className="font-bold text-brand-brown-dark text-xs sm:text-sm truncate mr-1">
-                              Rp {product.price}
-                            </span>
-                            <a
-                              href={getProductWhatsAppLink(product.name)}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="bg-brand-green-leaf/10 text-brand-green-leaf p-1.5 sm:p-2 rounded-lg hover:bg-brand-green-leaf hover:text-white transition-colors"
-                            >
-                              <ShoppingCart size={14} />
-                            </a>
+                      <div className="relative aspect-square overflow-hidden bg-brand-beige/30 p-1.5 sm:p-2 rounded-t-2xl">
+                        <img
+                          src={(product as any).image || `https://picsum.photos/seed/${product.name}/600/600`}
+                          alt={product.name}
+                          className="w-full h-full object-cover rounded-xl group-hover:scale-105 transition-transform duration-500"
+                        />
+                        {product.isBestSeller && (
+                          <div className="absolute top-2 left-2 sm:top-4 sm:left-4 bg-brand-gold text-white px-1.5 sm:px-2 py-0.5 rounded-full text-[9px] sm:text-[10px] font-bold flex items-center gap-1 shadow-lg">
+                            <Star size={9} sm:size={10} fill="currentColor" /> Best Seller
                           </div>
+                        )}
+                      </div>
+
+                      <div className="p-2 sm:p-4 flex flex-col flex-grow">
+                        <h4 className="font-bold text-brand-brown-dark text-xs sm:text-sm mb-1 line-clamp-1">{product.name}</h4>
+                        <p className="text-[10px] sm:text-xs text-brand-brown-medium/80 mb-3 flex-grow line-clamp-2">
+                          {product.description}
+                        </p>
+
+                        <div className="flex justify-between items-center mt-auto pt-2 border-t border-brand-beige/40">
+                          <span className="font-bold text-brand-brown-dark text-xs sm:text-sm">
+                            Rp {product.price}
+                          </span>
+                          <a
+                            href={getProductWhatsAppLink(product.name, product.price)}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="bg-brand-green-leaf/10 text-brand-green-leaf p-1.5 sm:p-2 rounded-lg hover:bg-brand-green-leaf hover:text-white transition-colors duration-300"
+                          >
+                            <ShoppingCart size={14} sm:size={16} />
+                          </a>
                         </div>
                       </div>
                     </motion.div>
