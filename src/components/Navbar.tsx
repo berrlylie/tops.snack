@@ -7,9 +7,7 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -23,31 +21,29 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed w-full z-50 top-4 px-4 sm:px-6 lg:px-8 transition-all duration-300">
-      
-      <div 
-        className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-6 transition-all duration-300 rounded-full ${
-          isScrolled ? 'bg-brand-beige/95 backdrop-blur-md shadow-lg py-2' : 'bg-brand-beige/90 shadow-md py-2'
-        }`}
-      >
+    // top-4 tetap ada untuk memberikan jarak dari tepi atas layar
+    <nav className="fixed w-full z-50 top-2 px-4 transition-all duration-300">
+      <div className={`max-w-7xl mx-auto px-4 transition-all duration-300 rounded-full bg-brand-beige/95 backdrop-blur-md shadow-sm border border-brand-brown-dark/5 ${isScrolled ? 'py-1.5' : 'py-2'}`}>
         <div className="flex justify-between items-center">
           
+          {/* Logo - Dikecilkan sedikit agar navbar tidak terlihat gemuk */}
           <div className="flex-shrink-0">
-            <a href="#home" className="flex items-center hover:opacity-90 transition-opacity">
+            <a href="#home" className="flex items-center">
               <img 
                 src="/Logotopssnack.png"
                 alt="Logo Tops Snack" 
-                className="h-12 md:h-14 w-auto object-contain transition-all duration-300"
+                className="h-9 md:h-10 w-auto object-contain"
               />
             </a>
           </div>
 
-          <div className="hidden md:flex items-center space-x-6">
+          {/* Desktop Nav */}
+          <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-brand-brown-dark hover:text-brand-green-leaf font-medium transition-colors duration-200"
+                className="text-sm text-brand-brown-dark hover:text-brand-green-leaf font-semibold transition-colors"
               >
                 {link.name}
               </a>
@@ -56,46 +52,39 @@ export default function Navbar() {
               href={WHATSAPP_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-brand-green-leaf text-white px-5 py-2 rounded-full font-semibold hover:bg-brand-green-soft transition-all duration-200 shadow-sm flex items-center gap-2"
+              className="bg-brand-green-leaf text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-brand-green-soft transition-all shadow-sm flex items-center gap-2"
             >
-              <ShoppingBag size={18} />
+              <ShoppingBag size={16} />
               Pesan Sekarang
             </a>
           </div>
 
-          <div className="md:hidden flex items-center">
+          {/* Mobile Toggle */}
+          <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-brand-brown-dark hover:text-brand-green-leaf p-2"
+              className="text-brand-brown-dark p-2"
             >
-              {isOpen ? <X size={26} /> : <Menu size={26} />}
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
         </div>
       </div>
 
+      {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden max-w-7xl mx-auto mt-2 bg-brand-beige/95 backdrop-blur-md shadow-lg rounded-2xl overflow-hidden">
-          <div className="px-4 pt-4 pb-6 space-y-2">
+        <div className="md:hidden mt-2 mx-4 bg-brand-beige/95 backdrop-blur-md shadow-xl rounded-2xl p-4 border border-brand-brown-dark/5">
+          <div className="space-y-2">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="block px-3 py-3 text-brand-brown-dark hover:text-brand-green-leaf hover:bg-white/50 rounded-xl font-medium transition-colors"
+                className="block px-4 py-3 text-brand-brown-dark hover:bg-brand-green-leaf/10 rounded-xl font-medium transition-colors"
               >
                 {link.name}
               </a>
             ))}
-            <a
-              href={WHATSAPP_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex justify-center items-center gap-2 w-full text-center bg-brand-green-leaf text-white px-6 py-3 rounded-xl font-semibold mt-6 shadow-sm"
-            >
-              <ShoppingBag size={18} />
-              Pesan Sekarang
-            </a>
           </div>
         </div>
       )}
