@@ -3,7 +3,6 @@ import { ShoppingCart, Star } from 'lucide-react';
 import { PRODUCTS, CATEGORIES, WHATSAPP_NUMBER } from '../constants';
 
 export default function Catalog({ currentPath }: { currentPath: string }) {
-  // Daftar produk yang menggunakan label "Mulai dari"
   const productsWithStartingPrice = [
     'Nastar', 'Kastengel', 'Putri Salju', 'Kue Kacang', 
     'Bola-Bola Cokelat', 'Sagu Keju', 'Bolu Jadul', 
@@ -47,8 +46,8 @@ export default function Catalog({ currentPath }: { currentPath: string }) {
                 <p className="text-brand-brown-medium text-lg max-w-2xl mx-auto">{getCategoryDescription(category.name)}</p>
               </div>
 
-              {/* Grid Responsif: 2 kolom HP sampai 5 kolom Desktop */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-6">
+              {/* Flexbox agar produk selalu di tengah (justify-center) */}
+              <div className="flex flex-wrap justify-center gap-3 md:gap-6">
                 {categoryProducts.length > 0 ? (
                   categoryProducts.map((product, pIndex) => (
                     <motion.div
@@ -57,7 +56,8 @@ export default function Catalog({ currentPath }: { currentPath: string }) {
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.3, delay: pIndex * 0.05 }}
-                      className="w-full bg-white rounded-2xl overflow-hidden border border-brand-beige hover:border-brand-green-leaf/30 transition-all duration-300 group shadow-sm hover:shadow-md flex flex-col"
+                      // Mengatur lebar agar proporsional untuk 2 s/d 5 kolom
+                      className="w-[46%] sm:w-[30%] md:w-[22%] lg:w-[18%] bg-white rounded-2xl overflow-hidden border border-brand-beige hover:border-brand-green-leaf/30 transition-all duration-300 group shadow-sm hover:shadow-md flex flex-col"
                     >
                       {/* Gambar Produk */}
                       <div className="relative aspect-square overflow-hidden bg-brand-beige/30 p-1.5 sm:p-2 rounded-t-2xl">
@@ -76,7 +76,6 @@ export default function Catalog({ currentPath }: { currentPath: string }) {
                       {/* Detail Produk */}
                       <div className="p-2 sm:p-4 flex flex-col flex-grow">
                         <h4 className="font-bold text-brand-brown-dark text-xs sm:text-sm mb-1 line-clamp-1">{product.name}</h4>
-                        {/* whitespace-pre-line membuat \n di data deskripsi menjadi baris baru */}
                         <p className="text-[10px] sm:text-xs text-brand-brown-medium/80 mb-3 flex-grow whitespace-pre-line">
                           {product.description}
                         </p>
@@ -106,7 +105,7 @@ export default function Catalog({ currentPath }: { currentPath: string }) {
                     </motion.div>
                   ))
                 ) : (
-                  <div className="col-span-full text-center py-8 text-brand-brown-medium/60 italic">
+                  <div className="w-full text-center py-8 text-brand-brown-medium/60 italic">
                     Belum ada produk di kategori ini.
                   </div>
                 )}
