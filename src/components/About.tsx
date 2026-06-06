@@ -24,17 +24,19 @@ export default function About() {
     <section id="about-us" className="py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
-          {/* Image Side */}
+          {/* Image Side - Dibuat lebih lebar dengan menghapus max-w-sm */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="lg:col-span-5 relative"
+            // Gambar sekarang mengisi ruang kolom yang tersedia
+            className="lg:col-span-5 relative w-full"
           >
-            <div className="aspect-[4/5] rounded-3xl shadow-lg p-3 bg-[#5D4037] border-4 border-[#3E2723] max-w-sm mx-auto lg:mx-0">
+            {/* Hapus max-w-sm agar gambar bisa melebar secara alami */}
+            <div className="aspect-[4/5] rounded-3xl shadow-xl p-3 bg-[#5D4037] border-4 border-[#3E2723] w-full">
               <div className="w-full h-full rounded-2xl overflow-hidden">
                 <img
                   src="/ownerbaru.PNG"
@@ -59,12 +61,10 @@ export default function About() {
               Cita Rasa Tradisional Yang Selalu Jadi Favorite
             </h3>
             
-            {/* Paragraf 1: Sesuai gambar lampiran */}
             <p className="text-base md:text-lg text-brand-brown-medium mb-6 leading-relaxed">
               Kami percaya bahwa setiap hidangan bukan hanya sekadar makanan, tetapi juga bagian dari momen berharga yang dapat menciptakan kebahagiaan, kehangatan, dan kebersamaan. Mulai dari acara keluarga, rapat kantor, syukuran, ulang tahun, hingga hadiah spesial untuk orang terdekat, kami siap membantu melengkapi setiap momen dengan sajian yang lezat dan berkesan.
             </p>
             
-            {/* Paragraf 2: Sesuai gambar lampiran */}
             <p className="text-base md:text-lg text-brand-brown-medium mb-10 leading-relaxed">
               Dengan mengutamakan kualitas bahan, kebersihan proses produksi, dan kesegaran produk, kami berkomitmen untuk memberikan yang terbaik bagi setiap pelanggan. Kepuasan pelanggan menjadi prioritas kami, sehingga setiap pesanan dipersiapkan dengan perhatian dan ketelitian agar menghadirkan rasa, kualitas, dan pelayanan yang dapat selalu diandalkan.
             </p>
