@@ -12,10 +12,10 @@ export default function Hero() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         
-        {/* GUNAKAN FLEX DENGAN JUSTIFY-BETWEEN AGAR KONTEN MENEMPEL DI TENGAH */}
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
+        {/* Gap dikurangi menjadi 8 agar teks dan gambar lebih merapat */}
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-16">
           
-          {/* Teks - Diberi max-w-xl agar tidak melar */}
+          {/* Left Content (Teks) */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
@@ -63,14 +63,14 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* Gambar - Dibuat flex-shrink-0 agar tidak ikut melar */}
+          {/* Right Content (Gambar) - Ukuran ditingkatkan ke 450px */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative flex-shrink-0 w-full lg:w-[400px]"
+            className="relative flex-shrink-0 w-full lg:w-[450px]"
           >
-            <div className="aspect-square rounded-3xl overflow-hidden shadow-xl border-4 border-white w-full">
+            <div className="aspect-square rounded-3xl overflow-hidden shadow-2xl border-4 border-white w-full">
               <img
                 src="/homepict.png"
                 alt="Jajanan Pasar Tradisional"
@@ -79,20 +79,21 @@ export default function Hero() {
               />
             </div>
             
+            {/* Floating Card - Dibuat sedikit lebih besar dan menonjol */}
             <motion.div
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute bottom-4 -left-4 md:-left-6 bg-white p-4 rounded-2xl shadow-lg border border-brand-beige max-w-[160px]"
+              className="absolute bottom-6 -left-6 md:-left-8 bg-white p-5 rounded-2xl shadow-xl border border-brand-beige max-w-[180px]"
             >
-              <div className="flex items-center gap-2 mb-1">
-                <div className="w-8 h-8 bg-brand-gold rounded-full flex items-center justify-center text-white font-bold text-xs">
+              <div className="flex items-center gap-2 mb-2">
+                <div className="w-10 h-10 bg-brand-gold rounded-full flex items-center justify-center text-white font-bold text-sm">
                   5+
                 </div>
-                <div className="text-[10px] font-bold text-brand-brown-dark leading-tight">
+                <div className="text-xs font-bold text-brand-brown-dark leading-tight">
                   Tahun Pengalaman
                 </div>
               </div>
-              <p className="text-[9px] text-brand-brown-medium">Konsisten sajikan kualitas.</p>
+              <p className="text-[10px] text-brand-brown-medium font-medium">Konsisten sajikan kualitas.</p>
             </motion.div>
           </motion.div>
         </div>
