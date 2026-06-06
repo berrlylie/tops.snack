@@ -6,15 +6,15 @@ import { PRODUCTS, WHATSAPP_NUMBER } from '../constants';
 export default function FeaturedProducts() {
   const [dbProducts, setDbProducts] = useState<any[]>([]);
 
-  // 1. Ambil data dari database
+  // 1. Mengambil data dari endpoint /api
   useEffect(() => {
-    fetch('/api') // Gunakan '/api' agar sama dengan yang sudah berhasil di katalog
+    fetch('/api')
       .then((res) => res.json())
       .then((data) => setDbProducts(Array.isArray(data) ? data : []))
-      .catch((err) => console.error('Error:', err));
+      .catch((err) => console.error('Error memuat database:', err));
   }, []);
 
-  // 2. Gabungkan data agar 'Best Seller' dari DB terdeteksi
+  // 2. Menggabungkan data statis (constants) dan dinamis (database)
   const allProducts = useMemo(() => {
     const formattedDbProducts = dbProducts.map((p: any) => ({
       id: p.id,
@@ -28,11 +28,11 @@ export default function FeaturedProducts() {
     return [...PRODUCTS, ...formattedDbProducts];
   }, [dbProducts]);
 
-  // 3. Filter berdasarkan isBestSeller: true
-  const bestSellerProducts = allProducts.filter((product) => product.isBestSeller === true).slice(0, 8);
+  // 3. Filter produk yang Best Seller
+  const bestSellerProducts = allProducts.filter((p) => p.isBestSeller === true);
 
   const getProductWhatsAppLink = (productName: string, price: string) => {
-    const message = `Halo Tops Snack, saya ingin memesan *${productName}* (Mulai dari Rp ${price}). Bagaimana cara pemesanannya?`;
+    const message = `Halo Tops Snack, saya ingin memesan *${productName}*. Bagaimana cara pemesanannya?`;
     return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
   };
 
@@ -74,7 +74,9 @@ export default function FeaturedProducts() {
 
               <div className="p-3 md:p-6 flex flex-col flex-1">
                 <h4 className="text-sm md:text-xl font-bold text-brand-brown-dark mb-1 md:mb-2 line-clamp-1">{product.name}</h4>
-                <p className="text-[10px] md:text-sm text-brand-brown-medium whitespace-pre-line mb-3 md:mb-4 flex-grow line-clamp-2">
+                
+                {/* Deskripsi tidak lagi dipotong (line-clamp dihapus) */}
+                <p className="text-[10px] md:text-sm text-brand-brown-medium whitespace-pre-line mb-3 md:mb-4 flex-grow">
                   {product.description}
                 </p>
 
