@@ -81,7 +81,7 @@ export default function Catalog({ currentPath }: { currentPath: string }) {
                 </p>
               </div>
 
-              <div className="flex flex-wrap justify-center gap-6">
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 w-full">
                 {categoryProducts.length > 0 ? (
                   categoryProducts.map((product, pIndex) => (
                     <motion.div
@@ -93,8 +93,7 @@ export default function Catalog({ currentPath }: { currentPath: string }) {
                         duration: 0.3,
                         delay: pIndex * 0.05,
                       }}
-                      className="w-[220px] bg-white rounded-2xl overflow-hidden border border-brand-beige hover:border-brand-green-leaf/30 transition-all duration-300 group shadow-sm hover:shadow-md flex flex-col"
-                    >
+                      <div className="w-full bg-white rounded-2xl overflow-hidden border border-brand-beige hover:border-brand-green-leaf/30 transition-all">
                       <div className="relative aspect-square overflow-hidden bg-brand-beige/30 p-2 rounded-t-2xl">
                         <img
                           src={
