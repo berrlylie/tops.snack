@@ -21,7 +21,8 @@ export default function Admin() {
       });
       if (res.ok) {
         alert('Produk berhasil ditambah!');
-        // Opsional: Reset form setelah berhasil
+        // Reset form setelah berhasil
+        setProduk({ nama: '', harga: '', deskripsi: '', gambar: '', kategori: 'Snack', is_best_seller: false });
       } else {
         alert('Gagal menambah produk.');
       }
@@ -51,55 +52,76 @@ export default function Admin() {
   }
 
   return (
-    <div className="p-10 max-w-xl mx-auto">
-      <h1 className="text-2xl font-bold mb-5">Admin Panel</h1>
+    <div className="p-10 max-w-4xl mx-auto">
+      <h1 className="text-2xl font-bold mb-8">Admin Panel</h1>
       
-      <input 
-        type="text" 
-        placeholder="Nama Produk" 
-        onChange={(e) => setProduk({...produk, nama: e.target.value})} 
-        className="border p-2 w-full mb-3" 
-      />
-      
-      <input 
-        type="text" 
-        placeholder="Harga" 
-        onChange={(e) => setProduk({...produk, harga: e.target.value})} 
-        className="border p-2 w-full mb-3" 
-      />
-      
-      <textarea 
-        placeholder="Deskripsi" 
-        onChange={(e) => setProduk({...produk, deskripsi: e.target.value})} 
-        className="border p-2 w-full mb-3" 
-      />
-      
-      <input 
-        type="text" 
-        placeholder="Link Gambar" 
-        onChange={(e) => setProduk({...produk, gambar: e.target.value})} 
-        className="border p-2 w-full mb-3" 
-      />
+      {/* Layout Grid 2 Kolom untuk Desktop, 1 Kolom untuk HP */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+        
+        <div className="flex flex-col gap-2">
+          <label className="font-semibold text-sm">Nama Produk</label>
+          <input 
+            type="text" 
+            autoComplete="off"
+            value={produk.nama}
+            onChange={(e) => setProduk({...produk, nama: e.target.value})} 
+            className="border p-2 rounded w-full" 
+          />
+        </div>
 
-      <select 
-        className="border p-2 w-full mb-3"
-        onChange={(e) => setProduk({...produk, kategori: e.target.value})}
-        value={produk.kategori}
-      >
-        <option value="Kue Basah">Kue Basah</option>
-        <option value="Kue Kering">Kue Kering</option>
-        <option value="Snack">Snack</option>
-        <option value="Snack Box">Snack Box</option>
-        <option value="Hampers">Hampers</option>
-      </select>
+        <div className="flex flex-col gap-2">
+          <label className="font-semibold text-sm">Harga</label>
+          <input 
+            type="text" 
+            value={produk.harga}
+            onChange={(e) => setProduk({...produk, harga: e.target.value})} 
+            className="border p-2 rounded w-full" 
+          />
+        </div>
 
-      <label className="flex items-center mb-5 gap-2 cursor-pointer">
+        <div className="flex flex-col gap-2 md:col-span-2">
+          <label className="font-semibold text-sm">Deskripsi</label>
+          <textarea 
+            value={produk.deskripsi}
+            onChange={(e) => setProduk({...produk, deskripsi: e.target.value})} 
+            className="border p-2 rounded w-full h-24" 
+          />
+        </div>
+
+        <div className="flex flex-col gap-2">
+          <label className="font-semibold text-sm">Link Gambar</label>
+          <input 
+            type="text" 
+            value={produk.gambar}
+            onChange={(e) => setProduk({...produk, gambar: e.target.value})} 
+            className="border p-2 rounded w-full" 
+          />
+        </div>
+
+        <div className="flex flex-col gap-2">
+          <label className="font-semibold text-sm">Kategori</label>
+          <select 
+            className="border p-2 rounded w-full"
+            onChange={(e) => setProduk({...produk, kategori: e.target.value})}
+            value={produk.kategori}
+          >
+            <option value="Kue Basah">Kue Basah</option>
+            <option value="Kue Kering">Kue Kering</option>
+            <option value="Snack">Snack</option>
+            <option value="Snack Box">Snack Box</option>
+            <option value="Hampers">Hampers</option>
+          </select>
+        </div>
+      </div>
+
+      <label className="flex items-center my-8 gap-2 cursor-pointer">
         <input 
           type="checkbox" 
           checked={produk.is_best_seller}
           onChange={(e) => setProduk({...produk, is_best_seller: e.target.checked})}
+          className="w-5 h-5"
         />
-        <span>Jadikan Best Seller</span>
+        <span className="font-semibold">Jadikan Best Seller</span>
       </label>
 
       <button 
