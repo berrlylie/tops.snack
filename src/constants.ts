@@ -65,7 +65,6 @@ export const PRODUCTS: Product[] = [
     name: 'Bolu Pandan Slice',
     description: 'Bolu pandan yang lembut dan harum.',
     category: 'Kue Basah',
-    isBestSeller: true,
     price: '2.000',
     image: '/bolupandan.png',
   },
