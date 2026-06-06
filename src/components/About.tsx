@@ -32,13 +32,16 @@ export default function About() {
             transition={{ duration: 0.8 }}
             className="relative"
           >
-            <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-xl">
-              <img
-                src="/ownerbaru.PNG"
-                alt="Tentang Tops Snack"
-                className="w-full h-full object-cover"
-                referrerPolicy="no-referrer"
-              />
+            {/* FRAME COKELAT */}
+            <div className="aspect-[4/5] rounded-3xl shadow-xl p-3 bg-[#5D4037] border-4 border-[#3E2723]">
+              <div className="w-full h-full rounded-2xl overflow-hidden">
+                <img
+                  src="/ownerbaru.PNG"
+                  alt="Tentang Tops Snack"
+                  className="w-full h-full object-cover"
+                  referrerPolicy="no-referrer"
+                />
+              </div>
             </div>
             <div className="absolute -bottom-8 -left-8 w-48 h-48 bg-brand-gold/20 rounded-full -z-10"></div>
           </motion.div>
