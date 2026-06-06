@@ -50,8 +50,8 @@ export default function Catalog({ currentPath }: { currentPath: string }) {
                 <h2 className="text-3xl font-bold text-brand-brown-dark mb-3">{category.name}</h2>
               </div>
 
-              {/* Grid Responsif: 2 kolom di HP, 3 di tablet, 4 di desktop */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+              {/* Grid: 2 kolom HP, 3 tablet, 4 laptop, 5 desktop */}
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-6 w-full">
                 {categoryProducts.length > 0 ? (
                   categoryProducts.map((product, pIndex) => (
                     <motion.div
@@ -62,44 +62,40 @@ export default function Catalog({ currentPath }: { currentPath: string }) {
                       transition={{ duration: 0.3, delay: pIndex * 0.05 }}
                       className="w-full"
                     >
-                      <div className="w-full bg-white rounded-2xl overflow-hidden border border-brand-beige hover:border-brand-green-leaf/30 transition-all group flex flex-col h-full">
+                      <div className="w-full bg-white rounded-2xl overflow-hidden border border-brand-beige hover:border-brand-green-leaf/30 transition-all group flex flex-col h-full shadow-sm">
                         
-                        {/* Bagian Gambar */}
-                        <div className="relative aspect-square overflow-hidden bg-brand-beige/30 p-2 rounded-t-2xl">
+                        {/* Gambar Produk */}
+                        <div className="relative aspect-square overflow-hidden bg-brand-beige/30 p-1 sm:p-2 rounded-t-2xl">
                           <img
                             src={product.image || `https://picsum.photos/seed/${product.name}/600/600`}
                             alt={product.name}
                             className="w-full h-full object-cover rounded-xl group-hover:scale-105 transition-transform duration-500"
                           />
                           {product.isBestSeller && (
-                            <div className="absolute top-4 left-4 bg-brand-gold text-white px-2 py-0.5 rounded-full text-[10px] font-bold flex items-center gap-1 shadow-lg">
-                              <Star size={10} fill="currentColor" /> Best Seller
+                            <div className="absolute top-2 left-2 bg-brand-gold text-white px-1.5 py-0.5 rounded-full text-[9px] sm:text-[10px] font-bold flex items-center gap-0.5 shadow-md">
+                              <Star size={9} fill="currentColor" /> Best
                             </div>
                           )}
                         </div>
 
                         {/* Detail Produk */}
-                        <div className="p-3 sm:p-4 flex flex-col flex-grow">
-                          <h4 className="font-bold text-brand-brown-dark text-sm mb-1 line-clamp-1">{product.name}</h4>
-                          <p className="text-xs text-brand-brown-medium/80 mt-1 mb-4 flex-grow line-clamp-2">
+                        <div className="p-2 sm:p-3 flex flex-col flex-grow">
+                          <h4 className="font-bold text-brand-brown-dark text-xs sm:text-sm mb-1 line-clamp-1">{product.name}</h4>
+                          <p className="text-[10px] sm:text-xs text-brand-brown-medium/80 mb-3 flex-grow line-clamp-2">
                             {product.description}
                           </p>
 
                           <div className="flex justify-between items-center mt-auto pt-2 border-t border-brand-beige/40">
-                            <div>
-                              {product.hasStartingPrice && (
-                                <span className="text-[10px] text-brand-brown-medium block">Mulai dari</span>
-                              )}
-                              <span className="font-bold text-brand-brown-dark text-sm">Rp {product.price}</span>
-                            </div>
-
+                            <span className="font-bold text-brand-brown-dark text-xs sm:text-sm truncate mr-1">
+                              Rp {product.price}
+                            </span>
                             <a
                               href={getProductWhatsAppLink(product.name)}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="bg-brand-green-leaf/10 text-brand-green-leaf p-2 rounded-lg hover:bg-brand-green-leaf hover:text-white transition-colors duration-300"
+                              className="bg-brand-green-leaf/10 text-brand-green-leaf p-1.5 sm:p-2 rounded-lg hover:bg-brand-green-leaf hover:text-white transition-colors"
                             >
-                              <ShoppingCart size={16} />
+                              <ShoppingCart size={14} />
                             </a>
                           </div>
                         </div>
