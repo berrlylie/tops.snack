@@ -4,7 +4,8 @@ import { WHATSAPP_LINK } from '../constants';
 
 export default function Hero() {
   return (
-    <section id="home" className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+    // pt-10 md:pt-20 membuat jarak lebih proporsional di berbagai ukuran layar
+    <section id="home" className="relative min-h-screen flex items-center pt-10 md:pt-20 overflow-hidden">
       {/* Background Ornaments */}
       <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-brand-green-soft/10 rounded-full blur-3xl -z-10 translate-x-1/2 -translate-y-1/2"></div>
       <div className="absolute bottom-0 left-0 w-1/4 h-1/4 bg-brand-gold/10 rounded-full blur-3xl -z-10 -translate-x-1/2 translate-y-1/2"></div>
@@ -23,11 +24,10 @@ export default function Hero() {
               Nikmati Jajanan <span className="text-brand-green-leaf">Tradisional</span> untuk Setiap Momen
             </h1>
             <p className="text-lg md:text-xl text-brand-brown-medium mb-10 leading-relaxed max-w-lg">
-              Tops Snack hadir dengan aneka jajanan pasar dengan cita rasa yang autentik, kualitas terjaga, dan dibuat fresh setiap harinya. Cocok untuk berbagai kebutuhan, mulai dari acara keluarga, konsumsi kantor, arisan, hingga hampers untuk moment moment spesial lainnya.
+              Tops Snack hadir dengan aneka jajanan pasar dengan cita rasa yang autentik, kualitas terjaga, dan dibuat fresh setiap harinya. Cocok untuk berbagai kebutuhan, mulai dari acara keluarga, konsumsi kantor, arisan, hingga hampers untuk moment-moment spesial lainnya.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
-
               <a
                 href="#katalog"
                 className="inline-flex items-center justify-center bg-brand-brown-dark text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-brand-brown-medium transition-all duration-300 shadow-lg group"
@@ -60,6 +60,7 @@ export default function Hero() {
             </div>
           </motion.div>
 
+          {/* Right Image Content */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -75,7 +76,6 @@ export default function Hero() {
               />
             </div>
             
-            {/* Floating Card */}
             <motion.div
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
