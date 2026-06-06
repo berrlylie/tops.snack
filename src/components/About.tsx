@@ -24,10 +24,9 @@ export default function About() {
     <section id="about-us" className="py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Menggunakan grid-cols-12 untuk kontrol layout yang lebih presisi */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           
-          {/* Image Side - Mengambil 5 kolom */}
+          {/* Image Side */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -48,7 +47,7 @@ export default function About() {
             <div className="absolute -bottom-8 -left-8 w-48 h-48 bg-brand-gold/10 rounded-full -z-10"></div>
           </motion.div>
 
-          {/* Text Side - Mengambil 7 kolom agar lebih rapat ke gambar */}
+          {/* Text Side */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -61,13 +60,13 @@ export default function About() {
             </h3>
             
             <p className="text-base md:text-lg text-brand-brown-medium mb-6 leading-relaxed">
-              Berawal dari kecintaan kami terhadap aneka kue dan camilan tradisional, Tops Snack hadir untuk menghadirkan sajian berkualitas yang dibuat fresh setiap hari. Kami percaya bahwa setiap hidangan bukan hanya sekadar makanan, tetapi juga bagian dari momen berharga yang dapat menciptakan kebahagiaan, kehangatan, dan kebersamaan.
+              Kami percaya bahwa setiap hidangan bukan hanya sekadar makanan, tetapi juga bagian dari momen berharga yang dapat menciptakan kebahagiaan, kehangatan, dan kebersamaan. 
             </p>
             
             <p className="text-base md:text-lg text-brand-brown-medium mb-6 leading-relaxed">
-              Tops Snack menyediakan berbagai pilihan kue basah, kue kering, jajanan pasar, snack box, hampers, serta aneka camilan lainnya yang cocok untuk berbagai kebutuhan. Mulai dari acara keluarga, rapat kantor, syukuran, ulang tahun, hingga hadiah spesial untuk orang terdekat, kami siap membantu melengkapi setiap momen dengan sajian yang lezat dan berkesan.
+              Mulai dari acara keluarga, rapat kantor, syukuran, ulang tahun, hingga hadiah spesial untuk orang terdekat, kami siap membantu melengkapi setiap momen dengan sajian yang lezat dan berkesan.
             </p>
-
+            
             <p className="text-base md:text-lg text-brand-brown-medium mb-10 leading-relaxed">
               Dengan mengutamakan kualitas bahan, kebersihan proses produksi, dan kesegaran produk, kami berkomitmen untuk memberikan yang terbaik bagi setiap pelanggan. Kepuasan pelanggan menjadi prioritas kami, sehingga setiap pesanan dipersiapkan dengan perhatian dan ketelitian agar menghadirkan rasa, kualitas, dan pelayanan yang dapat selalu diandalkan.
             </p>
