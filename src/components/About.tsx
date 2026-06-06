@@ -61,11 +61,15 @@ export default function About() {
             </h3>
             
             <p className="text-base md:text-lg text-brand-brown-medium mb-6 leading-relaxed">
-              Berawal dari kecintaan kami terhadap jajanan pasar, Tops Snack hadir dengan konsep fresh dan praktis. Bagi kami, jajanan tradisional bukan hanya sekadar makanan, tetapi tentang cerita, kenangan, dan kehangatan.
+              Berawal dari kecintaan kami terhadap aneka kue dan camilan tradisional, Tops Snack hadir untuk menghadirkan sajian berkualitas yang dibuat fresh setiap hari. Kami percaya bahwa setiap hidangan bukan hanya sekadar makanan, tetapi juga bagian dari momen berharga yang dapat menciptakan kebahagiaan, kehangatan, dan kebersamaan.
             </p>
             
+            <p className="text-base md:text-lg text-brand-brown-medium mb-6 leading-relaxed">
+              Tops Snack menyediakan berbagai pilihan kue basah, kue kering, jajanan pasar, snack box, hampers, serta aneka camilan lainnya yang cocok untuk berbagai kebutuhan. Mulai dari acara keluarga, rapat kantor, syukuran, ulang tahun, hingga hadiah spesial untuk orang terdekat, kami siap membantu melengkapi setiap momen dengan sajian yang lezat dan berkesan.
+            </p>
+
             <p className="text-base md:text-lg text-brand-brown-medium mb-10 leading-relaxed">
-              Seluruh produk dibuat fresh setiap hari untuk berbagai suasana, mulai dari acara keluarga, meeting kantor, hingga hampers spesial, menjadikan momen terasa lebih lengkap.
+              Dengan mengutamakan kualitas bahan, kebersihan proses produksi, dan kesegaran produk, kami berkomitmen untuk memberikan yang terbaik bagi setiap pelanggan. Kepuasan pelanggan menjadi prioritas kami, sehingga setiap pesanan dipersiapkan dengan perhatian dan ketelitian agar menghadirkan rasa, kualitas, dan pelayanan yang dapat selalu diandalkan.
             </p>
 
             {/* Features Grid */}
