@@ -4,18 +4,18 @@ import { WHATSAPP_LINK } from '../constants';
 
 export default function Hero() {
   return (
-    // min-h-[85vh] memberikan kesan megah, pt-32 memastikan tidak tertutup navbar
-    <section id="home" className="relative min-h-[85vh] flex items-center pt-32 pb-20 overflow-hidden">
+    // Padding atas-bawah tetap sama dengan yang kamu pakai terakhir
+    <section id="home" className="relative flex items-center pt-28 pb-12 overflow-hidden">
       
       {/* Background Ornaments */}
       <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-brand-green-soft/10 rounded-full blur-3xl -z-10 translate-x-1/2 -translate-y-1/2"></div>
       <div className="absolute bottom-0 left-0 w-1/4 h-1/4 bg-brand-gold/10 rounded-full blur-3xl -z-10 -translate-x-1/2 translate-y-1/2"></div>
 
-      {/* Gunakan max-w-7xl agar lebarnya sama dengan section About Us */}
+      {/* max-w-7xl membuat lebar hero sama dengan section di bawahnya */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         
-        {/* Menggunakan grid dengan gap lebih besar agar lebih lega */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        {/* grid lg:grid-cols-2 memastikan pembagian lebar teks dan gambar simetris */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           
           {/* Left Content (Teks) */}
           <motion.div
@@ -69,7 +69,7 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative flex justify-center lg:justify-end"
+            className="relative flex justify-center"
           >
             <div className="aspect-square rounded-3xl overflow-hidden shadow-xl border-4 border-white w-full max-w-md">
               <img
