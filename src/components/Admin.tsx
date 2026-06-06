@@ -5,12 +5,7 @@ export default function Admin() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [showGuide, setShowGuide] = useState(false);
   const [produk, setProduk] = useState({ 
-    nama: '', 
-    harga: '', 
-    deskripsi: '', 
-    gambar: '', 
-    kategori: 'Snack', 
-    is_best_seller: false 
+    nama: '', harga: '', deskripsi: '', gambar: '', kategori: 'Snack', is_best_seller: false 
   });
 
   const tambahProduk = async () => {
@@ -26,55 +21,39 @@ export default function Admin() {
       } else {
         alert('Gagal menambah produk.');
       }
-    } catch (e) { 
-      alert('Error: ' + e); 
-    }
+    } catch (e) { alert('Error: ' + e); }
   };
 
-  // 1. Tampilan Login
   if (!isAuthenticated) {
     return (
       <div className="flex flex-col items-center justify-center h-screen bg-brand-beige/20">
         <h2 className="text-xl font-bold mb-4">Login Admin</h2>
-        <input 
-          type="password" 
-          placeholder="Masukkan Password" 
-          onChange={(e) => setPassword(e.target.value)}
-          className="border p-2 rounded mb-4"
-        />
-        <button 
-          onClick={() => password === 'topssnack2026' ? (setIsAuthenticated(true), setShowGuide(true)) : alert('Password Salah!')}
-          className="bg-brand-green-leaf text-white px-6 py-2 rounded"
-        >
-          Login
-        </button>
+        <input type="password" placeholder="Masukkan Password" onChange={(e) => setPassword(e.target.value)} className="border p-2 rounded mb-4" />
+        <button onClick={() => password === 'topssnack2026' ? (setIsAuthenticated(true), setShowGuide(true)) : alert('Password Salah!')} className="bg-brand-green-leaf text-white px-6 py-2 rounded">Login</button>
       </div>
     );
   }
 
-  // 2. Tampilan Panduan
   if (showGuide) {
     return (
-      <div className="p-10 max-w-xl mx-auto text-center min-h-screen flex flex-col justify-center">
-        <h2 className="text-2xl font-bold mb-6 text-brand-brown-dark">Panduan Pengisian Produk</h2>
-        <div className="text-left space-y-4 mb-8 bg-brand-beige/30 p-6 rounded-lg border border-brand-beige">
-          <p><strong>1. Nama Produk:</strong> Gunakan nama yang jelas (Contoh: Arem-Arem).</p>
+      <div className="p-10 max-w-2xl mx-auto min-h-screen">
+        <h2 className="text-2xl font-bold mb-6 text-brand-brown-dark text-center">Panduan Pengisian Produk</h2>
+        <div className="text-left space-y-4 mb-8 bg-brand-beige/30 p-6 rounded-lg border border-brand-beige text-sm">
+          <p><strong>1. Nama Produk:</strong> Contoh: Arem-Arem.</p>
           <p><strong>2. Harga:</strong> Tulis angka dengan titik (Contoh: 2.000).</p>
-          <p><strong>3. Deskripsi:</strong> Ceritakan keunggulan produk agar pembeli tertarik.</p>
-          <p><strong>4. Link Gambar:</strong> Masukkan link foto produk yang sudah di-upload.</p>
-          <p><strong>5. Best Seller:</strong> Centang jika produk tersebut paling laris.</p>
+          <p><strong>3. Link Gambar (Google Drive):</strong></p>
+          <ul className="list-disc ml-5 space-y-1">
+            <li>Pastikan file di Drive sudah di-share aksesnya ke <b>"Anyone with the link"</b>.</li>
+            <li>Salin link Google Drive tersebut.</li>
+            <li>Ambil kode unik (ID) dari link (contoh: <code>1ABC12345XYZ</code>).</li>
+            <li>Gunakan format link ini: <code>https://lh3.googleusercontent.com/d/ID_GAMBAR</code></li>
+          </ul>
         </div>
-        <button 
-          onClick={() => setShowGuide(false)}
-          className="bg-brand-green-leaf text-white px-8 py-3 rounded-lg font-bold hover:bg-brand-green-leaf/90 transition-colors"
-        >
-          Saya Mengerti, Lanjut ke Panel
-        </button>
+        <button onClick={() => setShowGuide(false)} className="w-full bg-brand-green-leaf text-white py-3 rounded-lg font-bold">Saya Mengerti, Lanjut!</button>
       </div>
     );
   }
 
-  // 3. Tampilan Admin Panel
   return (
     <div className="p-10 max-w-4xl mx-auto">
       <div className="flex justify-between items-center mb-8">
@@ -93,11 +72,11 @@ export default function Admin() {
         </div>
         <div className="flex flex-col gap-2 md:col-span-2">
           <label className="font-semibold text-sm">Deskripsi</label>
-          <textarea placeholder="Contoh: Nasi dengan isian ayam suwir yang gurih..." value={produk.deskripsi} onChange={(e) => setProduk({...produk, deskripsi: e.target.value})} className="border p-2 rounded w-full h-24" />
+          <textarea placeholder="Ceritakan kelebihan produk..." value={produk.deskripsi} onChange={(e) => setProduk({...produk, deskripsi: e.target.value})} className="border p-2 rounded w-full h-24" />
         </div>
         <div className="flex flex-col gap-2">
           <label className="font-semibold text-sm">Link Gambar</label>
-          <input type="text" placeholder="Contoh: /aremarem.png" value={produk.gambar} onChange={(e) => setProduk({...produk, gambar: e.target.value})} className="border p-2 rounded w-full" />
+          <input type="text" placeholder="Link hasil convert Google Drive" value={produk.gambar} onChange={(e) => setProduk({...produk, gambar: e.target.value})} className="border p-2 rounded w-full" />
         </div>
         <div className="flex flex-col gap-2">
           <label className="font-semibold text-sm">Kategori</label>
