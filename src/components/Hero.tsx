@@ -4,13 +4,15 @@ import { WHATSAPP_LINK } from '../constants';
 
 export default function Hero() {
   return (
-    <section id="home" className="relative flex items-center pt-28 pb-12 overflow-hidden">
-      
+    <section 
+      id="home" 
+      className="relative min-h-[85vh] flex items-center pt-32 pb-20 overflow-hidden"
+    >
       {/* Background Ornaments */}
       <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-brand-green-soft/10 rounded-full blur-3xl -z-10 translate-x-1/2 -translate-y-1/2"></div>
       <div className="absolute bottom-0 left-0 w-1/4 h-1/4 bg-brand-gold/10 rounded-full blur-3xl -z-10 -translate-x-1/2 translate-y-1/2"></div>
 
-      {/* Gunakan max-w-6xl dan flex agar konten mengumpul di tengah */}
+      {/* Main Container */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-16">
           
@@ -78,6 +80,7 @@ export default function Hero() {
               />
             </div>
             
+            {/* Floating Card */}
             <motion.div
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
