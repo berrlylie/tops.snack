@@ -34,7 +34,7 @@ export default function Admin() {
       <div className="flex flex-col items-center justify-center h-screen bg-brand-beige/20">
         <h2 className="text-xl font-bold mb-4">Login Admin</h2>
         <input type="password" placeholder="Masukkan Password" onChange={(e) => setPassword(e.target.value)} className="border p-2 rounded mb-4" />
-        <button onClick={() => password === 'topssnack2026' ? (setIsAuthenticated(true), setShowGuide(true)) : alert('Password Salah!')} className="bg-brand-green-leaf text-white px-6 py-2 rounded">Login</button>
+        <button onClick={() => password === 'admin123' ? (setIsAuthenticated(true), setShowGuide(true)) : alert('Password Salah!')} className="bg-brand-green-leaf text-white px-6 py-2 rounded">Login</button>
       </div>
     );
   }
