@@ -59,14 +59,12 @@ export default function About() {
               Cita Rasa Tradisional Yang Selalu Jadi Favorite
             </h3>
             
+            {/* Paragraf 1: Sesuai gambar lampiran */}
             <p className="text-base md:text-lg text-brand-brown-medium mb-6 leading-relaxed">
-              Kami percaya bahwa setiap hidangan bukan hanya sekadar makanan, tetapi juga bagian dari momen berharga yang dapat menciptakan kebahagiaan, kehangatan, dan kebersamaan. 
+              Kami percaya bahwa setiap hidangan bukan hanya sekadar makanan, tetapi juga bagian dari momen berharga yang dapat menciptakan kebahagiaan, kehangatan, dan kebersamaan. Mulai dari acara keluarga, rapat kantor, syukuran, ulang tahun, hingga hadiah spesial untuk orang terdekat, kami siap membantu melengkapi setiap momen dengan sajian yang lezat dan berkesan.
             </p>
             
-            <p className="text-base md:text-lg text-brand-brown-medium mb-6 leading-relaxed">
-              Mulai dari acara keluarga, rapat kantor, syukuran, ulang tahun, hingga hadiah spesial untuk orang terdekat, kami siap membantu melengkapi setiap momen dengan sajian yang lezat dan berkesan.
-            </p>
-            
+            {/* Paragraf 2: Sesuai gambar lampiran */}
             <p className="text-base md:text-lg text-brand-brown-medium mb-10 leading-relaxed">
               Dengan mengutamakan kualitas bahan, kebersihan proses produksi, dan kesegaran produk, kami berkomitmen untuk memberikan yang terbaik bagi setiap pelanggan. Kepuasan pelanggan menjadi prioritas kami, sehingga setiap pesanan dipersiapkan dengan perhatian dan ketelitian agar menghadirkan rasa, kualitas, dan pelayanan yang dapat selalu diandalkan.
             </p>
