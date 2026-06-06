@@ -4,24 +4,24 @@ import { WHATSAPP_LINK } from '../constants';
 
 export default function Hero() {
   return (
-    // Padding atas-bawah tetap sama dengan yang kamu pakai terakhir
-    <section id="home" className="relative flex items-center pt-28 pb-12 overflow-hidden">
+    // Menggunakan w-full untuk memastikan container mengikuti layout navbar
+    <section id="home" className="relative flex items-center pt-28 pb-12 overflow-hidden w-full">
       
       {/* Background Ornaments */}
       <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-brand-green-soft/10 rounded-full blur-3xl -z-10 translate-x-1/2 -translate-y-1/2"></div>
       <div className="absolute bottom-0 left-0 w-1/4 h-1/4 bg-brand-gold/10 rounded-full blur-3xl -z-10 -translate-x-1/2 translate-y-1/2"></div>
 
-      {/* max-w-7xl membuat lebar hero sama dengan section di bawahnya */}
+      {/* Kontainer ini disamakan dengan navbar: max-w-7xl + padding yang konsisten */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         
-        {/* grid lg:grid-cols-2 memastikan pembagian lebar teks dan gambar simetris */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           
-          {/* Left Content (Teks) */}
+          {/* Teks - Sekarang sejajar sempurna dengan Logo Navbar */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
+            className="w-full"
           >
             <span className="inline-block px-4 py-1 rounded-full bg-brand-green-leaf/10 text-brand-green-leaf text-xs font-bold tracking-widest uppercase mb-4">
               Jajanan Pasar Premium
@@ -64,12 +64,12 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* Right Content (Gambar) */}
+          {/* Gambar - Sejajar dengan tombol "Pesan Sekarang" di Navbar */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative flex justify-center"
+            className="relative flex justify-center lg:justify-end"
           >
             <div className="aspect-square rounded-3xl overflow-hidden shadow-xl border-4 border-white w-full max-w-md">
               <img
