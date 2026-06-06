@@ -21,7 +21,6 @@ export default function Admin() {
       });
       if (res.ok) {
         alert('Produk berhasil ditambah!');
-        // Reset form setelah berhasil
         setProduk({ nama: '', harga: '', deskripsi: '', gambar: '', kategori: 'Snack', is_best_seller: false });
       } else {
         alert('Gagal menambah produk.');
@@ -55,7 +54,7 @@ export default function Admin() {
     <div className="p-10 max-w-4xl mx-auto">
       <h1 className="text-2xl font-bold mb-8">Admin Panel</h1>
       
-      {/* Layout Grid 2 Kolom untuk Desktop, 1 Kolom untuk HP */}
+      {/* Layout Grid 2 Kolom */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
         
         <div className="flex flex-col gap-2">
@@ -63,6 +62,7 @@ export default function Admin() {
           <input 
             type="text" 
             autoComplete="off"
+            placeholder="Contoh: Arem-Arem"
             value={produk.nama}
             onChange={(e) => setProduk({...produk, nama: e.target.value})} 
             className="border p-2 rounded w-full" 
@@ -70,9 +70,10 @@ export default function Admin() {
         </div>
 
         <div className="flex flex-col gap-2">
-          <label className="font-semibold text-sm">Harga</label>
+          <label className="font-semibold text-sm">Harga (Contoh: 2.000)</label>
           <input 
             type="text" 
+            placeholder="Contoh: 2.000"
             value={produk.harga}
             onChange={(e) => setProduk({...produk, harga: e.target.value})} 
             className="border p-2 rounded w-full" 
@@ -82,6 +83,7 @@ export default function Admin() {
         <div className="flex flex-col gap-2 md:col-span-2">
           <label className="font-semibold text-sm">Deskripsi</label>
           <textarea 
+            placeholder="Contoh: Nasi dengan isian ayam suwir yang gurih..."
             value={produk.deskripsi}
             onChange={(e) => setProduk({...produk, deskripsi: e.target.value})} 
             className="border p-2 rounded w-full h-24" 
@@ -92,6 +94,7 @@ export default function Admin() {
           <label className="font-semibold text-sm">Link Gambar</label>
           <input 
             type="text" 
+            placeholder="Contoh: /aremarem.png"
             value={produk.gambar}
             onChange={(e) => setProduk({...produk, gambar: e.target.value})} 
             className="border p-2 rounded w-full" 
