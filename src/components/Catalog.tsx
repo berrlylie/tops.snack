@@ -6,19 +6,22 @@ import { PRODUCTS, CATEGORIES, WHATSAPP_NUMBER } from '../constants';
 export default function Catalog({ currentPath }: { currentPath: string }) {
   const [dbProducts, setDbProducts] = useState<any[]>([]);
 
-  // 1. Ambil data dari database
+  // 1. Mengambil produk dari database
   useEffect(() => {
     fetch('/api/admin')
       .then((res) => res.json())
-      .then((data) => setDbProducts(Array.isArray(data) ? data : []))
+      .then((data) => {
+        // Pastikan data adalah array agar tidak error saat di-map
+        setDbProducts(Array.isArray(data) ? data : []);
+      })
       .catch((err) => console.error('Gagal memuat produk dari DB:', err));
   }, []);
 
-  // 2. Gabungkan data dengan Mapping yang fleksibel
-  // Ini menangani dua kemungkinan nama kolom (dari constants vs dari DB)
+  // 2. Menggabungkan data (constants + database) dengan mapping yang fleksibel
   const allProducts = useMemo(() => {
     const formattedDbProducts = dbProducts.map((p: any) => ({
       id: p.id || Math.random().toString(),
+      // Mapping: menerima 'nama' atau 'name', 'deskripsi' atau 'description', dst.
       name: p.nama || p.name || 'Produk Tanpa Nama',
       description: p.deskripsi || p.description || '',
       price: p.harga || p.price || '0',
@@ -57,7 +60,6 @@ export default function Catalog({ currentPath }: { currentPath: string }) {
   return (
     <div id="katalog" className="scroll-mt-24">
       {displayedCategories.map((category, index) => {
-        // Filter dari allProducts (gabungan constants + database)
         const categoryProducts = allProducts.filter((p) => p.category === category.name);
         const bgColor = index % 2 === 0 ? 'bg-brand-beige/20' : 'bg-white';
 
@@ -69,6 +71,7 @@ export default function Catalog({ currentPath }: { currentPath: string }) {
                 <p className="text-brand-brown-medium text-lg max-w-2xl mx-auto">{getCategoryDescription(category.name)}</p>
               </div>
 
+              {/* Flexbox agar selalu di tengah */}
               <div className="flex flex-wrap justify-center gap-3 md:gap-6">
                 {categoryProducts.length > 0 ? (
                   categoryProducts.map((product, pIndex) => (
