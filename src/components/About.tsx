@@ -21,18 +21,19 @@ export default function About() {
   ];
 
   return (
-    // py-16: lebih rapat agar sejajar dengan Hero, bg-white untuk kontras section
     <section id="about-us" className="py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        
+        {/* Menggunakan grid-cols-12 untuk kontrol layout yang lebih presisi */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           
-          {/* Image Side */}
+          {/* Image Side - Mengambil 5 kolom */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="relative"
+            className="lg:col-span-5 relative"
           >
             <div className="aspect-[4/5] rounded-3xl shadow-lg p-3 bg-[#5D4037] border-4 border-[#3E2723] max-w-sm mx-auto lg:mx-0">
               <div className="w-full h-full rounded-2xl overflow-hidden">
@@ -47,12 +48,13 @@ export default function About() {
             <div className="absolute -bottom-8 -left-8 w-48 h-48 bg-brand-gold/10 rounded-full -z-10"></div>
           </motion.div>
 
-          {/* Text Side */}
+          {/* Text Side - Mengambil 7 kolom agar lebih rapat ke gambar */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
+            className="lg:col-span-7"
           >
             <h3 className="text-3xl md:text-5xl font-bold text-brand-brown-dark mb-6 leading-tight">
               Cita Rasa Tradisional Yang Selalu Jadi Favorite
