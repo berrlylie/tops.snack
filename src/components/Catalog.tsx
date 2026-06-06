@@ -13,7 +13,10 @@ export default function Catalog({ currentPath }: { currentPath: string }) {
       .catch((err) => console.error('Error:', err));
   }, []);
 
-  const getProductWhatsAppLink = (productName: string, price: string) => {
+  const getProductWhatsAppLink = (
+    productName: string,
+    price: string
+  ) => {
     const message = `Halo Tops Snack! Saya tertarik mau pesan *${productName}*. Apakah bisa pesan untuk dikirim tanggal...?`;
 
     return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
@@ -93,66 +96,68 @@ export default function Catalog({ currentPath }: { currentPath: string }) {
                         duration: 0.3,
                         delay: pIndex * 0.05,
                       }}
+                    >
                       <div className="w-full bg-white rounded-2xl overflow-hidden border border-brand-beige hover:border-brand-green-leaf/30 transition-all">
-                      <div className="relative aspect-square overflow-hidden bg-brand-beige/30 p-2 rounded-t-2xl">
-                        <img
-                          src={
-                            product.image ||
-                            `https://picsum.photos/seed/${product.name}/600/600`
-                          }
-                          alt={product.name}
-                          className="w-full h-full object-cover rounded-xl group-hover:scale-105 transition-transform duration-500"
-                        />
+                        <div className="relative aspect-square overflow-hidden bg-brand-beige/30 p-2 rounded-t-2xl">
+                          <img
+                            src={
+                              product.image ||
+                              `https://picsum.photos/seed/${product.name}/600/600`
+                            }
+                            alt={product.name}
+                            className="w-full h-full object-cover rounded-xl group-hover:scale-105 transition-transform duration-500"
+                          />
 
-                        {product.isBestSeller && (
-                          <div className="absolute top-4 left-4 bg-brand-gold text-white px-2 py-0.5 rounded-full text-[10px] font-bold flex items-center gap-1 shadow-lg">
-                            <Star size={10} fill="currentColor" />
-                            Best Seller
-                          </div>
-                        )}
-                      </div>
+                          {product.isBestSeller && (
+                            <div className="absolute top-4 left-4 bg-brand-gold text-white px-2 py-0.5 rounded-full text-[10px] font-bold flex items-center gap-1 shadow-lg">
+                              <Star size={10} fill="currentColor" />
+                              Best Seller
+                            </div>
+                          )}
+                        </div>
 
-                      <div className="p-4 flex flex-col flex-grow">
-                        <h4 className="font-bold text-brand-brown-dark text-sm mb-1 line-clamp-1">
-                          {product.name}
-                        </h4>
+                        <div className="p-4 flex flex-col flex-grow">
+                          <h4 className="font-bold text-brand-brown-dark text-sm mb-1 line-clamp-1">
+                            {product.name}
+                          </h4>
 
-                        <p className="text-xs text-brand-brown-medium/80 mt-1 mb-4 flex-grow whitespace-pre-line">
-                          {product.description}
-                        </p>
+                          <p className="text-xs text-brand-brown-medium/80 mt-1 mb-4 flex-grow whitespace-pre-line">
+                            {product.description}
+                          </p>
 
-                        <div className="flex justify-between items-center mt-auto pt-2 border-t border-brand-beige/40">
-                          <div>
-                            {(product.name === 'Nastar' ||
-                              product.name === 'Kastengel' ||
-                              product.name === 'Putri Salju' ||
-                              product.name === 'Kue Kacang' ||
-                              product.name === 'Bola-Bola Cokelat' ||
-                              product.name === 'Sagu Keju' ||
-                              product.name === 'Bolu Jadul' ||
-                              product.name === 'Hampers Lebaran' ||
-                              product.name === 'Snack Box Custom') && (
-                              <span className="text-[10px] text-brand-brown-medium block">
-                                Mulai dari
+                          <div className="flex justify-between items-center mt-auto pt-2 border-t border-brand-beige/40">
+                            <div>
+                              {(product.name === 'Nastar' ||
+                                product.name === 'Kastengel' ||
+                                product.name === 'Putri Salju' ||
+                                product.name === 'Kue Kacang' ||
+                                product.name === 'Bola-Bola Cokelat' ||
+                                product.name === 'Sagu Keju' ||
+                                product.name === 'Bolu Jadul' ||
+                                product.name === 'Hampers Lebaran' ||
+                                product.name === 'Snack Box Custom') && (
+                                <span className="text-[10px] text-brand-brown-medium block">
+                                  Mulai dari
+                                </span>
+                              )}
+
+                              <span className="font-bold text-brand-brown-dark text-sm">
+                                Rp {product.price}
                               </span>
-                            )}
+                            </div>
 
-                            <span className="font-bold text-brand-brown-dark text-sm">
-                              Rp {product.price}
-                            </span>
+                            <a
+                              href={getProductWhatsAppLink(
+                                product.name,
+                                product.price
+                              )}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="bg-brand-green-leaf/10 text-brand-green-leaf p-2 rounded-lg hover:bg-brand-green-leaf hover:text-white transition-colors duration-300"
+                            >
+                              <ShoppingCart size={16} />
+                            </a>
                           </div>
-
-                          <a
-                            href={getProductWhatsAppLink(
-                              product.name,
-                              product.price
-                            )}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="bg-brand-green-leaf/10 text-brand-green-leaf p-2 rounded-lg hover:bg-brand-green-leaf hover:text-white transition-colors duration-300"
-                          >
-                            <ShoppingCart size={16} />
-                          </a>
                         </div>
                       </div>
                     </motion.div>
