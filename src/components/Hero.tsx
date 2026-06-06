@@ -4,7 +4,8 @@ import { WHATSAPP_LINK } from '../constants';
 
 export default function Hero() {
   return (
-    <section id="home" className="relative flex items-center pt-28 pb-12 overflow-hidden w-full">
+    // min-h-[70vh] agar tidak "too big" dan konten bawah terlihat
+    <section id="home" className="relative flex items-center pt-24 pb-16 overflow-hidden w-full">
       
       {/* Background Ornaments */}
       <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-brand-green-soft/10 rounded-full blur-3xl -z-10 translate-x-1/2 -translate-y-1/2"></div>
@@ -12,10 +13,10 @@ export default function Hero() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         
-        {/* Flexbox agar konten saling mendekat di tengah */}
+        {/* Konten Utama */}
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
           
-          {/* Left Content (Teks) */}
+          {/* Teks Content */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
@@ -63,12 +64,12 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* Right Content (Gambar) */}
+          {/* Gambar Content - Ukuran diperkecil agar proporsional */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative flex-shrink-0 w-full lg:w-[500px]"
+            className="relative flex-shrink-0 w-full lg:w-[400px]"
           >
             <div className="aspect-square rounded-3xl overflow-hidden shadow-2xl border-4 border-white w-full">
               <img
@@ -79,14 +80,14 @@ export default function Hero() {
               />
             </div>
             
-            {/* Floating Card - Digeser ke kiri dengan -left-16 */}
+            {/* Floating Card - Digeser ke kiri agar estetis */}
             <motion.div
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute bottom-6 -left-16 md:-left-20 bg-white p-5 rounded-2xl shadow-xl border border-brand-beige max-w-[190px]"
+              className="absolute bottom-6 -left-12 md:-left-16 bg-white p-5 rounded-2xl shadow-xl border border-brand-beige max-w-[170px]"
             >
               <div className="flex items-center gap-2 mb-2">
-                <div className="w-10 h-10 bg-brand-gold rounded-full flex items-center justify-center text-white font-bold text-sm">
+                <div className="w-9 h-9 bg-brand-gold rounded-full flex items-center justify-center text-white font-bold text-xs">
                   5+
                 </div>
                 <div className="text-xs font-bold text-brand-brown-dark leading-tight">
