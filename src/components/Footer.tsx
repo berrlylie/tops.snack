@@ -12,10 +12,10 @@ export default function Footer() {
 
   const quickLinks = [
     { name: 'Home', href: '#home' },
-    { name: 'About Us', href: '#tentang' },
-    { name: 'Products', href: '#produk' },
-    { name: 'Testimonials', href: '#testimoni' },
-    { name: 'Contact Us', href: '#kontak' },
+    { name: 'About Us', href: '#about-us' },
+    { name: 'Products', href: '#katalog' },
+    { name: 'Testimonials', href: '#testimonials' },
+    { name: 'Contact Us', href: '#contact-us' },
   ];
 
   return (
