@@ -20,20 +20,24 @@ export default function Admin() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(produk)
       });
+
       if (res.ok) {
         alert('Produk berhasil ditambah!');
         setProduk({ nama: '', harga: '', deskripsi: '', gambar: '', kategori: '', is_best_seller: false });
       } else {
-        alert('Gagal menambah produk.');
+        const errorData = await res.json();
+        alert('Gagal menambah produk: ' + (errorData.error || 'Terjadi kesalahan server'));
       }
-    } catch (e) { alert('Error: ' + e); }
+    } catch (e) { 
+      alert('Error koneksi: ' + e); 
+    }
   };
 
   if (!isAuthenticated) {
     return (
       <div className="flex flex-col items-center justify-center h-screen bg-brand-beige/20">
         <h2 className="text-xl font-bold mb-4">Login Admin</h2>
-        <input type="password" placeholder="Masukkan Password" onChange={(e) => setPassword(e.target.value)} className="border p-2 rounded mb-4" />
+        <input type="password" placeholder="Masukkan Password" onChange={(e) => setPassword(e.target.value)} className="border p-2 rounded mb-4 text-sm" />
         <button onClick={() => password === 'admin123' ? (setIsAuthenticated(true), setShowGuide(true)) : alert('Password Salah!')} className="bg-brand-green-leaf text-white px-6 py-2 rounded">Login</button>
       </div>
     );
