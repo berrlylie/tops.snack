@@ -6,27 +6,25 @@ import { PRODUCTS, CATEGORIES, WHATSAPP_NUMBER } from '../constants';
 export default function Catalog({ currentPath }: { currentPath: string }) {
   const [dbProducts, setDbProducts] = useState<any[]>([]);
 
-  // Mengambil produk dari database
+  // 1. Ambil data dari database
   useEffect(() => {
     fetch('/api/admin')
-      .then((res) => {
-        if (!res.ok) throw new Error('Gagal ambil data');
-        return res.json();
-      })
+      .then((res) => res.json())
       .then((data) => setDbProducts(Array.isArray(data) ? data : []))
-      .catch((err) => console.error('Error:', err));
+      .catch((err) => console.error('Gagal memuat produk dari DB:', err));
   }, []);
 
-  // Menggabungkan data constants + database dengan aman
+  // 2. Gabungkan data dengan Mapping yang fleksibel
+  // Ini menangani dua kemungkinan nama kolom (dari constants vs dari DB)
   const allProducts = useMemo(() => {
     const formattedDbProducts = dbProducts.map((p: any) => ({
       id: p.id || Math.random().toString(),
-      name: p.nama || 'Produk Tanpa Nama',
-      description: p.deskripsi || '',
-      price: p.harga || '0',
-      image: p.gambar || '',
-      isBestSeller: !!p.is_best_seller,
-      category: p.kategori || 'Snack'
+      name: p.nama || p.name || 'Produk Tanpa Nama',
+      description: p.deskripsi || p.description || '',
+      price: p.harga || p.price || '0',
+      image: p.gambar || p.image || '',
+      isBestSeller: !!p.is_best_seller || !!p.isBestSeller,
+      category: p.kategori || p.category || 'Snack'
     }));
     return [...PRODUCTS, ...formattedDbProducts];
   }, [dbProducts]);
@@ -59,6 +57,7 @@ export default function Catalog({ currentPath }: { currentPath: string }) {
   return (
     <div id="katalog" className="scroll-mt-24">
       {displayedCategories.map((category, index) => {
+        // Filter dari allProducts (gabungan constants + database)
         const categoryProducts = allProducts.filter((p) => p.category === category.name);
         const bgColor = index % 2 === 0 ? 'bg-brand-beige/20' : 'bg-white';
 
