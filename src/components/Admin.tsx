@@ -49,7 +49,7 @@ export default function Admin() {
         <h2 className="text-2xl font-bold mb-6 text-brand-brown-dark text-center">Panduan Pengisian Produk</h2>
         <div className="text-left space-y-4 mb-8 bg-brand-beige/30 p-6 rounded-lg border border-brand-beige text-sm">
           <p><strong>1. Nama Produk:</strong> Contoh: Arem-Arem.</p>
-          <p><strong>2. Harga:</strong> Tulis angka dengan titik (Contoh: 2.000).</p>
+          <p><strong>2. Harga:</strong> Tulis angka tanpa titik (Contoh: 2000).</p>
           <p><strong>3. Deskripsi:</strong> Ceritakan keunggulan produk agar pembeli tertarik.</p>
           <p><strong>4. Link Gambar (Google Drive):</strong></p>
           <ul className="list-disc ml-5 space-y-1">
@@ -81,8 +81,8 @@ export default function Admin() {
           <input type="text" autoComplete="off" placeholder="Contoh: Arem-Arem" value={produk.nama} onChange={(e) => setProduk({...produk, nama: e.target.value})} className="border p-2 rounded w-full text-sm" />
         </div>
         <div className="flex flex-col gap-2">
-          <label className="font-semibold text-sm">Harga (Contoh: 2.000)</label>
-          <input type="text" placeholder="Contoh: 2.000" value={produk.harga} onChange={(e) => setProduk({...produk, harga: e.target.value})} className="border p-2 rounded w-full text-sm" />
+          <label className="font-semibold text-sm">Harga (Contoh: 2000)</label>
+          <input type="text" placeholder="Contoh: 2000" value={produk.harga} onChange={(e) => setProduk({...produk, harga: e.target.value})} className="border p-2 rounded w-full text-sm" />
         </div>
         <div className="flex flex-col gap-2 md:col-span-2">
           <label className="font-semibold text-sm">Deskripsi</label>
