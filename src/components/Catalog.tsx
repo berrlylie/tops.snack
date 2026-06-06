@@ -47,7 +47,7 @@ export default function Catalog({ currentPath }: { currentPath: string }) {
                 <p className="text-brand-brown-medium text-lg max-w-2xl mx-auto">{getCategoryDescription(category.name)}</p>
               </div>
 
-              {/* Grid Responsif: 2 kolom HP, 5 kolom Desktop */}
+              {/* Grid Responsif: 2 kolom HP sampai 5 kolom Desktop */}
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-6">
                 {categoryProducts.length > 0 ? (
                   categoryProducts.map((product, pIndex) => (
@@ -76,7 +76,8 @@ export default function Catalog({ currentPath }: { currentPath: string }) {
                       {/* Detail Produk */}
                       <div className="p-2 sm:p-4 flex flex-col flex-grow">
                         <h4 className="font-bold text-brand-brown-dark text-xs sm:text-sm mb-1 line-clamp-1">{product.name}</h4>
-                        <p className="text-[10px] sm:text-xs text-brand-brown-medium/80 mb-3 flex-grow">
+                        {/* whitespace-pre-line membuat \n di data deskripsi menjadi baris baru */}
+                        <p className="text-[10px] sm:text-xs text-brand-brown-medium/80 mb-3 flex-grow whitespace-pre-line">
                           {product.description}
                         </p>
 
@@ -96,9 +97,9 @@ export default function Catalog({ currentPath }: { currentPath: string }) {
                             href={getProductWhatsAppLink(product.name, product.price)}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="bg-brand-green-leaf/10 text-brand-green-leaf p-1.5 sm:p-2 rounded-lg hover:bg-brand-green-leaf hover:text-white transition-colors duration-300"
+                            className="bg-brand-green-leaf hover:bg-brand-green-leaf/90 text-white p-2 px-3 sm:px-4 rounded-lg transition-colors duration-300 flex items-center gap-2 text-xs sm:text-sm"
                           >
-                            <ShoppingCart size={14} sm:size={16} />
+                            Pesan <ShoppingCart size={14} />
                           </a>
                         </div>
                       </div>
