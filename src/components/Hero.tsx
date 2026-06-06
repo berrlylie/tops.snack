@@ -31,7 +31,7 @@ export default function Hero() {
             </h1>
             
             <p className="text-base md:text-lg text-brand-brown-medium mb-8 leading-relaxed">
-              Tops Snack hadir dengan aneka jajanan pasar dengan cita rasa yang autentik, kualitas terjaga, dan dibuat fresh setiap harinya. Cocok untuk berbagai kebutuhan, mulai dari acara keluarga hingga hampers spesial.
+              Tops Snack menyediakan berbagai pilihan jajanan pasar, kue basah, kue kering, snack box, hampers, dan aneka camilan lainnya yang dibuat fresh setiap hari. Dengan cita rasa yang terjaga dan kualitas terbaik, kami siap melengkapi berbagai momen spesial, mulai dari acara keluarga, rapat kantor, syukuran, hingga perayaan bersama orang terdekat.
             </p>
 
             <div className="flex flex-wrap gap-3">
