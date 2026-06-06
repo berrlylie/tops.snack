@@ -5,10 +5,16 @@ export default function Admin() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [showGuide, setShowGuide] = useState(false);
   const [produk, setProduk] = useState({ 
-    nama: '', harga: '', deskripsi: '', gambar: '', kategori: 'Snack', is_best_seller: false 
+    nama: '', harga: '', deskripsi: '', gambar: '', kategori: '', is_best_seller: false 
   });
 
   const tambahProduk = async () => {
+    // Validasi kategori
+    if (!produk.kategori) {
+      alert('Harap pilih kategori produk terlebih dahulu!');
+      return;
+    }
+
     try {
       const res = await fetch('/api/admin', {
         method: 'POST',
@@ -17,7 +23,7 @@ export default function Admin() {
       });
       if (res.ok) {
         alert('Produk berhasil ditambah!');
-        setProduk({ nama: '', harga: '', deskripsi: '', gambar: '', kategori: 'Snack', is_best_seller: false });
+        setProduk({ nama: '', harga: '', deskripsi: '', gambar: '', kategori: '', is_best_seller: false });
       } else {
         alert('Gagal menambah produk.');
       }
@@ -41,15 +47,20 @@ export default function Admin() {
         <div className="text-left space-y-4 mb-8 bg-brand-beige/30 p-6 rounded-lg border border-brand-beige text-sm">
           <p><strong>1. Nama Produk:</strong> Contoh: Arem-Arem.</p>
           <p><strong>2. Harga:</strong> Tulis angka dengan titik (Contoh: 2.000).</p>
-          <p><strong>3. Link Gambar (Google Drive):</strong></p>
+          <p><strong>3. Deskripsi:</strong> Ceritakan keunggulan produk agar pembeli tertarik.</p>
+          <p><strong>4. Link Gambar (Google Drive):</strong></p>
           <ul className="list-disc ml-5 space-y-1">
             <li>Pastikan file di Drive sudah di-share aksesnya ke <b>"Anyone with the link"</b>.</li>
             <li>Salin link Google Drive tersebut.</li>
             <li>Ambil kode unik (ID) dari link (contoh: <code>1ABC12345XYZ</code>).</li>
-            <li>Gunakan format link ini: <code>https://lh3.googleusercontent.com/d/ID_GAMBAR</code></li>
+            <li>Gunakan format link ini: <code>http://googleusercontent.com/profile/picture/ID_GAMBAR</code></li>
+            <li><b>Contoh lengkap:</b> <code>https://lh3.googleusercontent.com/d/1ABC12345XYZABC12345XYZ</code></li>
           </ul>
+          <p><strong>5. Best Seller:</strong> Centang jika produk tersebut termasuk produk terlaris.</p>
         </div>
-        <button onClick={() => setShowGuide(false)} className="w-full bg-brand-green-leaf text-white py-3 rounded-lg font-bold">Saya Mengerti, Lanjut!</button>
+        <button onClick={() => setShowGuide(false)} className="w-full bg-brand-green-leaf text-white py-3 rounded-lg font-bold hover:bg-brand-green-leaf/90 transition-colors">
+          Saya Mengerti, Lanjut!
+        </button>
       </div>
     );
   }
@@ -76,11 +87,12 @@ export default function Admin() {
         </div>
         <div className="flex flex-col gap-2">
           <label className="font-semibold text-sm">Link Gambar</label>
-          <input type="text" placeholder="Link hasil convert Google Drive" value={produk.gambar} onChange={(e) => setProduk({...produk, gambar: e.target.value})} className="border p-2 rounded w-full" />
+          <input type="text" placeholder="http://googleusercontent.com/profile/picture/ID_GAMBAR" value={produk.gambar} onChange={(e) => setProduk({...produk, gambar: e.target.value})} className="border p-2 rounded w-full" />
         </div>
         <div className="flex flex-col gap-2">
           <label className="font-semibold text-sm">Kategori</label>
           <select className="border p-2 rounded w-full" onChange={(e) => setProduk({...produk, kategori: e.target.value})} value={produk.kategori}>
+            <option value="" disabled>Pilih Kategori</option>
             <option value="Kue Basah">Kue Basah</option>
             <option value="Kue Kering">Kue Kering</option>
             <option value="Snack">Snack</option>
