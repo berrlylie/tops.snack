@@ -9,7 +9,6 @@ export default function Admin() {
   });
 
   const tambahProduk = async () => {
-    // Validasi kategori
     if (!produk.kategori) {
       alert('Harap pilih kategori produk terlebih dahulu!');
       return;
@@ -75,23 +74,23 @@ export default function Admin() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
         <div className="flex flex-col gap-2">
           <label className="font-semibold text-sm">Nama Produk</label>
-          <input type="text" autoComplete="off" placeholder="Contoh: Arem-Arem" value={produk.nama} onChange={(e) => setProduk({...produk, nama: e.target.value})} className="border p-2 rounded w-full" />
+          <input type="text" autoComplete="off" placeholder="Contoh: Arem-Arem" value={produk.nama} onChange={(e) => setProduk({...produk, nama: e.target.value})} className="border p-2 rounded w-full text-sm" />
         </div>
         <div className="flex flex-col gap-2">
           <label className="font-semibold text-sm">Harga (Contoh: 2.000)</label>
-          <input type="text" placeholder="Contoh: 2.000" value={produk.harga} onChange={(e) => setProduk({...produk, harga: e.target.value})} className="border p-2 rounded w-full" />
+          <input type="text" placeholder="Contoh: 2.000" value={produk.harga} onChange={(e) => setProduk({...produk, harga: e.target.value})} className="border p-2 rounded w-full text-sm" />
         </div>
         <div className="flex flex-col gap-2 md:col-span-2">
           <label className="font-semibold text-sm">Deskripsi</label>
-          <textarea placeholder="Ceritakan kelebihan produk..." value={produk.deskripsi} onChange={(e) => setProduk({...produk, deskripsi: e.target.value})} className="border p-2 rounded w-full h-24" />
+          <textarea placeholder="Ceritakan kelebihan produk..." value={produk.deskripsi} onChange={(e) => setProduk({...produk, deskripsi: e.target.value})} className="border p-2 rounded w-full h-24 text-sm" />
         </div>
         <div className="flex flex-col gap-2">
           <label className="font-semibold text-sm">Link Gambar</label>
-          <input type="text" placeholder="http://googleusercontent.com/profile/picture/ID_GAMBAR" value={produk.gambar} onChange={(e) => setProduk({...produk, gambar: e.target.value})} className="border p-2 rounded w-full" />
+          <input type="text" placeholder="http://googleusercontent.com/profile/picture/ID_GAMBAR" value={produk.gambar} onChange={(e) => setProduk({...produk, gambar: e.target.value})} className="border p-2 rounded w-full text-sm" />
         </div>
         <div className="flex flex-col gap-2">
           <label className="font-semibold text-sm">Kategori</label>
-          <select className="border p-2 rounded w-full" onChange={(e) => setProduk({...produk, kategori: e.target.value})} value={produk.kategori}>
+          <select className="border p-2 rounded w-full text-sm" onChange={(e) => setProduk({...produk, kategori: e.target.value})} value={produk.kategori}>
             <option value="" disabled>Pilih Kategori</option>
             <option value="Kue Basah">Kue Basah</option>
             <option value="Kue Kering">Kue Kering</option>
