@@ -6,16 +6,13 @@ export default function Hero() {
   return (
     <section id="home" className="relative flex items-center pt-28 pb-12 overflow-hidden w-full">
       
-      {/* Background Ornaments */}
       <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-brand-green-soft/10 rounded-full blur-3xl -z-10 translate-x-1/2 -translate-y-1/2"></div>
       <div className="absolute bottom-0 left-0 w-1/4 h-1/4 bg-brand-gold/10 rounded-full blur-3xl -z-10 -translate-x-1/2 translate-y-1/2"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         
-        {/* Flexbox agar konten saling mendekat di tengah */}
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
           
-          {/* Left Content (Teks) */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
@@ -53,17 +50,16 @@ export default function Hero() {
               </a>
             </div>
 
-            <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="mt-10 grid grid-cols-3 gap-2">
               {['Fresh Setiap Hari', 'Cocok Untuk Acara', 'Partai Kecil & Besar'].map((item, index) => (
-                <div key={index} className="flex items-center gap-2 text-brand-brown-dark font-medium text-sm">
-                  <CheckCircle2 className="text-brand-green-leaf" size={18} />
+                <div key={index} className="flex flex-col sm:flex-row items-center sm:gap-2 text-brand-brown-dark font-medium text-[10px] sm:text-sm text-center sm:text-left">
+                  <CheckCircle2 className="text-brand-green-leaf mb-1 sm:mb-0 shrink-0" size={16} />
                   <span>{item}</span>
                 </div>
               ))}
             </div>
           </motion.div>
 
-          {/* Right Content (Gambar) */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -79,7 +75,6 @@ export default function Hero() {
               />
             </div>
             
-            {/* Floating Card - Digeser ke kiri dengan -left-16 */}
             <motion.div
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
