@@ -5,7 +5,7 @@ import { WHATSAPP_LINK } from '../constants';
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
-  // Deteksi apakah sedang berada di halaman katalog atau admin
+  // Menentukan apakah user sedang di halaman Katalog (bukan di root '/')
   const isCatalogPage = window.location.pathname !== '/';
 
   const navLinks = [
@@ -17,13 +17,13 @@ export default function Navbar() {
   ];
 
   const handleNavClick = (e, href) => {
-    // 1. Jika di halaman Katalog dan link target adalah section di halaman utama (bukan katalog),
-    // biarkan browser melakukan navigasi standar agar pindah ke "/"
+    // 1. Jika di halaman Katalog dan link target BUKAN #katalog,
+    // biarkan browser berpindah halaman secara alami (tanpa e.preventDefault).
     if (isCatalogPage && !href.includes('#katalog')) {
       return; 
     }
-
-    // 2. Jika sudah di halaman utama, cegah refresh dan lakukan scroll halus
+    
+    // 2. Jika di halaman utama, cegah perilaku default browser dan lakukan scroll halus
     e.preventDefault();
     const id = href.replace('/', '').replace('#', '');
     const element = document.getElementById(id);
