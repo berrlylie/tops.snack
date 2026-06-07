@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useLayoutEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -15,53 +15,47 @@ import Catalog from './components/Catalog';
 import Admin from './components/Admin';
 
 export default function App() {
+  // Gunakan state untuk memicu re-render saat lokasi berubah
   const [currentPath, setCurrentPath] = useState(window.location.hash);
-  const [currentRoute] = useState(window.location.pathname);
 
-  // 1. Pantau perubahan hash saat user sudah di dalam aplikasi
   useEffect(() => {
     const onHashChange = () => setCurrentPath(window.location.hash);
     window.addEventListener('hashchange', onHashChange);
     return () => window.removeEventListener('hashchange', onHashChange);
   }, []);
 
-  // 2. Fungsi untuk melakukan scroll ke elemen target
+  // Fungsi scroll yang lebih stabil
   const scrollToSection = (hash) => {
     const element = document.querySelector(hash);
     if (element) {
       setTimeout(() => {
         element.scrollIntoView({ behavior: 'smooth' });
-      }, 300);
+      }, 100);
     }
   };
 
-  // 3. Jalankan scroll saat path atau hash berubah
-  useEffect(() => {
-    if (currentPath && currentRoute === '/') {
+  // Jalankan scroll saat path berubah (tetapi bukan saat masuk ke katalog)
+  useLayoutEffect(() => {
+    const catalogPages = ['#katalog', '#kue-basah', '#kue-kering', '#snack', '#snack-box', '#hampers'];
+    if (currentPath && !catalogPages.includes(currentPath)) {
       scrollToSection(currentPath);
-    } else {
+    } else if (!currentPath || currentPath === '#home') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-  }, [currentPath, currentRoute]);
+  }, [currentPath]);
 
-  // 4. Jalankan scroll saat halaman pertama kali dimuat (mencegah navigasi gagal saat reload)
-  useEffect(() => {
-    if (window.location.hash) {
-      scrollToSection(window.location.hash);
-    }
-  }, []);
-
-  if (currentRoute === '/admin') return <Admin />;
+  if (window.location.pathname === '/admin') return <Admin />;
 
   const catalogPages = ['#katalog', '#kue-basah', '#kue-kering', '#snack', '#snack-box', '#hampers'];
-  const isCatalogPage = catalogPages.includes(currentPath);
+  // DETEKSI LANGSUNG: Gunakan hash saat ini, jangan cuma state
+  const isCatalogPage = catalogPages.includes(window.location.hash);
 
   if (isCatalogPage) {
     return (
       <div className="min-h-screen">
         <Navbar />
         <main className="pt-16">
-          <Catalog currentPath={currentPath} />
+          <Catalog currentPath={window.location.hash} />
         </main>
         <Footer />
       </div>
