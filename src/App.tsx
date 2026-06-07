@@ -12,11 +12,11 @@ import FAQ from './components/FAQ';
 import CTAWhatsApp from './components/CTAWhatsApp';
 import Footer from './components/Footer';
 import Catalog from './components/Catalog';
-import Admin from './components/Admin'; // 1. Tambahkan import ini
+import Admin from './components/Admin';
 
 export default function App() {
   const [currentPath, setCurrentPath] = useState(window.location.hash);
-  const [currentRoute, setCurrentRoute] = useState(window.location.pathname); // 2. Tambahkan untuk deteksi /admin
+  const [currentRoute, setCurrentRoute] = useState(window.location.pathname);
 
   useEffect(() => {
     const onHashChange = () => setCurrentPath(window.location.hash);
@@ -24,7 +24,13 @@ export default function App() {
     return () => window.removeEventListener('hashchange', onHashChange);
   }, []);
 
-  // 3. Cek jika user membuka /admin
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth' // 'smooth' untuk transisi halus, atau 'auto' untuk instan
+    });
+  }, [currentPath, currentRoute]);
+
   if (currentRoute === '/admin') {
     return <Admin />;
   }
