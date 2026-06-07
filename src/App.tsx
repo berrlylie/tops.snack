@@ -18,24 +18,38 @@ export default function App() {
   const [currentPath, setCurrentPath] = useState(window.location.hash);
   const [currentRoute] = useState(window.location.pathname);
 
+  // 1. Pantau perubahan hash saat user sudah di dalam aplikasi
   useEffect(() => {
     const onHashChange = () => setCurrentPath(window.location.hash);
     window.addEventListener('hashchange', onHashChange);
     return () => window.removeEventListener('hashchange', onHashChange);
   }, []);
 
+  // 2. Fungsi untuk melakukan scroll ke elemen target
+  const scrollToSection = (hash) => {
+    const element = document.querySelector(hash);
+    if (element) {
+      setTimeout(() => {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }, 300);
+    }
+  };
+
+  // 3. Jalankan scroll saat path atau hash berubah
   useEffect(() => {
     if (currentPath && currentRoute === '/') {
-      const element = document.querySelector(currentPath);
-      if (element) {
-        setTimeout(() => {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }, 300); // Jeda agar render selesai
-      }
+      scrollToSection(currentPath);
     } else {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }, [currentPath, currentRoute]);
+
+  // 4. Jalankan scroll saat halaman pertama kali dimuat (mencegah navigasi gagal saat reload)
+  useEffect(() => {
+    if (window.location.hash) {
+      scrollToSection(window.location.hash);
+    }
+  }, []);
 
   if (currentRoute === '/admin') return <Admin />;
 
@@ -60,7 +74,7 @@ export default function App() {
       <main>
         <section id="home"><Hero /></section>
         <section id="about-us"><About /></section>
-        <Categories />
+        <section id="categories"><Categories /></section>
         <FeaturedProducts />
         <Advantages />
         <section id="testimonials"><Testimonials /></section>
