@@ -16,7 +16,7 @@ import Admin from './components/Admin';
 
 export default function App() {
   const [currentPath, setCurrentPath] = useState(window.location.hash);
-  const [currentRoute, setCurrentRoute] = useState(window.location.pathname);
+  const [currentRoute] = useState(window.location.pathname);
 
   useEffect(() => {
     const onHashChange = () => setCurrentPath(window.location.hash);
@@ -25,15 +25,19 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
+    if (currentPath && currentRoute === '/') {
+      const element = document.querySelector(currentPath);
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 300); // Jeda agar render selesai
+      }
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   }, [currentPath, currentRoute]);
 
-  if (currentRoute === '/admin') {
-    return <Admin />;
-  }
+  if (currentRoute === '/admin') return <Admin />;
 
   const catalogPages = ['#katalog', '#kue-basah', '#kue-kering', '#snack', '#snack-box', '#hampers'];
   const isCatalogPage = catalogPages.includes(currentPath);
@@ -42,7 +46,6 @@ export default function App() {
     return (
       <div className="min-h-screen">
         <Navbar />
-        {/* Padding-top diubah dari pt-24 menjadi pt-16 agar judul lebih dekat ke navbar */}
         <main className="pt-16">
           <Catalog currentPath={currentPath} />
         </main>
@@ -55,15 +58,15 @@ export default function App() {
     <div className="min-h-screen">
       <Navbar />
       <main>
-        <Hero />
-        <About />
+        <section id="home"><Hero /></section>
+        <section id="about-us"><About /></section>
         <Categories />
         <FeaturedProducts />
         <Advantages />
-        <Testimonials />
+        <section id="testimonials"><Testimonials /></section>
         <HowToOrder />
         <Location />
-        <FAQ />
+        <section id="faq"><FAQ /></section>
         <CTAWhatsApp />
       </main>
       <Footer />
