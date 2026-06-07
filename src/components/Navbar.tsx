@@ -17,13 +17,10 @@ export default function Navbar() {
   ];
 
   const handleNavClick = (e, href) => {
-    // 1. Jika di halaman Katalog, biarkan navigasi berpindah halaman secara natural
-    // Kita tidak memanggil e.preventDefault() agar link bekerja normal
     if (isCatalogPage && !href.includes('#katalog')) {
-      return;
+      return; 
     }
 
-    // 2. Jika sudah di halaman utama, cegah reload dan lakukan scroll halus
     e.preventDefault();
     const id = href.replace('/', '').replace('#', '');
     const element = document.getElementById(id);
@@ -31,6 +28,9 @@ export default function Navbar() {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
       setIsOpen(false);
+    } else {
+      // Jika id tidak ditemukan di halaman ini, paksa pindah ke root
+      window.location.href = href;
     }
   };
 
