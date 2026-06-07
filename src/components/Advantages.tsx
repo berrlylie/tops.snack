@@ -31,14 +31,14 @@ export default function Advantages() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="text-center group"
             >
-              {/* Container Belah Ketupat dengan Animasi */}
+              {/* Kotak yang berputar saat hover */}
               <motion.div 
-                whileHover={{ rotate: 135, scale: 1.1 }} 
-                transition={{ duration: 0.5, ease: "easeInOut" }}
-                className="w-16 h-16 md:w-20 md:h-20 bg-brand-green-leaf rounded-2xl md:rounded-3xl flex items-center justify-center mx-auto mb-6 md:mb-8 shadow-lg rotate-45 cursor-pointer"
+                whileHover={{ rotate: 360, scale: 1.1 }} 
+                transition={{ duration: 0.6, ease: "easeInOut" }}
+                className="w-16 h-16 md:w-20 md:h-20 bg-brand-green-leaf rounded-2xl md:rounded-3xl flex items-center justify-center mx-auto mb-6 md:mb-8 shadow-lg cursor-pointer"
               >
-                {/* Ikon diputar balik agar tetap tegak */}
-                <div className="-rotate-45 text-white">
+                {/* Ikon tetap diam di dalam kotak yang berputar */}
+                <div className="text-white">
                   {item.icon}
                 </div>
               </motion.div>
