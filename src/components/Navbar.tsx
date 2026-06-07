@@ -5,7 +5,7 @@ import { WHATSAPP_LINK } from '../constants';
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
-  // Menentukan apakah user sedang di halaman Katalog
+  // Deteksi apakah sedang berada di halaman katalog atau admin
   const isCatalogPage = window.location.pathname !== '/';
 
   const navLinks = [
@@ -17,12 +17,17 @@ export default function Navbar() {
   ];
 
   const handleNavClick = (e, href) => {
+    // 1. Jika di halaman Katalog dan link target adalah section di halaman utama (bukan katalog),
+    // biarkan browser melakukan navigasi standar agar pindah ke "/"
     if (isCatalogPage && !href.includes('#katalog')) {
       return; 
     }
-    
+
+    // 2. Jika sudah di halaman utama, cegah refresh dan lakukan scroll halus
     e.preventDefault();
-    const element = document.querySelector(href);
+    const id = href.replace('/', '').replace('#', '');
+    const element = document.getElementById(id);
+    
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
       setIsOpen(false);
@@ -34,12 +39,14 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 rounded-full bg-brand-beige/95 backdrop-blur-md shadow-md border border-brand-brown-dark/5 py-2.5">
         <div className="flex justify-between items-center">
           
+          {/* Logo */}
           <div className="flex-shrink-0">
             <a href="/" className="flex items-center">
               <img src="/Logotopssnack.png" alt="Logo" className="h-10 md:h-11 w-auto object-contain" />
             </a>
           </div>
 
+          {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
               <a
@@ -62,6 +69,7 @@ export default function Navbar() {
             </a>
           </div>
 
+          {/* Mobile Toggle */}
           <div className="md:hidden">
             <button onClick={() => setIsOpen(!isOpen)} className="text-brand-brown-dark p-2">
               {isOpen ? <X size={26} /> : <Menu size={26} />}
@@ -70,6 +78,7 @@ export default function Navbar() {
         </div>
       </div>
 
+      {/* Mobile Menu Dropdown */}
       {isOpen && (
         <div className="md:hidden mt-2 mx-4 bg-brand-beige/95 backdrop-blur-md shadow-xl rounded-2xl p-4 border border-brand-brown-dark/5">
           <div className="space-y-2">
