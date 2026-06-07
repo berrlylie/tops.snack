@@ -15,7 +15,7 @@ import Catalog from './components/Catalog';
 import Admin from './components/Admin';
 
 export default function App() {
-  // Gunakan state untuk memicu re-render saat lokasi berubah
+  // State untuk melacak hash agar terjadi re-render saat URL berubah
   const [currentPath, setCurrentPath] = useState(window.location.hash);
 
   useEffect(() => {
@@ -24,7 +24,7 @@ export default function App() {
     return () => window.removeEventListener('hashchange', onHashChange);
   }, []);
 
-  // Fungsi scroll yang lebih stabil
+  // Fungsi scroll yang memastikan konten tidak tertutup Navbar
   const scrollToSection = (hash) => {
     const element = document.querySelector(hash);
     if (element) {
@@ -34,12 +34,15 @@ export default function App() {
     }
   };
 
-  // Jalankan scroll saat path berubah (tetapi bukan saat masuk ke katalog)
   useLayoutEffect(() => {
     const catalogPages = ['#katalog', '#kue-basah', '#kue-kering', '#snack', '#snack-box', '#hampers'];
+    
+    // Jika path bukan katalog, lakukan scroll ke section tersebut
     if (currentPath && !catalogPages.includes(currentPath)) {
       scrollToSection(currentPath);
-    } else if (!currentPath || currentPath === '#home') {
+    } 
+    // Jika berada di katalog atau home, pastikan posisi di atas
+    else if (!currentPath || currentPath === '#home' || catalogPages.includes(currentPath)) {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }, [currentPath]);
@@ -47,21 +50,22 @@ export default function App() {
   if (window.location.pathname === '/admin') return <Admin />;
 
   const catalogPages = ['#katalog', '#kue-basah', '#kue-kering', '#snack', '#snack-box', '#hampers'];
-  // DETEKSI LANGSUNG: Gunakan hash saat ini, jangan cuma state
-  const isCatalogPage = catalogPages.includes(window.location.hash);
+  const isCatalogPage = catalogPages.includes(currentPath);
 
+  // Render Halaman Katalog
   if (isCatalogPage) {
     return (
-      <div className="min-h-screen">
+      <div className="min-h-screen" id="katalog-page">
         <Navbar />
         <main className="pt-16">
-          <Catalog currentPath={window.location.hash} />
+          <Catalog currentPath={currentPath} />
         </main>
         <Footer />
       </div>
     );
   }
 
+  // Render Halaman Utama
   return (
     <div className="min-h-screen">
       <Navbar />
