@@ -6,16 +6,13 @@ export default function Hero() {
   return (
     <section id="home" className="relative flex items-center pt-28 pb-12 overflow-hidden w-full">
       
-      {/* Background Ornaments */}
       <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-brand-green-soft/10 rounded-full blur-3xl -z-10 translate-x-1/2 -translate-y-1/2"></div>
       <div className="absolute bottom-0 left-0 w-1/4 h-1/4 bg-brand-gold/10 rounded-full blur-3xl -z-10 -translate-x-1/2 translate-y-1/2"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         
-        {/* Flexbox container */}
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
           
-          {/* Left Content (Teks) */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
@@ -34,7 +31,6 @@ export default function Hero() {
               Tops Snack menyediakan berbagai pilihan jajanan pasar, kue basah, kue kering, snack box, hampers, dan aneka camilan lainnya yang dibuat fresh setiap hari. Dengan cita rasa yang terjaga dan kualitas terbaik, kami siap melengkapi berbagai momen spesial, mulai dari acara keluarga, rapat kantor, syukuran, hingga perayaan bersama orang terdekat.
             </p>
 
-            {/* Tombol */}
             <div className="flex flex-wrap gap-4">
               <a
                 href="#katalog"
@@ -54,14 +50,13 @@ export default function Hero() {
               </a>
             </div>
 
-            {/* Grid Poin - Dipaksa sejajar dengan flex */}
-            <div className="mt-10 flex justify-between items-start gap-1 w-full">
+            <div className="mt-10 flex flex-row justify-between items-start w-full gap-1">
               {['Fresh Setiap Hari', 'Cocok Untuk Acara', 'Partai Kecil & Besar'].map((item, index) => (
-                <div key={index} className="flex flex-col items-center text-center gap-1 flex-1 px-0.5">
-                  <div className="flex items-center justify-center">
-                    <CheckCircle2 className="text-brand-green-leaf" size={22} />
+                <div key={index} className="flex flex-col items-center text-center w-1/3 min-w-0 px-0.5">
+                  <div className="flex items-center justify-center mb-1">
+                    <CheckCircle2 className="text-brand-green-leaf shrink-0" size={20} />
                   </div>
-                  <span className="text-[10px] font-bold text-brand-brown-dark leading-[1.1] text-center w-full">
+                  <span className="text-[9px] font-bold text-brand-brown-dark leading-[1.1] whitespace-nowrap block w-full">
                     {item}
                   </span>
                 </div>
@@ -69,7 +64,6 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* Right Content (Gambar) */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -85,7 +79,6 @@ export default function Hero() {
               />
             </div>
             
-            {/* Floating Card */}
             <motion.div
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
