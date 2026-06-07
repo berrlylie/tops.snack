@@ -34,7 +34,7 @@ export default function Hero() {
               Tops Snack menyediakan berbagai pilihan jajanan pasar, kue basah, kue kering, snack box, hampers, dan aneka camilan lainnya yang dibuat fresh setiap hari. Dengan cita rasa yang terjaga dan kualitas terbaik, kami siap melengkapi berbagai momen spesial, mulai dari acara keluarga, rapat kantor, syukuran, hingga perayaan bersama orang terdekat.
             </p>
 
-            {/* Tombol dengan ukuran yang diperbesar */}
+            {/* Tombol */}
             <div className="flex flex-wrap gap-4">
               <a
                 href="#katalog"
@@ -54,14 +54,14 @@ export default function Hero() {
               </a>
             </div>
 
-            {/* Grid Poin */}
-            <div className="mt-10 grid grid-cols-3 gap-2">
+            {/* Grid Poin - Dipaksa sejajar dengan flex */}
+            <div className="mt-10 flex justify-between items-start gap-1 w-full">
               {['Fresh Setiap Hari', 'Cocok Untuk Acara', 'Partai Kecil & Besar'].map((item, index) => (
-                <div key={index} className="flex flex-col items-center text-center gap-1">
+                <div key={index} className="flex flex-col items-center text-center gap-1 flex-1 px-0.5">
                   <div className="flex items-center justify-center">
                     <CheckCircle2 className="text-brand-green-leaf" size={22} />
                   </div>
-                  <span className="text-[11px] font-bold text-brand-brown-dark leading-tight">
+                  <span className="text-[10px] font-bold text-brand-brown-dark leading-[1.1] text-center w-full">
                     {item}
                   </span>
                 </div>
