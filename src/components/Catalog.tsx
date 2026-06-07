@@ -67,7 +67,6 @@ export default function Catalog({ currentPath }: { currentPath: string }) {
                       transition={{ duration: 0.3, delay: pIndex * 0.05 }}
                       className="w-[46%] sm:w-[30%] md:w-[22%] lg:w-[18%] bg-white rounded-2xl overflow-hidden border border-brand-beige hover:border-brand-green-leaf/30 transition-all duration-300 shadow-sm hover:shadow-lg flex flex-col"
                     >
-                      {/* Gambar Produk */}
                       <div className="relative aspect-square overflow-hidden bg-brand-beige/30 p-1.5 sm:p-2">
                         <img
                           src={product.image || `https://picsum.photos/seed/${product.name}/600/600`}
@@ -81,19 +80,17 @@ export default function Catalog({ currentPath }: { currentPath: string }) {
                         )}
                       </div>
 
-                      {/* Detail Produk */}
                       <div className="p-3 flex flex-col flex-grow">
                         <h4 className="font-bold text-brand-brown-dark text-sm mb-1 line-clamp-1">{product.name}</h4>
                         
-                        {/* Deskripsi: whitespace-pre-line menjaga baris baru dan tidak terpotong */}
                         <p className="text-[11px] sm:text-[12px] text-brand-brown-medium/80 mb-3 leading-tight flex-grow whitespace-pre-line">
                           {product.description || 'Nikmati kelezatan jajanan pasar fresh setiap hari.'}
                         </p>
                         
-                        {/* Harga & Tombol Pesan */}
                         <div className="mt-auto pt-2 border-t border-brand-beige/40 flex justify-between items-end">
                           <div>
-                            <p className="text-[9px] text-brand-brown-medium/70 uppercase tracking-wide">Mulai dari</p>
+                            {/* Perbaikan: Menghapus class 'uppercase' dan 'tracking-wide' agar tampil normal */}
+                            <p className="text-[10px] text-brand-brown-medium/70">Mulai dari</p>
                             <span className="font-bold text-brand-brown-dark text-sm block">Rp {product.price}</span>
                           </div>
                           
