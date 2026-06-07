@@ -24,17 +24,19 @@ export default function Navbar() {
     e.preventDefault();
     const element = document.querySelector(href);
     if (element) {
-      // scrollIntoView memastikan elemen terlihat dengan baik
       element.scrollIntoView({ behavior: 'smooth' });
-      setIsOpen(false);
+      setIsOpen(false); // Menutup menu mobile setelah diklik
+    } else {
+      console.warn(`Elemen dengan ID ${href} tidak ditemukan.`);
     }
   };
 
   return (
     <nav className="fixed w-full z-50 top-3 px-4 transition-all duration-300">
-      <div className="max-w-7xl mx-auto px-6 transition-all duration-300 rounded-full bg-brand-beige/95 backdrop-blur-md shadow-md border border-brand-brown-dark/5 py-2.5">
+      <div className="max-w-7xl mx-auto px-6 rounded-full bg-brand-beige/95 backdrop-blur-md shadow-md border border-brand-brown-dark/5 py-2.5">
         <div className="flex justify-between items-center">
           
+          {/* Logo */}
           <div className="flex-shrink-0">
             <a href="#home" onClick={(e) => handleNavClick(e, '#home')} className="flex items-center">
               <img 
