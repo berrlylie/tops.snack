@@ -4,17 +4,17 @@ import { Leaf, Award, ShieldCheck } from 'lucide-react';
 export default function About() {
   const values = [
     {
-      icon: <Leaf className="text-brand-green-leaf" size={25} />,
+      icon: <Leaf className="text-brand-green-leaf" size={27} />,
       title: 'Bahan Pilihan',
       description: 'Bahan berkualitas tanpa pengawet.',
     },
     {
-      icon: <Award className="text-brand-green-leaf" size={25} />,
+      icon: <Award className="text-brand-green-leaf" size={27} />,
       title: 'Rasa Autentik',
       description: 'Resep tradisional terjaga keasliannya.',
     },
     {
-      icon: <ShieldCheck className="text-brand-green-leaf" size={25} />,
+      icon: <ShieldCheck className="text-brand-green-leaf" size={27} />,
       title: 'Produksi Higienis',
       description: 'Standar kebersihan yang terjamin.',
     },
@@ -65,19 +65,20 @@ export default function About() {
               Dengan mengutamakan kualitas bahan, kebersihan proses produksi, dan kesegaran produk, kami berkomitmen untuk memberikan yang terbaik bagi setiap pelanggan. Kepuasan pelanggan menjadi prioritas kami, sehingga setiap pesanan dipersiapkan dengan perhatian dan ketelitian agar menghadirkan rasa, kualitas, dan pelayanan yang dapat selalu diandalkan.
             </p>
 
-            {/* Features Grid */}
+            {/* Features Grid - Disesuaikan agar ikon lebih besar dan teks tetap rapi */}
             <div className="grid grid-cols-3 gap-2 sm:gap-6">
               {values.map((value, index) => (
                 <div key={index} className="flex flex-col gap-2 items-center text-center">
-                  <div className="w-10 h-10 sm:w-14 sm:h-14 bg-brand-beige rounded-2xl flex items-center justify-center">
+                  {/* Container ikon dibuat sedikit lebih besar agar terlihat proporsional */}
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 bg-brand-beige rounded-2xl flex items-center justify-center shadow-sm">
                     {value.icon}
                   </div>
                   <div>
-                    <h4 className="font-bold text-brand-brown-dark mb-1 text-[10px] sm:text-sm">
+                    <h4 className="font-bold text-brand-brown-dark mb-1 text-[11px] sm:text-sm">
                       {value.title}
                     </h4>
-                    {/* Deskripsi sekarang muncul di semua perangkat (block) */}
-                    <p className="text-[9px] sm:text-xs text-brand-brown-medium leading-tight sm:leading-relaxed block">
+                    {/* Deskripsi tetap muncul dan disetel agar pas di layar kecil */}
+                    <p className="text-[10px] sm:text-xs text-brand-brown-medium leading-tight sm:leading-relaxed block px-0.5">
                       {value.description}
                     </p>
                   </div>
