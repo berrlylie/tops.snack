@@ -4,54 +4,55 @@ import { ListChecks, CalendarClock, Truck } from 'lucide-react';
 export default function HowToOrder() {
   const steps = [
     {
-      icon: <ListChecks size={32} />,
+      icon: <ListChecks size={24} />,
       title: 'Pilih Menu',
-      description: 'Lihat katalog kami dan tentukan jajanan atau paket snack box yang Anda inginkan.',
+      description: 'Lihat katalog dan tentukan jajanan atau paket snack box keinginan Anda.',
     },
     {
-      icon: <CalendarClock size={32} />,
+      icon: <CalendarClock size={24} />,
       title: 'Konfirmasi Pesanan',
-      description: 'Hubungi kami via WhatsApp untuk konfirmasi jumlah, tanggal, dan detail pengiriman.',
+      description: 'Hubungi kami via WhatsApp untuk detail jumlah dan tanggal.',
     },
     {
-      icon: <Truck size={32} />,
+      icon: <Truck size={24} />,
       title: 'Pesanan Dikirim',
-      description: 'Pesanan Anda akan kami buat fresh dan dikirim langsung ke lokasi sesuai jadwal.',
+      description: 'Kami siapkan fresh dan kirim langsung ke lokasi sesuai jadwal.',
     },
   ];
 
   return (
-    <section className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h3 className="text-4xl font-bold text-brand-brown-dark">Cara Pemesanan</h3>
+    <section className="py-16 bg-white">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6">
+        <div className="text-center mb-10">
+          <h3 className="text-3xl md:text-4xl font-bold text-brand-brown-dark">Cara Pemesanan</h3>
         </div>
 
-        <div className="relative">
-          {/* Connector Line */}
-          <div className="hidden lg:block absolute top-1/2 left-0 w-full h-0.5 bg-brand-beige -translate-y-1/2 z-0"></div>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 relative z-10">
-            {steps.map((step, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.2 }}
-                className="bg-white border-2 border-brand-beige p-8 rounded-3xl text-center hover:border-brand-green-leaf transition-colors duration-300"
-              >
-                <div className="w-20 h-20 bg-brand-green-leaf text-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
-                  {step.icon}
-                </div>
-                <div className="inline-block px-3 py-1 bg-brand-beige text-brand-brown-dark rounded-full text-xs font-bold mb-4">
+        {/* List vertikal yang ringkas */}
+        <div className="flex flex-col gap-6">
+          {steps.map((step, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="flex items-start gap-4 p-4 sm:p-6 rounded-2xl border border-brand-beige hover:border-brand-green-leaf transition-colors duration-300"
+            >
+              {/* Ikon dengan background lebih kecil */}
+              <div className="w-12 h-12 flex-shrink-0 bg-brand-green-leaf text-white rounded-xl flex items-center justify-center shadow-md">
+                {step.icon}
+              </div>
+              
+              {/* Teks */}
+              <div>
+                <span className="inline-block px-2 py-0.5 bg-brand-beige text-brand-brown-dark rounded-md text-[10px] font-bold uppercase tracking-wider mb-1">
                   Langkah {index + 1}
-                </div>
-                <h4 className="text-xl font-bold text-brand-brown-dark mb-3">{step.title}</h4>
-                <p className="text-brand-brown-medium leading-relaxed">{step.description}</p>
-              </motion.div>
-            ))}
-          </div>
+                </span>
+                <h4 className="text-lg font-bold text-brand-brown-dark mb-1">{step.title}</h4>
+                <p className="text-sm text-brand-brown-medium leading-relaxed">{step.description}</p>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
