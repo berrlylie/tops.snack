@@ -4,17 +4,17 @@ import { Leaf, Award, ShieldCheck } from 'lucide-react';
 export default function About() {
   const values = [
     {
-      icon: <Leaf className="text-brand-green-leaf" size={22} />,
+      icon: <Leaf className="text-brand-green-leaf" size={25} />,
       title: 'Bahan Pilihan',
       description: 'Bahan berkualitas tanpa pengawet.',
     },
     {
-      icon: <Award className="text-brand-green-leaf" size={22} />,
+      icon: <Award className="text-brand-green-leaf" size={25} />,
       title: 'Rasa Autentik',
       description: 'Resep tradisional terjaga keasliannya.',
     },
     {
-      icon: <ShieldCheck className="text-brand-green-leaf" size={22} />,
+      icon: <ShieldCheck className="text-brand-green-leaf" size={25} />,
       title: 'Produksi Higienis',
       description: 'Standar kebersihan yang terjamin.',
     },
