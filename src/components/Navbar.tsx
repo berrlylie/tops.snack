@@ -4,30 +4,30 @@ import { WHATSAPP_LINK } from '../constants';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  // Menentukan apakah user sedang di halaman Katalog
+  const isCatalogPage = window.location.pathname !== '/';
 
   const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'About Us', href: '#about-us' },
-    { name: 'Products', href: '#katalog' },
-    { name: 'Testimonials', href: '#testimonials' },
-    { name: 'Contact Us', href: '#contact-us' },
+    { name: 'Home', href: isCatalogPage ? '/#home' : '#home' },
+    { name: 'About Us', href: isCatalogPage ? '/#about-us' : '#about-us' },
+    { name: 'Products', href: isCatalogPage ? '/#katalog' : '#katalog' },
+    { name: 'Testimonials', href: isCatalogPage ? '/#testimonials' : '#testimonials' },
+    { name: 'Contact Us', href: isCatalogPage ? '/#contact-us' : '#contact-us' },
   ];
 
   const handleNavClick = (e, href) => {
+    // Jika di Katalog dan mengklik link utama, biarkan browser pindah ke '/'
+    if (isCatalogPage && !href.includes('#katalog')) {
+      return; // Biarkan link bekerja secara default untuk pindah halaman
+    }
+    
+    // Jika di halaman utama, gunakan scroll halus
     e.preventDefault();
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
-      setIsOpen(false); // Menutup menu mobile setelah diklik
-    } else {
-      console.warn(`Elemen dengan ID ${href} tidak ditemukan.`);
+      setIsOpen(false);
     }
   };
 
@@ -36,14 +36,9 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 rounded-full bg-brand-beige/95 backdrop-blur-md shadow-md border border-brand-brown-dark/5 py-2.5">
         <div className="flex justify-between items-center">
           
-          {/* Logo */}
           <div className="flex-shrink-0">
-            <a href="#home" onClick={(e) => handleNavClick(e, '#home')} className="flex items-center">
-              <img 
-                src="/Logotopssnack.png"
-                alt="Logo Tops Snack" 
-                className="h-10 md:h-11 w-auto object-contain"
-              />
+            <a href="/" className="flex items-center">
+              <img src="/Logotopssnack.png" alt="Logo" className="h-10 md:h-11 w-auto object-contain" />
             </a>
           </div>
 
@@ -70,10 +65,7 @@ export default function Navbar() {
           </div>
 
           <div className="md:hidden">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="text-brand-brown-dark p-2"
-            >
+            <button onClick={() => setIsOpen(!isOpen)} className="text-brand-brown-dark p-2">
               {isOpen ? <X size={26} /> : <Menu size={26} />}
             </button>
           </div>
