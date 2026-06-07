@@ -4,19 +4,19 @@ import { Leaf, Award, ShieldCheck } from 'lucide-react';
 export default function About() {
   const values = [
     {
-      icon: <Leaf className="text-brand-green-leaf" size={28} />,
+      icon: <Leaf className="text-brand-green-leaf" size={20} />,
       title: 'Bahan Pilihan',
-      description: 'Menggunakan bahan berkualitas untuk hasilkan jajanan fresh tanpa pengawet.',
+      description: 'Bahan berkualitas tanpa pengawet.',
     },
     {
-      icon: <Award className="text-brand-green-leaf" size={28} />,
+      icon: <Award className="text-brand-green-leaf" size={20} />,
       title: 'Rasa Autentik',
-      description: 'Resep tradisional terjaga keasliannya untuk cita rasa yang tak terlupakan.',
+      description: 'Resep tradisional terjaga keasliannya.',
     },
     {
-      icon: <ShieldCheck className="text-brand-green-leaf" size={28} />,
+      icon: <ShieldCheck className="text-brand-green-leaf" size={20} />,
       title: 'Produksi Higienis',
-      description: 'Standar kebersihan terjaga demi memberikan rasa aman saat dikonsumsi.',
+      description: 'Standar kebersihan yang terjamin.',
     },
   ];
 
@@ -26,16 +26,13 @@ export default function About() {
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
-          {/* Image Side - Dibuat lebih lebar dengan menghapus max-w-sm */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            // Gambar sekarang mengisi ruang kolom yang tersedia
             className="lg:col-span-5 relative w-full"
           >
-            {/* Hapus max-w-sm agar gambar bisa melebar secara alami */}
             <div className="aspect-[4/5] rounded-3xl shadow-xl p-3 bg-[#5D4037] border-4 border-[#3E2723] w-full">
               <div className="w-full h-full rounded-2xl overflow-hidden">
                 <img
@@ -49,7 +46,6 @@ export default function About() {
             <div className="absolute -bottom-8 -left-8 w-48 h-48 bg-brand-gold/10 rounded-full -z-10"></div>
           </motion.div>
 
-          {/* Text Side */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -69,22 +65,23 @@ export default function About() {
               Dengan mengutamakan kualitas bahan, kebersihan proses produksi, dan kesegaran produk, kami berkomitmen untuk memberikan yang terbaik bagi setiap pelanggan. Kepuasan pelanggan menjadi prioritas kami, sehingga setiap pesanan dipersiapkan dengan perhatian dan ketelitian agar menghadirkan rasa, kualitas, dan pelayanan yang dapat selalu diandalkan.
             </p>
 
-            {/* Features Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            {/* Features Grid - Diubah ke grid-cols-3 agar sebaris di semua ukuran layar */}
+            <div className="grid grid-cols-3 gap-2 sm:gap-6">
               {values.map((value, index) => (
-                <div key={index} className="flex flex-col gap-3">
-                  <div className="w-14 h-14 bg-brand-beige rounded-2xl flex items-center justify-center">
+                <div key={index} className="flex flex-col gap-2 items-center text-center">
+                  <div className="w-10 h-10 sm:w-14 sm:h-14 bg-brand-beige rounded-2xl flex items-center justify-center">
                     {value.icon}
                   </div>
                   <div>
-                    <h4 className="font-bold text-brand-brown-dark mb-1 text-sm">{value.title}</h4>
-                    <p className="text-xs text-brand-brown-medium leading-relaxed">{value.description}</p>
+                    <h4 className="font-bold text-brand-brown-dark mb-1 text-[10px] sm:text-sm">{value.title}</h4>
+                    <p className="text-[9px] sm:text-xs text-brand-brown-medium leading-tight sm:leading-relaxed hidden sm:block">
+                      {value.description}
+                    </p>
                   </div>
                 </div>
               ))}
             </div>
           </motion.div>
-
         </div>
       </div>
     </section>
