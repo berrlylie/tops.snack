@@ -65,7 +65,7 @@ export default function About() {
               Dengan mengutamakan kualitas bahan, kebersihan proses produksi, dan kesegaran produk, kami berkomitmen untuk memberikan yang terbaik bagi setiap pelanggan. Kepuasan pelanggan menjadi prioritas kami, sehingga setiap pesanan dipersiapkan dengan perhatian dan ketelitian agar menghadirkan rasa, kualitas, dan pelayanan yang dapat selalu diandalkan.
             </p>
 
-            {/* Features Grid - Diubah ke grid-cols-3 agar sebaris di semua ukuran layar */}
+            {/* Features Grid */}
             <div className="grid grid-cols-3 gap-2 sm:gap-6">
               {values.map((value, index) => (
                 <div key={index} className="flex flex-col gap-2 items-center text-center">
@@ -73,8 +73,11 @@ export default function About() {
                     {value.icon}
                   </div>
                   <div>
-                    <h4 className="font-bold text-brand-brown-dark mb-1 text-[10px] sm:text-sm">{value.title}</h4>
-                    <p className="text-[9px] sm:text-xs text-brand-brown-medium leading-tight sm:leading-relaxed hidden sm:block">
+                    <h4 className="font-bold text-brand-brown-dark mb-1 text-[10px] sm:text-sm">
+                      {value.title}
+                    </h4>
+                    {/* Deskripsi sekarang muncul di semua perangkat (block) */}
+                    <p className="text-[9px] sm:text-xs text-brand-brown-medium leading-tight sm:leading-relaxed block">
                       {value.description}
                     </p>
                   </div>
