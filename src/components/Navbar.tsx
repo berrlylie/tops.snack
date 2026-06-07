@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Menu, X, ShoppingBag } from 'lucide-react';
 import { WHATSAPP_LINK } from '../constants';
 
@@ -17,12 +17,10 @@ export default function Navbar() {
   ];
 
   const handleNavClick = (e, href) => {
-    // Jika di Katalog dan mengklik link utama, biarkan browser pindah ke '/'
     if (isCatalogPage && !href.includes('#katalog')) {
-      return; // Biarkan link bekerja secara default untuk pindah halaman
+      return; 
     }
     
-    // Jika di halaman utama, gunakan scroll halus
     e.preventDefault();
     const element = document.querySelector(href);
     if (element) {
