@@ -31,21 +31,21 @@ export default function Hero() {
               Tops Snack menyediakan berbagai pilihan jajanan pasar, kue basah, kue kering, snack box, hampers, dan aneka camilan lainnya yang dibuat fresh setiap hari. Dengan cita rasa yang terjaga dan kualitas terbaik, kami siap melengkapi berbagai momen spesial, mulai dari acara keluarga, rapat kantor, syukuran, hingga perayaan bersama orang terdekat.
             </p>
 
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-row flex-nowrap gap-2 md:gap-4">
               <a
                 href="#katalog"
-                className="inline-flex items-center justify-center bg-brand-brown-dark text-white px-8 py-4 rounded-full font-bold text-base hover:bg-brand-brown-medium transition-all duration-300 shadow-md"
+                className="flex-1 inline-flex items-center justify-center bg-brand-brown-dark text-white px-4 py-3.5 rounded-full font-bold text-[13px] md:text-base hover:bg-brand-brown-medium transition-all duration-300 shadow-md whitespace-nowrap"
               >
                 Lihat Produk
-                <ArrowRight className="ml-2" size={20} />
+                <ArrowRight className="ml-1.5" size={16} />
               </a>
               <a
                 href={WHATSAPP_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center bg-white border-2 border-brand-green-leaf text-brand-green-leaf px-8 py-4 rounded-full font-bold text-base hover:bg-brand-green-leaf hover:text-white transition-all duration-300"
+                className="flex-1 inline-flex items-center justify-center bg-white border-2 border-brand-green-leaf text-brand-green-leaf px-4 py-3.5 rounded-full font-bold text-[13px] md:text-base hover:bg-brand-green-leaf hover:text-white transition-all duration-300 whitespace-nowrap"
               >
-                <MessageCircle className="mr-2" size={20} />
+                <MessageCircle className="mr-1.5" size={16} />
                 WhatsApp
               </a>
             </div>
