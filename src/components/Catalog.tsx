@@ -85,21 +85,25 @@ export default function Catalog({ currentPath }: { currentPath: string }) {
                       <div className="p-3 flex flex-col flex-grow">
                         <h4 className="font-bold text-brand-brown-dark text-sm mb-1 line-clamp-1">{product.name}</h4>
                         
-                        {/* Deskripsi */}
-                        <p className="text-[11px] text-brand-brown-medium/80 mb-3 leading-tight flex-grow line-clamp-2">
+                        {/* Deskripsi: whitespace-pre-line membuat \n berfungsi dan menghapus line-clamp */}
+                        <p className="text-[11px] sm:text-[12px] text-brand-brown-medium/80 mb-3 leading-tight flex-grow whitespace-pre-line">
                           {product.description || 'Nikmati kelezatan jajanan pasar fresh setiap hari.'}
                         </p>
                         
                         {/* Harga & Tombol Pesan */}
-                        <div className="mt-auto pt-2 border-t border-brand-beige/40 flex justify-between items-center">
-                          <span className="font-bold text-brand-brown-dark text-sm">Rp {product.price}</span>
+                        <div className="mt-auto pt-2 border-t border-brand-beige/40 flex justify-between items-end">
+                          <div>
+                            <p className="text-[9px] text-brand-brown-medium/70 uppercase">Mulai dari</p>
+                            <span className="font-bold text-brand-brown-dark text-sm block">Rp {product.price}</span>
+                          </div>
+                          
                           <a 
                             href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(`Halo, saya ingin pesan ${product.name}`)}`}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="bg-brand-green-leaf text-white p-1.5 rounded-full hover:bg-brand-green-soft transition-colors shadow-sm"
+                            className="bg-brand-green-leaf text-white p-2 rounded-full hover:bg-brand-green-soft transition-colors shadow-sm"
                           >
-                            <ShoppingCart size={16} />
+                            <ShoppingCart size={18} />
                           </a>
                         </div>
                       </div>
