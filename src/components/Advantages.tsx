@@ -31,16 +31,20 @@ export default function Advantages() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="text-center group"
             >
-              {/* Kotak yang berputar saat hover */}
+              {/* Kotak yang berputar 45 derajat dan zoom saat hover */}
               <motion.div 
-                whileHover={{ rotate: 360, scale: 1.1 }} 
-                transition={{ duration: 0.6, ease: "easeInOut" }}
+                whileHover={{ rotate: 45, scale: 1.15 }} 
+                transition={{ duration: 0.4, ease: "easeOut" }}
                 className="w-16 h-16 md:w-20 md:h-20 bg-brand-green-leaf rounded-2xl md:rounded-3xl flex items-center justify-center mx-auto mb-6 md:mb-8 shadow-lg cursor-pointer"
               >
-                {/* Ikon tetap diam di dalam kotak yang berputar */}
-                <div className="text-white">
+                {/* Ikon tetap tegak di dalam kotak yang berputar */}
+                <motion.div
+                   whileHover={{ rotate: -45 }}
+                   transition={{ duration: 0.4, ease: "easeOut" }}
+                   className="text-white"
+                >
                   {item.icon}
-                </div>
+                </motion.div>
               </motion.div>
 
               <h4 className="text-sm md:text-xl font-bold mb-1 md:mb-3">{item.title}</h4>
