@@ -28,11 +28,6 @@ export default function Catalog({ currentPath }: { currentPath: string }) {
     return [...PRODUCTS, ...formattedDbProducts];
   }, [dbProducts]);
 
-  const getProductWhatsAppLink = (productName: string, price: string) => {
-    const message = `Halo Tops Snack! Saya tertarik mau pesan *${productName}*. Apakah bisa pesan untuk dikirim tanggal...?`;
-    return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-  };
-
   const getCategoryDescription = (categoryName: string) => {
     const descriptions: Record<string, string> = {
       'Kue Basah': 'Pilihan kue basah yang selalu dibuat fresh dan tanpa pengawet.',
@@ -48,15 +43,15 @@ export default function Catalog({ currentPath }: { currentPath: string }) {
   const displayedCategories = CATEGORIES.filter((c) => !activeId || activeId === 'katalog' || c.id === activeId);
 
   return (
-    // Hapus id="katalog" dan scroll-mt dari sini agar tidak konflik dengan App.jsx
-    <div className="w-full">
+    // PERBAIKAN: Menambahkan id="katalog" di pembungkus utama agar Navbar punya tujuan
+    <div id="katalog" className="w-full">
       {displayedCategories.map((category, index) => {
         const categoryProducts = allProducts.filter((p) => p.category === category.name);
         const bgColor = index % 2 === 0 ? 'bg-brand-beige/20' : 'bg-white';
 
         return (
-          // scroll-mt-20 disesuaikan agar pas dengan navbar (pt-16 di App.jsx)
-          <section id={category.id} key={category.id} className={`py-12 ${bgColor} scroll-mt-20`}>
+          // scroll-mt-24 memberikan ruang agar judul tidak tertutup Navbar yang melayang
+          <section id={category.id} key={category.id} className={`py-12 ${bgColor} scroll-mt-24`}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="mb-10 text-center">
                 <h2 className="text-3xl font-bold text-brand-brown-dark mb-3">{category.name}</h2>
@@ -74,7 +69,6 @@ export default function Catalog({ currentPath }: { currentPath: string }) {
                       transition={{ duration: 0.3, delay: pIndex * 0.05 }}
                       className="w-[46%] sm:w-[30%] md:w-[22%] lg:w-[18%] bg-white rounded-2xl overflow-hidden border border-brand-beige hover:border-brand-green-leaf/30 transition-all duration-300 group shadow-sm hover:shadow-md flex flex-col"
                     >
-                      {/* Konten Produk Sama Seperti Sebelumnya */}
                       <div className="relative aspect-square overflow-hidden bg-brand-beige/30 p-1.5 sm:p-2 rounded-t-2xl">
                         <img
                           src={product.image || `https://picsum.photos/seed/${product.name}/600/600`}
