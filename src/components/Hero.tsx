@@ -31,8 +31,7 @@ export default function Hero() {
               Tops Snack menyediakan berbagai pilihan jajanan pasar, kue basah, kue kering, snack box, hampers, dan aneka camilan lainnya yang dibuat fresh setiap hari. Dengan cita rasa yang terjaga dan kualitas terbaik, kami siap melengkapi berbagai momen spesial, mulai dari acara keluarga, rapat kantor, syukuran, hingga perayaan bersama orang terdekat.
             </p>
 
-            {/* Tombol - Jarak bawah dikurangi jadi mb-6 */}
-            <div className="flex flex-row flex-nowrap gap-2 md:gap-4 mb-6">
+            <div className="flex flex-row flex-nowrap gap-2 md:gap-4 mb-5">
               <a
                 href="#katalog"
                 className="flex-1 inline-flex items-center justify-center bg-brand-brown-dark text-white px-4 py-3.5 rounded-full font-bold text-[13px] md:text-base hover:bg-brand-brown-medium transition-all duration-300 shadow-md whitespace-nowrap"
@@ -59,7 +58,7 @@ export default function Hero() {
                   className="flex flex-col items-center justify-center p-4 rounded-2xl bg-brand-beige/10 border border-brand-beige/30 transition-all hover:border-brand-green-leaf/30"
                 >
                   <div className="flex items-center justify-center mb-2 p-1.5 rounded-full bg-brand-green-leaf/5">
-                    <CheckCircle2 className="text-brand-green-leaf shrink-0" size={24} />
+                    <CheckCircle2 className="text-brand-green-leaf shrink-0" size={26} />
                   </div>
                   <span className="text-[10px] md:text-xs font-bold text-brand-brown-dark leading-tight text-center w-full">
                     {item}
