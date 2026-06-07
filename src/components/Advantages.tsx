@@ -3,10 +3,10 @@ import { Sparkles, ShieldCheck, Users, Settings } from 'lucide-react';
 
 export default function Advantages() {
   const advantages = [
-    { icon: <Sparkles size={28} />, title: 'Dibuat Fresh', description: 'Produksi dilakukan setiap hari untuk menjaga kualitas.' },
-    { icon: <ShieldCheck size={28} />, title: 'Higienis & Rapi', description: 'Standar kebersihan tinggi dalam proses produksi.' },
-    { icon: <Users size={28} />, title: 'Acara Kantor & Keluarga', description: 'Melayani partai besar dan kecil secara profesional.' },
-    { icon: <Settings size={28} />, title: 'Bisa Custom Pesanan', description: 'Sesuaikan snack box dengan budget dan selera Anda.' },
+    { icon: <Sparkles size={32} />, title: 'Dibuat Fresh', description: 'Produksi dilakukan setiap hari untuk menjaga kualitas.' },
+    { icon: <ShieldCheck size={32} />, title: 'Higienis & Rapi', description: 'Standar kebersihan tinggi dalam proses produksi.' },
+    { icon: <Users size={32} />, title: 'Acara Kantor & Keluarga', description: 'Melayani partai besar dan kecil secara profesional.' },
+    { icon: <Settings size={32} />, title: 'Bisa Custom Pesanan', description: 'Sesuaikan snack box dengan budget dan selera Anda.' },
   ];
 
   return (
@@ -30,17 +30,18 @@ export default function Advantages() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="text-center group"
             >
-              {/* Pembungkus Ikon: rotate-45 membuatnya jadi belah ketupat */}
+              {/* Container Belah Ketupat dengan Animasi */}
               <motion.div 
-                whileHover={{ rotate: 90, scale: 1.1 }} // Animasi berputar saat hover
-                className="w-14 h-14 md:w-20 md:h-20 bg-brand-green-leaf rounded-2xl flex items-center justify-center mx-auto mb-4 md:mb-6 shadow-lg rotate-45 transition-all duration-500"
+                whileHover={{ rotate: 90, scale: 1.1 }} 
+                transition={{ duration: 0.5, ease: "easeInOut" }}
+                className="w-16 h-16 md:w-24 md:h-24 bg-brand-green-leaf rounded-2xl md:rounded-3xl flex items-center justify-center mx-auto mb-6 md:mb-8 shadow-lg rotate-45 cursor-pointer"
               >
-                {/* Ikon di dalam harus diputar balik agar tidak ikut miring */}
+                {/* Ikon diputar balik agar tetap tegak */}
                 <div className="-rotate-45 text-white">
                   {item.icon}
                 </div>
               </motion.div>
-              
+
               <h4 className="text-sm md:text-xl font-bold mb-1 md:mb-3">{item.title}</h4>
               <p className="text-[10px] md:text-base text-brand-beige/70 leading-relaxed px-1">
                 {item.description}
