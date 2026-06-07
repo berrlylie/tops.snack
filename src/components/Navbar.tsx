@@ -5,22 +5,27 @@ import { WHATSAPP_LINK } from '../constants';
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
-  // Deteksi apakah user sedang di halaman Katalog (path bukan '/')
+  // Menentukan apakah user sedang di halaman Katalog
   const isCatalogPage = window.location.pathname !== '/';
 
   const navLinks = [
-    { name: 'Home', href: isCatalogPage ? '/#home' : '#home' },
-    { name: 'About Us', href: isCatalogPage ? '/#about-us' : '#about-us' },
-    { name: 'Products', href: isCatalogPage ? '/#katalog' : '#katalog' },
-    { name: 'Testimonials', href: isCatalogPage ? '/#testimonials' : '#testimonials' },
-    { name: 'Contact Us', href: isCatalogPage ? '/#contact-us' : '#contact-us' },
+    { name: 'Home', href: '/#home' },
+    { name: 'About Us', href: '/#about-us' },
+    { name: 'Products', href: '/#katalog' },
+    { name: 'Testimonials', href: '/#testimonials' },
+    { name: 'Contact Us', href: '/#contact-us' },
   ];
 
   const handleNavClick = (e, href) => {
-    if (isCatalogPage && !href.includes('#katalog')) {
-      return; 
+    // 1. Jika menu yang diklik adalah produk atau halaman berbeda dari tempat kita berada,
+    // kita biarkan browser pindah halaman secara alami (Hard Navigation).
+    // Kita TIDAK memanggil e.preventDefault()
+    if (href.includes('#katalog') || !window.location.pathname.includes('/')) {
+        // Jika kita pindah dari Katalog ke Home atau sebaliknya, biarkan browser reload
+        return; 
     }
 
+    // 2. Jika kita di halaman utama, kita lakukan scroll halus
     e.preventDefault();
     const id = href.replace('/', '').replace('#', '');
     const element = document.getElementById(id);
@@ -29,7 +34,7 @@ export default function Navbar() {
       element.scrollIntoView({ behavior: 'smooth' });
       setIsOpen(false);
     } else {
-      // Jika id tidak ditemukan di halaman ini, paksa pindah ke root
+      // Jika ID tidak ditemukan (mungkin karena kita berpindah rute), paksa pindah
       window.location.href = href;
     }
   };
