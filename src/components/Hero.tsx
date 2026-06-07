@@ -53,12 +53,18 @@ export default function Hero() {
               </a>
             </div>
 
-            {/* Grid Poin (Sudah sebaris) */}
+            {/* Grid Poin - Diperbesar agar lebih proporsional */}
             <div className="mt-10 grid grid-cols-3 gap-2">
               {['Fresh Setiap Hari', 'Cocok Untuk Acara', 'Partai Kecil & Besar'].map((item, index) => (
-                <div key={index} className="flex flex-col sm:flex-row items-center sm:gap-2 text-brand-brown-dark font-medium text-[10px] sm:text-sm text-center sm:text-left">
-                  <CheckCircle2 className="text-brand-green-leaf mb-1 sm:mb-0 shrink-0" size={16} />
-                  <span>{item}</span>
+                <div key={index} className="flex flex-col items-center text-center gap-1">
+                  {/* Ikon diperbesar ke size 20 dan container lebih lega */}
+                  <div className="flex items-center justify-center">
+                    <CheckCircle2 className="text-brand-green-leaf" size={22} />
+                  </div>
+                  {/* Teks diperbesar sedikit ke 11px agar lebih terbaca */}
+                  <span className="text-[11px] font-bold text-brand-brown-dark leading-tight">
+                    {item}
+                  </span>
                 </div>
               ))}
             </div>
@@ -80,6 +86,7 @@ export default function Hero() {
               />
             </div>
             
+            {/* Floating Card */}
             <motion.div
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
