@@ -27,7 +27,7 @@ export default function App() {
   useEffect(() => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth' // 'smooth' untuk transisi halus, atau 'auto' untuk instan
+      behavior: 'smooth'
     });
   }, [currentPath, currentRoute]);
 
@@ -42,7 +42,8 @@ export default function App() {
     return (
       <div className="min-h-screen">
         <Navbar />
-        <main className="pt-24">
+        {/* Padding-top diubah dari pt-24 menjadi pt-16 agar judul lebih dekat ke navbar */}
+        <main className="pt-16">
           <Catalog currentPath={currentPath} />
         </main>
         <Footer />
