@@ -9,7 +9,7 @@ export default function Testimonials() {
         <div className="text-center mb-12 md:mb-16">
           <h3 className="text-3xl md:text-4xl font-bold text-brand-brown-dark mb-4">Apa Kata Mereka?</h3>
           <p className="text-sm md:text-base text-brand-brown-medium max-w-2xl mx-auto px-4">
-            Kepuasan pelanggan adalah prioritas utama kami. Berikut adalah pengalaman mereka memesan di Asosiasi Tops Snack.
+            Kepuasan pelanggan adalah prioritas utama kami. Berikut adalah pengalaman mereka memesan di Tops Snack.
           </p>
         </div>
 
