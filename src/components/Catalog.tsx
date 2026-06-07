@@ -85,7 +85,7 @@ export default function Catalog({ currentPath }: { currentPath: string }) {
                       <div className="p-3 flex flex-col flex-grow">
                         <h4 className="font-bold text-brand-brown-dark text-sm mb-1 line-clamp-1">{product.name}</h4>
                         
-                        {/* Deskripsi: whitespace-pre-line membuat \n berfungsi dan menghapus line-clamp */}
+                        {/* Deskripsi: whitespace-pre-line menjaga baris baru dan tidak terpotong */}
                         <p className="text-[11px] sm:text-[12px] text-brand-brown-medium/80 mb-3 leading-tight flex-grow whitespace-pre-line">
                           {product.description || 'Nikmati kelezatan jajanan pasar fresh setiap hari.'}
                         </p>
@@ -93,7 +93,7 @@ export default function Catalog({ currentPath }: { currentPath: string }) {
                         {/* Harga & Tombol Pesan */}
                         <div className="mt-auto pt-2 border-t border-brand-beige/40 flex justify-between items-end">
                           <div>
-                            <p className="text-[9px] text-brand-brown-medium/70 uppercase">Mulai dari</p>
+                            <p className="text-[9px] text-brand-brown-medium/70 uppercase tracking-wide">Mulai dari</p>
                             <span className="font-bold text-brand-brown-dark text-sm block">Rp {product.price}</span>
                           </div>
                           
