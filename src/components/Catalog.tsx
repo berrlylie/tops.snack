@@ -61,14 +61,19 @@ export default function Catalog({ currentPath }: { currentPath: string }) {
                   categoryProducts.map((product, pIndex) => (
                     <motion.div
                       key={product.id}
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
-                      transition={{ duration: 0.3, delay: pIndex * 0.05 }}
-                      className="w-[46%] sm:w-[30%] md:w-[22%] lg:w-[18%] bg-white rounded-2xl overflow-hidden border border-brand-beige hover:border-brand-green-leaf/30 transition-all duration-300 shadow-sm hover:shadow-lg flex flex-col"
+                      transition={{ duration: 0.5, delay: pIndex * 0.05 }}
+                      // Efek gerak saat kursor di atas kartu
+                      whileHover={{ y: -8 }}
+                      className="w-[46%] sm:w-[30%] md:w-[22%] lg:w-[18%] bg-white rounded-2xl overflow-hidden border border-brand-beige transition-all duration-300 shadow-sm hover:shadow-xl flex flex-col"
                     >
+                      {/* Gambar Produk dengan efek zoom saat hover */}
                       <div className="relative aspect-square overflow-hidden bg-brand-beige/30 p-1.5 sm:p-2">
-                        <img
+                        <motion.img
+                          whileHover={{ scale: 1.1 }}
+                          transition={{ duration: 0.4 }}
                           src={product.image || `https://picsum.photos/seed/${product.name}/600/600`}
                           alt={product.name}
                           className="w-full h-full object-cover rounded-xl"
@@ -89,7 +94,6 @@ export default function Catalog({ currentPath }: { currentPath: string }) {
                         
                         <div className="mt-auto pt-2 border-t border-brand-beige/40 flex justify-between items-end">
                           <div>
-                            {/* Perbaikan: Menghapus class 'uppercase' dan 'tracking-wide' agar tampil normal */}
                             <p className="text-[10px] text-brand-brown-medium/70">Mulai dari</p>
                             <span className="font-bold text-brand-brown-dark text-sm block">Rp {product.price}</span>
                           </div>
