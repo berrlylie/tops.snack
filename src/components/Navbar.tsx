@@ -20,18 +20,26 @@ export default function Navbar() {
     { name: 'Contact Us', href: '#contact-us' },
   ];
 
+  const handleNavClick = (e, href) => {
+    e.preventDefault();
+    const element = document.querySelector(href);
+    if (element) {
+      // scrollIntoView memastikan elemen terlihat dengan baik
+      element.scrollIntoView({ behavior: 'smooth' });
+      setIsOpen(false);
+    }
+  };
+
   return (
     <nav className="fixed w-full z-50 top-3 px-4 transition-all duration-300">
-      {/* py-2.5 memberikan ketinggian yang pas: tidak terlalu tipis, tidak terlalu besar */}
       <div className="max-w-7xl mx-auto px-6 transition-all duration-300 rounded-full bg-brand-beige/95 backdrop-blur-md shadow-md border border-brand-brown-dark/5 py-2.5">
         <div className="flex justify-between items-center">
           
           <div className="flex-shrink-0">
-            <a href="#home" className="flex items-center">
+            <a href="#home" onClick={(e) => handleNavClick(e, '#home')} className="flex items-center">
               <img 
                 src="/Logotopssnack.png"
                 alt="Logo Tops Snack" 
-                // Ukuran logo sedikit dibesarkan dari 9 ke 11
                 className="h-10 md:h-11 w-auto object-contain"
               />
             </a>
@@ -42,7 +50,8 @@ export default function Navbar() {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-[15px] text-brand-brown-dark hover:text-brand-green-leaf font-semibold transition-colors"
+                onClick={(e) => handleNavClick(e, link.href)}
+                className="text-[15px] text-brand-brown-dark hover:text-brand-green-leaf font-semibold transition-colors cursor-pointer"
               >
                 {link.name}
               </a>
@@ -51,7 +60,6 @@ export default function Navbar() {
               href={WHATSAPP_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              // Padding tombol sedikit ditambah agar seimbang dengan tinggi navbar
               className="bg-brand-green-leaf text-white px-6 py-2.5 rounded-full text-[15px] font-semibold hover:bg-brand-green-soft transition-all shadow-sm flex items-center gap-2"
             >
               <ShoppingBag size={18} />
@@ -77,7 +85,7 @@ export default function Navbar() {
               <a
                 key={link.name}
                 href={link.href}
-                onClick={() => setIsOpen(false)}
+                onClick={(e) => handleNavClick(e, link.href)}
                 className="block px-4 py-3 text-brand-brown-dark hover:bg-brand-green-leaf/10 rounded-xl font-medium transition-colors"
               >
                 {link.name}
