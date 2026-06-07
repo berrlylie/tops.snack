@@ -31,7 +31,7 @@ export default function Hero() {
               Tops Snack menyediakan berbagai pilihan jajanan pasar, kue basah, kue kering, snack box, hampers, dan aneka camilan lainnya yang dibuat fresh setiap hari. Dengan cita rasa yang terjaga dan kualitas terbaik, kami siap melengkapi berbagai momen spesial, mulai dari acara keluarga, rapat kantor, syukuran, hingga perayaan bersama orang terdekat.
             </p>
 
-            <div className="flex flex-row flex-nowrap gap-2 md:gap-4 mb-5">
+            <div className="flex flex-row flex-nowrap gap-2 md:gap-4 mb-8">
               <a
                 href="#katalog"
                 className="flex-1 inline-flex items-center justify-center bg-brand-brown-dark text-white px-4 py-3.5 rounded-full font-bold text-[13px] md:text-base hover:bg-brand-brown-medium transition-all duration-300 shadow-md whitespace-nowrap"
@@ -50,17 +50,16 @@ export default function Hero() {
               </a>
             </div>
 
-            {/* Grid Poin - Padding lebih besar dan ikon lebih besar */}
-            <div className="grid grid-cols-3 gap-3 w-full">
+            <div className="grid grid-cols-3 gap-2 w-full">
               {['Fresh Setiap Hari', 'Cocok Untuk Acara', 'Partai Kecil & Besar'].map((item, index) => (
                 <div 
                   key={index} 
-                  className="flex flex-col items-center justify-center p-4 rounded-2xl bg-brand-beige/10 border border-brand-beige/30 transition-all hover:border-brand-green-leaf/30"
+                  className="flex flex-col items-center justify-center p-3 rounded-2xl bg-brand-beige/10 border border-brand-beige/30 hover:border-brand-green-leaf/30 transition-all overflow-hidden"
                 >
-                  <div className="flex items-center justify-center mb-2 p-1.5 rounded-full bg-brand-green-leaf/5">
-                    <CheckCircle2 className="text-brand-green-leaf shrink-0" size={26} />
+                  <div className="flex items-center justify-center mb-1.5 p-1 rounded-full bg-brand-green-leaf/5">
+                    <CheckCircle2 className="text-brand-green-leaf shrink-0" size={20} />
                   </div>
-                  <span className="text-[10px] md:text-xs font-bold text-brand-brown-dark leading-tight text-center w-full">
+                  <span className="text-[9px] font-bold text-brand-brown-dark leading-[1.1] text-center w-full whitespace-nowrap scale-90">
                     {item}
                   </span>
                 </div>
@@ -68,6 +67,7 @@ export default function Hero() {
             </div>
           </motion.div>
 
+          {/* Right Content */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
